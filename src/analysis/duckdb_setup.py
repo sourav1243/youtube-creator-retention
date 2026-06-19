@@ -6,7 +6,6 @@ from pathlib import Path
 from typing import Any
 
 import duckdb
-import pandas as pd
 
 from src.config import ROOT_DIR
 

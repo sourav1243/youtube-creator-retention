@@ -12,7 +12,7 @@ from sklearn.cluster import KMeans
 from sklearn.metrics import silhouette_score
 from sklearn.preprocessing import RobustScaler
 
-from src.config import ROOT_DIR, settings
+from src.config import ROOT_DIR
 
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
@@ -208,12 +208,12 @@ def write_model_card(
         "",
         "## Model Overview",
         "",
-        f"- Algorithm: K-Means",
+        "- Algorithm: K-Means",
         f"- Number of clusters (K): {best_k}",
         f"- Silhouette score: {eval_results['silhouettes'].get(best_k, 'N/A'):.4f}",
         f"- Random state: {model.random_state}",
         f"- Feature columns: {', '.join(feature_cols)}",
-        f"- Scaler: RobustScaler (median/IQR — justified: YouTube metrics are outlier-heavy)",
+        "- Scaler: RobustScaler (median/IQR — justified: YouTube metrics are outlier-heavy)",
         "",
         "## Cluster Sizes & Labels",
         "",

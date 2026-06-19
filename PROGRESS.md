@@ -63,13 +63,21 @@
 - [x] 3 tests: deterministic pipeline, reproducibility, label mapping
 
 ## Phase 8 — At-Risk Reporting Layer
-- [ ] _pending_
+- [x] `at_risk_report.py`: joins clusters + features, business-readable columns
+- [x] Recommended action strings (rule-derived based on risk_flag, days_since_last_upload, momentum)
+- [x] Output to `reports/at_risk_creators.csv` — sortable by risk severity
 
 ## Phase 9 — Power BI Dashboard
-- [ ] _pending_
+- [x] `powerbi/BUILD_GUIDE.md`: relationship model, DAX measures, visual layout guide
+- [x] Data export scripts documented (CSV and MySQL direct connection)
 
 ## Phase 10 — Testing, CI & Documentation
-- [ ] _pending_
+- [x] Full pytest suite: 26 tests, all green
+- [x] ruff lint: all checks pass
+- [x] `.github/workflows/ci.yml`: lint + pytest on every push
+- [x] README.md final pass: problem, architecture, setup, resume bullet matrix
+- [x] DECISIONS.md finalized with all autonomous decisions logged
+- [x] `src/run_pipeline.py` orchestrates all phases end-to-end
 
 ## Phase 11 — Stretch: Real Historical Snapshots
 - [ ] _pending_

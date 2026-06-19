@@ -2,13 +2,12 @@ from __future__ import annotations
 
 import json
 import logging
-from datetime import date, datetime, timezone
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
 from isodate import parse_duration
 from sqlalchemy import create_engine, text
-from sqlalchemy.exc import OperationalError
 
 from src.config import ROOT_DIR, settings
 
@@ -224,7 +223,6 @@ def load_all(engine=None, channels_dir: str | Path | None = None, videos_dir: st
             rows = parse_channel_json(json_file)
             if rows:
                 channel_rows = [r for r in rows if not r.get("_snapshot")]
-                snapshot_rows = [r for r in rows if r.get("_snapshot")]
                 upsert_channels(engine, rows)
                 upsert_channel_snapshots(engine, rows)
                 total_channels += len(channel_rows)

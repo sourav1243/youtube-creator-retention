@@ -3,11 +3,10 @@ from __future__ import annotations
 import csv
 import json
 import logging
-from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-from src.config import ROOT_DIR, settings
+from src.config import ROOT_DIR
 from src.extraction.youtube_client import YouTubeClient, now_iso
 
 logger = logging.getLogger(__name__)

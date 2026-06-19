@@ -85,14 +85,14 @@ def test_compute_features_active_channel(channels_df, videos_df):
     assert feat["days_since_last_upload"] == 1
 
     # Should not have insufficient_history
-    assert feat["insufficient_history"] == False
+    assert not feat["insufficient_history"]
 
 
 def test_compute_features_insufficient_history(channels_df, videos_df):
     ref = datetime(2024, 6, 15, tzinfo=timezone.utc)
     features = compute_features(channels_df, videos_df, reference_date=ref)
     feat = features[features["channel_id"] == "UCinsufficient"].iloc[0]
-    assert feat["insufficient_history"] == True
+    assert feat["insufficient_history"]
     assert pd.isna(feat["momentum_ratio"])
 
 
@@ -100,7 +100,7 @@ def test_compute_features_no_videos(channels_df, videos_df):
     ref = datetime(2024, 6, 15, tzinfo=timezone.utc)
     features = compute_features(channels_df, videos_df, reference_date=ref)
     feat = features[features["channel_id"] == "UCno_videos"].iloc[0]
-    assert feat["insufficient_history"] == True
+    assert feat["insufficient_history"]
     assert pd.isna(feat["upload_freq_30d"])
 
 

@@ -16,7 +16,6 @@ from __future__ import annotations
 import logging
 import math
 from dataclasses import dataclass
-from pathlib import Path
 
 from src.config import settings
 
@@ -74,7 +73,7 @@ class QuotaPlan:
         lines.append("TIERING STRATEGY:")
         lines.append(f"  Tier A — channels.list for ALL {self.n_channels_total} channels: ~{self.total_cost_tier_a_only} units (trivial, do for all)")
         lines.append(f"  Tier B — video-level extraction for {self.n_channels_tier_b} channels: fits in 1 day with headroom")
-        lines.append(f"  Future: resume multi-day extraction using manifest checkpoint for remaining channels")
+        lines.append("  Future: resume multi-day extraction using manifest checkpoint for remaining channels")
         lines.append("=" * 60)
         return "\n".join(lines)
 

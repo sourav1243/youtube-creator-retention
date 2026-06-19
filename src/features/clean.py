@@ -4,10 +4,9 @@ import logging
 from pathlib import Path
 from typing import Any
 
-import numpy as np
 import pandas as pd
 
-from src.config import ROOT_DIR, settings
+from src.config import ROOT_DIR
 
 logger = logging.getLogger(__name__)
 

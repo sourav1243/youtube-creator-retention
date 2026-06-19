@@ -1,12 +1,11 @@
 from __future__ import annotations
 
-import json
 from pathlib import Path
 from unittest.mock import MagicMock, patch
 
 import pytest
 
-from src.extraction.extract_channels import extract_channels_tier_a, extract_channels_from_seed
+from src.extraction.extract_channels import extract_channels_from_seed
 from src.extraction.extract_videos import extract_channel_videos
 from src.extraction.quota_planner import compute_quota_plan
 from src.extraction.seed_channels import build_seed_list

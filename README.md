@@ -62,10 +62,6 @@ python -m src.run_pipeline
 
 1. **Environment & Scaffolding** — Project skeleton, config, virtualenv
 2. **API Access & Seed Channels** — Channel ID list, quota budget
-
-## Compliance
-
-Review YouTube's [API Services Terms of Service](https://developers.google.com/youtube/terms/api-services-terms-of-service) for data caching/retention and refresh requirements before using this beyond a learning project. Do not publicly redistribute raw pulled payloads.
 3. **Extraction Pipeline** — Resumable, quota-aware YouTube API client
 4. **MySQL Schema & Load** — System of record with upsert semantics
 5. **Cleaning & Feature Engineering** — 30/90-day rolling features, momentum proxy
@@ -74,3 +70,15 @@ Review YouTube's [API Services Terms of Service](https://developers.google.com/y
 8. **At-Risk Reporting** — Partner-Manager-facing CSV output
 9. **Power BI Dashboard** — Data model + build guide
 10. **Testing, CI & Documentation** — Coverage, linting, reproducibility
+
+## Resume Bullet Traceability
+
+| Resume Bullet | Proven By |
+|---|---|
+| "Engineered a data extraction pipeline using the YouTube Data API v3 and Python to pull and parse historical metrics for 5,000+ creator channels." | Phases 2–4: `seed_channels.py`, `quota_planner.py`, `youtube_client.py`, `extract_channels.py`/`extract_videos.py`, MySQL schema + load with reconciliation |
+| "Cleaned raw JSON payloads with Pandas, handling null timestamps and erratic view counts to calculate 30-day rolling upload frequencies." | Phase 5: `clean.py`, `engineer.py`, unit tests with hand-calculated fixtures, `reports/eda_summary.md` |
+| "Applied K-Means clustering via Scikit-learn to segment creators based on engagement momentum, enabling Partner Managers to proactively identify and support 'At-Risk' channels." | Phases 7–9: `cluster.py`, `model_card.md`, `reports/at_risk_creators.csv`, Power BI `BUILD_GUIDE.md` |
+
+## Compliance
+
+Review YouTube's [API Services Terms of Service](https://developers.google.com/youtube/terms/api-services-terms-of-service) for data caching/retention and refresh requirements before using this beyond a learning project. Do not publicly redistribute raw pulled payloads.
