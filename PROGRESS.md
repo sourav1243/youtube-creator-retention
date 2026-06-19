@@ -38,7 +38,12 @@
 - [x] 6 pytest tests for parsing, duration, safe_int, hidden subscriber handling
 
 ## Phase 5 — Cleaning & Feature Engineering
-- [ ] _pending_
+- [x] `clean.py`: cast/validate numerics, 99th percentile capping, duplicate removal
+- [x] `engineer.py`: upload_freq_30d/90d, freq_trend_ratio, momentum_ratio (views-per-day proxy), avg_engagement_rate, days_since_last_upload, insufficient_history flag
+- [x] Outlier method: cap at 99th percentile with `was_capped` flag (config-driven)
+- [x] Momentum proxy documented in code: views-per-day-since-published as proxy for actual view growth (single API pull limitation)
+- [x] Histogram saved to reports/figures/
+- [x] 10 pytest tests (cleaning + engineering) with hand-calculated expected values
 
 ## Phase 6 — DuckDB Analytical Layer
 - [ ] _pending_
