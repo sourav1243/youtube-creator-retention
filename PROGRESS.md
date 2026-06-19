@@ -46,7 +46,11 @@
 - [x] 10 pytest tests (cleaning + engineering) with hand-calculated expected values
 
 ## Phase 6 — DuckDB Analytical Layer
-- [ ] _pending_
+- [x] `duckdb_setup.py`: creates DuckDB database from Parquet features
+- [x] MySQL attach attempted with graceful fallback to Parquet-only
+- [x] EDA: feature distributions (mean, std, percentiles), correlations
+- [x] `reports/eda_summary.md` auto-generated (reproducible on re-run)
+- [x] Verified on 100-row synthetic dataset
 
 ## Phase 7 — K-Means Clustering
 - [ ] _pending_
