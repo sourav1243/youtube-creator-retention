@@ -2,6 +2,11 @@
 .env.local
 data/raw/
 data/processed/
+backups/
+.agents/
+DECISIONS.md
+PROGRESS.md
+CODEOWNERS
 *.duckdb
 *.duckdb.wal
 __pycache__/
