@@ -1,37 +1,15 @@
 from __future__ import annotations
 
-import csv
 import json
 import logging
 from pathlib import Path
 from typing import Any
 
 from src.config import ROOT_DIR, settings
-from src.extraction.youtube_client import YouTubeClient, now_iso
+from src.extraction.manifest import load_manifest, save_manifest
+from src.extraction.youtube_client import QuotaExhausted, YouTubeClient, now_iso
 
 logger = logging.getLogger(__name__)
-
-
-MANIFEST_HEADER = ["channel_id", "stage", "status", "fetched_at"]
-
-
-def load_manifest(manifest_path: str | Path) -> dict[str, dict[str, str]]:
-    manifest_path = Path(manifest_path)
-    manifest: dict[str, dict[str, str]] = {}
-    if manifest_path.exists():
-        with open(manifest_path) as f:
-            for row in csv.DictReader(f):
-                manifest[row["channel_id"]] = row
-    return manifest
-
-
-def save_manifest(manifest_path: str | Path, entries: list[dict[str, str]]):
-    manifest_path = Path(manifest_path)
-    manifest_path.parent.mkdir(parents=True, exist_ok=True)
-    with open(manifest_path, "w", newline="") as f:
-        writer = csv.DictWriter(f, fieldnames=MANIFEST_HEADER)
-        writer.writeheader()
-        writer.writerows(entries)
 
 
 def extract_channel_videos(
@@ -41,9 +19,10 @@ def extract_channel_videos(
     output_dir: Path,
     max_pages: int | None = None,
 ) -> list[dict[str, Any]]:
-    """Extract video IDs + metadata for a single channel."""
     try:
         playlist_items = client.get_playlist_items(uploads_playlist_id, max_pages=max_pages)
+    except QuotaExhausted:
+        raise
     except Exception as e:
         logger.warning("  %s: playlistItems failed: %s", channel_id, e)
         return []
@@ -60,6 +39,8 @@ def extract_channel_videos(
 
     try:
         videos = client.get_videos(video_ids)
+    except QuotaExhausted:
+        raise
     except Exception as e:
         logger.warning("  %s: videos.list failed: %s", channel_id, e)
         return []
@@ -83,12 +64,11 @@ def extract_videos_tier_b(
         max_pages = settings.extraction.max_pages_per_channel
     manifest = load_manifest(manifest_path)
 
-    manifest_entries: list[dict[str, str]] = []
-    for entry in manifest.values():
-        if entry.get("stage") == "videos":
-            manifest_entries.append(entry)
-
-    existing_done = {e["channel_id"] for e in manifest_entries if e["status"] == "done"}
+    manifest_entries: list[dict[str, str]] = list(manifest.values())
+    existing_done = {
+        e["channel_id"] for e in manifest_entries
+        if e.get("stage") == "videos" and e.get("status") == "done"
+    }
 
     all_videos: list[dict[str, Any]] = []
     remaining = [(cid, pid) for cid, pid in channels_with_playlists if cid not in existing_done]
@@ -97,7 +77,12 @@ def extract_videos_tier_b(
 
     for channel_id, playlist_id in remaining:
         logger.info("  Channel %s: extracting videos...", channel_id)
-        videos = extract_channel_videos(channel_id, playlist_id, client, output_dir, max_pages=max_pages)
+        try:
+            videos = extract_channel_videos(channel_id, playlist_id, client, output_dir, max_pages=max_pages)
+        except QuotaExhausted:
+            logger.warning("  %s: quota exhausted during extraction, persisting checkpoint", channel_id)
+            save_manifest(manifest_path, manifest_entries)
+            raise
 
         if videos:
             video_path = output_dir / f"{channel_id}.json"
@@ -105,8 +90,6 @@ def extract_videos_tier_b(
                 json.dump(videos, f, default=str)
             all_videos.extend(videos)
             logger.info("    -> %d videos saved", len(videos))
-        else:
-            logger.info("    -> no videos extracted")
 
         status = "done" if videos else "empty"
         manifest_entries.append({
@@ -115,6 +98,7 @@ def extract_videos_tier_b(
             "status": status,
             "fetched_at": now_iso(),
         })
-        save_manifest(manifest_path, manifest_entries)
+
+    save_manifest(manifest_path, manifest_entries)
 
     return all_videos

@@ -48,6 +48,8 @@ CREATE TABLE IF NOT EXISTS creator_features (
     momentum_ratio          DECIMAL(8,4),
     avg_engagement_rate     DECIMAL(8,4),
     days_since_last_upload  INT,
+    upload_regularity       DECIMAL(8,4),
+    duration_trend          DECIMAL(8,4),
     insufficient_history    BOOLEAN NOT NULL DEFAULT FALSE,
     FOREIGN KEY (channel_id) REFERENCES channels(channel_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -55,9 +57,12 @@ CREATE TABLE IF NOT EXISTS creator_features (
 CREATE TABLE IF NOT EXISTS creator_clusters (
     channel_id          VARCHAR(24) PRIMARY KEY,
     model_version       VARCHAR(32) NOT NULL,
+    algorithm           VARCHAR(16) NOT NULL DEFAULT 'kmeans',
     cluster_id          INT NOT NULL,
     cluster_label       VARCHAR(64) NOT NULL,
-    risk_flag           ENUM('Healthy','Watch','At-Risk') NOT NULL,
+    risk_flag           ENUM('Healthy','Watch','At-Risk','Unscored') NOT NULL DEFAULT 'Unscored',
+    risk_score          DECIMAL(6,4),
+    confidence          DECIMAL(6,4),
     distance_to_centroid DECIMAL(10,4),
     scored_at           DATETIME NOT NULL,
     FOREIGN KEY (channel_id) REFERENCES channels(channel_id)

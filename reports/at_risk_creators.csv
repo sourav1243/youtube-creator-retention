@@ -1,38 +1,38 @@
-channel_id,title,risk_flag,cluster_label,upload_freq_30d,upload_freq_90d,momentum_ratio,avg_engagement_rate,days_since_last_upload,distance_to_centroid,recommended_action
-UC5p_l5ZeB_wGjO_yDXwiqvw,TommyInnit,At-Risk,Low Momentum — Declining Engagement,0.0,0.13333333333333333,0.6834788693891791,0.07215558862051528,52,7.0467949398157534,"Reach out — momentum declining, no upload in 21+ days"
-UCTkXRDQl0luXxVQrRQvWS6w,Dream,At-Risk,Low Momentum — Declining Engagement,0.0,0.3888888888888889,3.5807076555920117,0.0392593892337507,38,7.046794939815785,"Reach out — momentum declining, no upload in 21+ days"
-UC-lHJZR3Gqxm24_Vd_AJ5Yw,PewDiePie,Healthy,High Momentum — Frequent Uploaders,0.06666666666666667,0.044444444444444446,4.524979224422771,0.06050060952877473,18,17.158179790653335,No action needed
-UCYO_jab_esuFRV4b17AJtAw,3Blue1Brown,Healthy,High Momentum — Frequent Uploaders,0.16666666666666666,0.1111111111111111,7.036344729541098,0.041648218883002866,2,1.7545385503914355,No action needed
-UCBJycsmduvYEL83R_U4JriQ,Marques Brownlee,Healthy,High Momentum — Frequent Uploaders,0.26666666666666666,0.24444444444444444,4.691528292118108,0.0319246671951761,2,1.3359811272254518,No action needed
-UCsXVk37bltHxD1rDPwtNM8Q,Kurzgesagt – In a Nutshell,Healthy,High Momentum — Frequent Uploaders,0.2,0.23333333333333334,5.45078513189711,0.04879370389726198,2,1.6429970023581102,No action needed
-UCvlE5gTbOvjiolFlEm-c_Ow,Vlad and Niki,Healthy,High Momentum — Frequent Uploaders,0.3,0.3,2.3435472348445994,0.0026532436623966493,2,1.727419268473812,No action needed
-UCLkAepWjdylmXSltofFvsYQ,BANGTANTV,Healthy,High Momentum — Frequent Uploaders,0.9,1.0777777777777777,5.1688812833001965,0.14385512461253086,1,4.623276558496584,No action needed
-UCsBjURrPoezykLs9EqgamOA,Fireship,Healthy,High Momentum — Frequent Uploaders,0.23333333333333334,0.25555555555555554,8.921773506007636,0.04046269494239299,1,1.86430784019189,No action needed
-UCX6OQ3DkcsbYNE6H8uQQuVA,MrBeast,Healthy,High Momentum — Frequent Uploaders,0.26666666666666666,0.36666666666666664,1.9085976733695926,0.02128250178307607,1,1.0261046927155089,No action needed
-UCbCmjCuTUZos6Inko4u57UQ,Cocomelon - Nursery Rhymes,Healthy,High Momentum — Frequent Uploaders,1.0,0.9777777777777777,2.360601830475461,0.004414133308089901,1,1.14703617313718,No action needed
-UCbRP3c757lWg9M-U7TyEkXA,Theo - t3․gg,Healthy,High Momentum — Frequent Uploaders,0.9333333333333333,0.7666666666666667,5.726924034114506,0.0357660687161698,0,1.1808044819863206,No action needed
-UCX6b17PVsYBQ0ip5gyeme-Q,CrashCourse,Healthy,High Momentum — Frequent Uploaders,0.26666666666666666,0.16666666666666666,3.530230971220243,0.04744205584477026,0,1.3783067862351337,No action needed
-UCcdwLMPsaU2ezNSJU1nFoBQ,Baby Shark - Pinkfong Kids’ Songs & Stories,Healthy,High Momentum — Frequent Uploaders,1.1,0.9444444444444444,1.5720261312114525,0.003308087838843855,0,1.5796136889969954,No action needed
-UCJ5v_MCY6GNUBTO8-D3XoAg,WWE,Healthy,High Momentum — Frequent Uploaders,5.0,1.6666666666666667,1.9009043363483766,0.03146410198106092,0,1.5151060423699043,No action needed
-UCXuqSBlHAE6Xw-yeJA0Tunw,Linus Tech Tips,Healthy,High Momentum — Frequent Uploaders,1.1333333333333333,1.1111111111111112,5.058135730029104,0.03253791835297125,0,1.067461301646907,No action needed
-UC8butISFwT-Wl7EV0hUK0BQ,freeCodeCamp.org,Healthy,High Momentum — Frequent Uploaders,1.1,1.3333333333333333,3.3772092938100187,0.017473205778534468,0,1.1464931466669308,No action needed
-UCHnyfMqiRRG1u-2MsSQLbXA,Veritasium,Healthy,High Momentum — Frequent Uploaders,0.3333333333333333,0.25555555555555554,4.352438038673509,0.02837694977853108,0,1.1365008366601739,No action needed
-UC295-Dw_tDNtZXFeAPAW6Aw,5-Minute Crafts,Healthy,High Momentum — Frequent Uploaders,1.4,1.3111111111111111,4.596657515230649,0.006067353679770323,0,1.3536902712583918,No action needed
-UC4JX40jDee_tINbkjycV4Sg,Tech With Tim,Healthy,High Momentum — Frequent Uploaders,1.3333333333333333,1.5777777777777777,4.343947836879763,0.02932008354270711,0,1.1023537825669638,No action needed
-UC16niRr50-MSBwiO3YDb3RA,BBC News,Healthy,High Momentum — Frequent Uploaders,5.0,1.6666666666666667,1.807643813439145,0.02172842326071312,0,1.5474418102745144,No action needed
-UCupvZG-5ko_eiXAupbDfxWw,CNN,Healthy,High Momentum — Frequent Uploaders,5.0,1.6666666666666667,0.9205879708151373,0.027636976853680308,0,1.6725433398364904,No action needed
-UCpEhnqL0y41EpW2TvWAHD7Q,SET India,Healthy,High Momentum — Frequent Uploaders,5.0,1.6666666666666667,0.5080099945038453,0.010256417287023926,0,1.8970876586681447,No action needed
-UCq-Fj5jknLsUf-MWSy4_brA,T-Series,Healthy,High Momentum — Frequent Uploaders,5.0,1.6666666666666667,12.677168037214889,0.014393889842430332,0,3.2182683169903368,No action needed
-UC9x0AN7BWHpCDHSm9NiJFJQ,NetworkChuck,Healthy,High Momentum — Frequent Uploaders,0.5,0.28888888888888886,2.2202172887193683,0.034204629582722676,0,1.2384118028223359,No action needed
-UC6-F5tO8uklgE9Zy8IvbdFw,Sony SAB,Healthy,High Momentum — Frequent Uploaders,5.0,1.6666666666666667,1.7958633360270526,0.019790393887553784,0,1.5643399005624845,No action needed
-UCGy7SkBjcIAgTiwkXEtPnYg,Andrei Jikh,Healthy,High Momentum — Frequent Uploaders,0.8333333333333334,0.7777777777777778,6.809853858010957,0.02415574899597957,0,1.3893788762109982,No action needed
-UC55IWqFLDH1Xp7iu1_xknRA,Colors TV,Healthy,High Momentum — Frequent Uploaders,5.0,1.6666666666666667,2.983574134289833,0.030631268471136515,0,1.3990482855966397,No action needed
-UCppHT7SZKKvar4Oc9J4oljQ,Zee TV,Healthy,High Momentum — Frequent Uploaders,5.0,1.6666666666666667,0.26247942696784,0.05601057862709422,0,2.1088912115152416,No action needed
-UCV6KDgJskWaEckne5aPA0aQ,Graham Stephan,Healthy,High Momentum — Frequent Uploaders,0.9666666666666667,1.0888888888888888,4.546697196213361,0.019631629283728448,0,1.0930107259364534,No action needed
-UCyoXW-Dse7fURq30EWl_CUA,Goldmines,Healthy,High Momentum — Frequent Uploaders,5.0,1.6666666666666667,1.5640258881884717,0.008378069021830956,0,1.7534907904178028,No action needed
-UCUvvj5lwue7PspotMDjk5UA,Meet Kevin,Healthy,High Momentum — Frequent Uploaders,2.2666666666666666,1.4666666666666666,11.2497120193042,0.027987633188220423,0,2.587431268127346,No action needed
-UCk8GzjMOrta8yxDcKfylJYw,✿ Kids Diana Show,Healthy,High Momentum — Frequent Uploaders,0.8,0.8333333333333334,0.9869270355160397,0.004577883296197435,0,1.6785858831097462,No action needed
-UCFFbwnve3yF62-tVXkTyHqg,Zee Music Company,Healthy,High Momentum — Frequent Uploaders,5.0,1.6666666666666667,0.6355793605921507,0.01007293430265881,0,1.8761544642460333,No action needed
-UCJplp5SjeGSdVdwsfb9Q7lQ,Like Nastya,Healthy,High Momentum — Frequent Uploaders,0.26666666666666666,0.3333333333333333,2.4793864059769417,0.0042126602904759836,0,1.5833287730936898,No action needed
-UCOmHUn--16B90oW2L6FRR3A,BLACKPINK,Unscored,Unscored,0.0,0.0,3.149261912259692,0.08254830502901551,98,,No action needed
-UC6nSFpj9HTCZ5t-N3Rm3-HA,Vsauce,Unscored,Unscored,0.0,0.011111111111111112,1.4507649651013559,0.06748698326646071,62,,No action needed
+channel_id,title,risk_flag,risk_score,cluster_label,upload_freq_30d,upload_freq_90d,momentum_ratio,avg_engagement_rate,days_since_last_upload,upload_regularity,duration_trend,distance_to_centroid,recommended_action
+UCYO_jab_esuFRV4b17AJtAw,3Blue1Brown,At-Risk,1.0000,Low Momentum — Declining Engagement,0.1667,0.1000,7.0272,0.0416,2.0000,25.5902,7.6633,7.6071,Monitor — declining engagement trend
+UCLkAepWjdylmXSltofFvsYQ,BANGTANTV,At-Risk,0.8122,Low Momentum — Declining Engagement,0.9000,1.0778,5.1678,0.1439,1.0000,3.4392,5.7772,4.5536,Monitor — declining engagement trend
+UC5p_l5ZeB_wGjO_yDXwiqvw,TommyInnit,At-Risk,0.7717,Low Momentum — Declining Engagement,0.0000,0.1333,0.6835,0.0722,52.0000,8.6840,16.4690,4.4476,"Reach out — momentum declining, no upload in 21+ days"
+UCq-Fj5jknLsUf-MWSy4_brA,T-Series,At-Risk,0.6897,Low Momentum — Declining Engagement,5.0000,1.6667,11.7321,0.0144,0.0000,0.0000,5.3770,3.0925,Monitor — declining engagement trend
+UCppHT7SZKKvar4Oc9J4oljQ,Zee TV,At-Risk,0.6778,Low Momentum — Declining Engagement,5.0000,1.6667,0.2625,0.0560,0.0000,0.0000,5.1495,2.0895,Reach out — momentum sharply declining
+UCsBjURrPoezykLs9EqgamOA,Fireship,At-Risk,0.6773,Low Momentum — Declining Engagement,0.2333,0.2556,8.9218,0.0405,1.0000,3.8939,6.4143,1.9941,Monitor — declining engagement trend
+UCsXVk37bltHxD1rDPwtNM8Q,Kurzgesagt – In a Nutshell,At-Risk,0.6718,Low Momentum — Declining Engagement,0.2000,0.2333,5.4508,0.0488,2.0000,2.7227,5.6278,1.3546,Monitor — declining engagement trend
+UCFFbwnve3yF62-tVXkTyHqg,Zee Music Company,At-Risk,0.6681,Low Momentum — Declining Engagement,5.0000,1.6667,0.6475,0.0101,0.0000,0.0000,3.0459,1.9993,Monitor — declining engagement trend
+UCbCmjCuTUZos6Inko4u57UQ,Cocomelon - Nursery Rhymes,At-Risk,0.6661,Low Momentum — Declining Engagement,0.9667,0.9778,2.2184,0.0044,1.0000,0.5014,2.2902,1.5804,Monitor — declining engagement trend
+UCX6b17PVsYBQ0ip5gyeme-Q,CrashCourse,At-Risk,0.6628,Low Momentum — Declining Engagement,0.2667,0.1667,3.5302,0.0474,0.0000,3.2858,5.8188,1.2441,Monitor — declining engagement trend
+UCV6KDgJskWaEckne5aPA0aQ,Graham Stephan,At-Risk,0.6568,Low Momentum — Declining Engagement,0.9667,1.0889,4.5467,0.0196,0.0000,0.5779,2.9925,1.2674,Monitor — declining engagement trend
+UCUvvj5lwue7PspotMDjk5UA,Meet Kevin,At-Risk,0.6539,Low Momentum — Declining Engagement,2.2667,1.4667,11.2605,0.0280,0.0000,0.7194,10.6880,2.6765,Monitor — declining engagement trend
+UC-lHJZR3Gqxm24_Vd_AJ5Yw,PewDiePie,At-Risk,0.6534,Low Momentum — Declining Engagement,0.0667,0.0444,4.5724,0.0605,18.0000,6.9660,25.5083,3.1947,Monitor — declining engagement trend
+UCupvZG-5ko_eiXAupbDfxWw,CNN,At-Risk,0.6483,Low Momentum — Declining Engagement,5.0000,1.6667,0.9980,0.0276,0.0000,0.0000,6.6576,1.6736,Monitor — declining engagement trend
+UCBJycsmduvYEL83R_U4JriQ,Marques Brownlee,At-Risk,0.6461,Low Momentum — Declining Engagement,0.2667,0.2444,4.6915,0.0319,2.0000,3.0500,8.3625,0.9786,Monitor — declining engagement trend
+UC16niRr50-MSBwiO3YDb3RA,BBC News,At-Risk,0.6451,Low Momentum — Declining Engagement,5.0000,1.6667,1.8316,0.0217,0.0000,0.0000,6.3909,1.5850,Monitor — declining engagement trend
+UCGy7SkBjcIAgTiwkXEtPnYg,Andrei Jikh,At-Risk,0.6429,Low Momentum — Declining Engagement,0.8333,0.7778,6.8099,0.0242,0.0000,1.2515,6.7280,1.3902,Monitor — declining engagement trend
+UCHnyfMqiRRG1u-2MsSQLbXA,Veritasium,At-Risk,0.6335,Low Momentum — Declining Engagement,0.3333,0.2556,4.3189,0.0284,1.0000,5.4312,11.6267,1.1593,Monitor — declining engagement trend
+UCJ5v_MCY6GNUBTO8-D3XoAg,WWE,At-Risk,0.6325,Low Momentum — Declining Engagement,5.0000,1.6667,1.9241,0.0315,0.0000,0.0000,9.0471,1.4774,Monitor — declining engagement trend
+UC4JX40jDee_tINbkjycV4Sg,Tech With Tim,At-Risk,0.6178,Low Momentum — Declining Engagement,1.3333,1.5778,3.4909,0.0293,0.0000,0.4510,10.0971,1.0515,Monitor — declining engagement trend
+UCcdwLMPsaU2ezNSJU1nFoBQ,Baby Shark - Pinkfong Kids’ Songs & Stories,At-Risk,0.6150,Low Momentum — Declining Engagement,1.1000,0.9444,1.5933,0.0033,0.0000,0.8214,10.8960,1.5614,Monitor — declining engagement trend
+UCk8GzjMOrta8yxDcKfylJYw,✿ Kids Diana Show,At-Risk,0.6064,Low Momentum — Declining Engagement,0.8000,0.8333,0.9870,0.0046,0.0000,0.7232,12.8403,1.6362,Monitor — declining engagement trend
+UC6-F5tO8uklgE9Zy8IvbdFw,Sony SAB,At-Risk,0.5913,Low Momentum — Declining Engagement,5.0000,1.6667,2.1674,0.0198,0.0000,0.0000,15.4400,1.4712,Monitor — declining engagement trend
+UC55IWqFLDH1Xp7iu1_xknRA,Colors TV,At-Risk,0.5836,Low Momentum — Declining Engagement,5.0000,1.6667,2.9836,0.0306,0.0000,0.0000,17.0323,1.3302,Monitor — declining engagement trend
+UCX6OQ3DkcsbYNE6H8uQQuVA,MrBeast,At-Risk,0.5694,Low Momentum — Declining Engagement,0.2667,0.3667,1.9086,0.0213,1.0000,2.5465,20.3479,0.9757,Monitor — declining engagement trend
+UCJplp5SjeGSdVdwsfb9Q7lQ,Like Nastya,At-Risk,0.5672,Low Momentum — Declining Engagement,0.2667,0.3333,2.4795,0.0042,0.0000,1.9262,19.4875,1.4374,Monitor — declining engagement trend
+UCbRP3c757lWg9M-U7TyEkXA,Theo - t3․gg,At-Risk,0.5614,Low Momentum — Declining Engagement,0.9333,0.7667,5.7143,0.0358,0.0000,0.7234,20.9071,1.1502,Monitor — declining engagement trend
+UCvlE5gTbOvjiolFlEm-c_Ow,Vlad and Niki,At-Risk,0.5534,Low Momentum — Declining Engagement,0.3000,0.3000,2.2868,0.0027,2.0000,1.3049,23.5056,1.6081,Monitor — declining engagement trend
+UC9x0AN7BWHpCDHSm9NiJFJQ,NetworkChuck,At-Risk,0.5526,Low Momentum — Declining Engagement,0.5000,0.2889,2.2309,0.0342,0.0000,4.7635,25.4533,1.3641,Monitor — declining engagement trend
+UCpEhnqL0y41EpW2TvWAHD7Q,SET India,At-Risk,0.5413,Low Momentum — Declining Engagement,5.0000,1.6667,0.5678,0.0103,0.0000,0.0000,25.2157,1.9796,Monitor — declining engagement trend
+UCyoXW-Dse7fURq30EWl_CUA,Goldmines,At-Risk,0.4794,Low Momentum — Declining Engagement,5.0000,1.6667,1.5670,0.0084,0.0000,0.0000,35.1328,2.1630,Monitor — declining engagement trend
+UCTkXRDQl0luXxVQrRQvWS6w,Dream,At-Risk,0.4728,Low Momentum — Declining Engagement,0.0000,0.3889,3.5781,0.0393,39.0000,3.1437,64.9726,4.5090,"Reach out — momentum declining, no upload in 21+ days"
+UCXuqSBlHAE6Xw-yeJA0Tunw,Linus Tech Tips,At-Risk,0.4697,Low Momentum — Declining Engagement,1.1333,1.1111,5.0623,0.0325,0.0000,0.6108,35.9471,1.6514,Monitor — declining engagement trend
+UC8butISFwT-Wl7EV0hUK0BQ,freeCodeCamp.org,Healthy,0.1429,High Momentum — Frequent Uploaders,1.0667,1.3222,3.3039,0.0175,0.0000,0.4804,138.3365,1.5385,No action needed
+UC295-Dw_tDNtZXFeAPAW6Aw,5-Minute Crafts,Healthy,0.1429,High Momentum — Frequent Uploaders,1.3667,1.3111,4.6284,0.0061,0.0000,0.5106,90.7549,1.5385,No action needed
+UC6nSFpj9HTCZ5t-N3Rm3-HA,Vsauce,Unscored,,Unscored,0.0000,0.0111,1.4508,0.0675,62.0000,13.7149,1.3531,,Insufficient data — collect more upload history
+UCOmHUn--16B90oW2L6FRR3A,BLACKPINK,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history

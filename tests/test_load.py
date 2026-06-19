@@ -3,7 +3,13 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-from src.load.load_mysql import parse_channel_json, parse_video_json, _parse_iso8601_duration, _safe_int
+from src.load.load_mysql import (
+    _parse_iso8601_duration,
+    _safe_bool,
+    _safe_int,
+    parse_channel_json,
+    parse_video_json,
+)
 
 
 def test_safe_int_with_none():
@@ -16,6 +22,13 @@ def test_safe_int_with_string():
 
 def test_safe_int_with_large_number():
     assert _safe_int("99999999999") == 99999999999
+
+
+def test_safe_bool():
+    assert _safe_bool(True) is True
+    assert _safe_bool(False) is False
+    assert _safe_bool(None) is None
+    assert _safe_bool("garbage") is None
 
 
 def test_parse_iso8601_duration():

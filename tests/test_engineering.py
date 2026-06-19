@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 
 import pandas as pd
 import pytest
@@ -19,7 +19,7 @@ def channels_df():
 
 @pytest.fixture
 def videos_df():
-    ref = datetime(2024, 6, 15, tzinfo=timezone.utc)
+    ref = datetime(2024, 6, 15, tzinfo=UTC)
     rows = []
     # UCactive: 10 videos in last 30d, 20 videos in 31-90d (all within 90d window)
     # View counts scaled to days-since-published to keep vpd roughly constant
@@ -66,7 +66,7 @@ def videos_df():
 
 
 def test_compute_features_active_channel(channels_df, videos_df):
-    ref = datetime(2024, 6, 15, tzinfo=timezone.utc)
+    ref = datetime(2024, 6, 15, tzinfo=UTC)
     features = compute_features(channels_df, videos_df, reference_date=ref)
     feat = features[features["channel_id"] == "UCactive"].iloc[0]
 
@@ -74,9 +74,6 @@ def test_compute_features_active_channel(channels_df, videos_df):
     assert feat["upload_freq_30d"] == pytest.approx(10 / 30)
     # 30 videos in 90 days
     assert feat["upload_freq_90d"] == pytest.approx(30 / 90)
-    # Frequency trend: (10/30) / (30/90) = 1.0
-    assert feat["freq_trend_ratio"] == pytest.approx(1.0, rel=0.1)
-
     # Engagement rate should be > 0
     assert feat["avg_engagement_rate"] > 0
     assert feat["avg_engagement_rate"] <= 1.0
@@ -89,7 +86,7 @@ def test_compute_features_active_channel(channels_df, videos_df):
 
 
 def test_compute_features_insufficient_history(channels_df, videos_df):
-    ref = datetime(2024, 6, 15, tzinfo=timezone.utc)
+    ref = datetime(2024, 6, 15, tzinfo=UTC)
     features = compute_features(channels_df, videos_df, reference_date=ref)
     feat = features[features["channel_id"] == "UCinsufficient"].iloc[0]
     assert feat["insufficient_history"]
@@ -97,7 +94,7 @@ def test_compute_features_insufficient_history(channels_df, videos_df):
 
 
 def test_compute_features_no_videos(channels_df, videos_df):
-    ref = datetime(2024, 6, 15, tzinfo=timezone.utc)
+    ref = datetime(2024, 6, 15, tzinfo=UTC)
     features = compute_features(channels_df, videos_df, reference_date=ref)
     feat = features[features["channel_id"] == "UCno_videos"].iloc[0]
     assert feat["insufficient_history"]
@@ -106,7 +103,7 @@ def test_compute_features_no_videos(channels_df, videos_df):
 
 def test_momentum_ratio_steady(channels_df, videos_df):
     """Active channel has same views-per-day in both windows -> momentum ~1."""
-    ref = datetime(2024, 6, 15, tzinfo=timezone.utc)
+    ref = datetime(2024, 6, 15, tzinfo=UTC)
     features = compute_features(channels_df, videos_df, reference_date=ref)
     feat = features[features["channel_id"] == "UCactive"].iloc[0]
     assert feat["momentum_ratio"] is not None

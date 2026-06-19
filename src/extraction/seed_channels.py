@@ -90,7 +90,10 @@ def build_seed_list(output_path: str | Path | None = None) -> list[dict[str, str
         writer.writeheader()
         writer.writerows(validated)
 
-    logger.info("Seed list written to %s (%d channels)", output_path, len(validated))
+    if not validated:
+        logger.warning("Seed list is empty — no channels will be extracted")
+    else:
+        logger.info("Seed list written to %s (%d channels)", output_path, len(validated))
     return validated
 
 

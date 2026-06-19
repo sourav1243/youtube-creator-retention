@@ -12,9 +12,7 @@ joblib==1.4.2
 pytest==8.3.4
 pytest-cov==6.0.0
 matplotlib==3.9.3
-seaborn==0.13.2
-click==8.1.8
-loguru==0.7.3
+# scheduling and alerting use stdlib only (subprocess, smtplib)
 isodate==0.7.2
 ruff==0.8.4
 pyarrow==24.0.0

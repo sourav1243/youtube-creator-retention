@@ -29,6 +29,7 @@ class QuotaEstimate:
     cost_per_call: int
     total_units: int
     description: str
+    tier: str = ""
 
 
 @dataclass
@@ -41,11 +42,11 @@ class QuotaPlan:
 
     @property
     def total_cost_full(self) -> int:
-        return sum(e.total_units for e in self.estimates if "Tier B" in e.stage or "Tier A" in e.stage)
+        return sum(e.total_units for e in self.estimates if e.tier in ("A", "B"))
 
     @property
     def total_cost_tier_a_only(self) -> int:
-        return sum(e.total_units for e in self.estimates if "Tier A" in e.stage)
+        return sum(e.total_units for e in self.estimates if e.tier == "A")
 
     @property
     def days_needed_for_full(self) -> int:
@@ -101,12 +102,8 @@ def compute_quota_plan(
         cost_per_call=1,
         total_units=calls_a * 1,
         description=f"{n_channels} channels at {max_per_call}/call",
+        tier="A",
     ))
-
-    # Tier A: playlistItems for uploads playlist ID fetched via channels.list contentDetails
-    # Actually, playlistItems is per-channel to get video IDs; but the uploads playlist ID
-    # comes from channels.list contentDetails (included in Tier A call above).
-    # The cost is for getting the uploads playlist items.
 
     # Tier B: playlistItems.list per channel in sample
     calls_pl = n_tier_b * math.ceil(avg_videos / max_per_call)
@@ -116,6 +113,7 @@ def compute_quota_plan(
         cost_per_call=1,
         total_units=calls_pl * 1,
         description=f"{n_tier_b} channels × {avg_videos} videos, paged at {max_per_call}",
+        tier="B",
     ))
 
     # Tier B: videos.list per batch of video IDs in sample
@@ -126,6 +124,7 @@ def compute_quota_plan(
         cost_per_call=1,
         total_units=calls_vid * 1,
         description=f"{n_tier_b} channels × {avg_videos} videos, batched at {max_per_call}",
+        tier="B",
     ))
 
     return QuotaPlan(

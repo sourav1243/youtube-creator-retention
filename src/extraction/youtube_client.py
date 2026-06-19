@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import logging
 import math
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from typing import Any
 
 import requests
@@ -25,17 +25,23 @@ class QuotaExhausted(Exception):
     """Raised when daily quota is actually exhausted — not retryable."""
 
 
-class _IsQuotaError:
+class _IsRetryable:
     def __call__(self, exc: BaseException) -> bool:
         if isinstance(exc, QuotaExhausted):
             return False
         if isinstance(exc, requests.HTTPError):
             status = exc.response.status_code
             if status in (403, 429):
-                body = exc.response.json()
+                try:
+                    body = exc.response.json()
+                except requests.JSONDecodeError:
+                    return False
                 reason = body.get("error", {}).get("errors", [{}])[0].get("reason", "")
                 if reason in ("quotaExceeded", "dailyLimitExceeded", "rateLimitExceeded"):
                     return True
+                if status == 403:
+                    return False
+                return True
             return status >= 500
         return isinstance(exc, (requests.ConnectionError, requests.Timeout))
 
@@ -45,13 +51,10 @@ class YouTubeClient:
         self.api_key = api_key or settings.youtube_api_key
         self.session = requests.Session()
         self.session.headers.update({"Accept": "application/json"})
-
-    def _build_url(self, endpoint: str, params: dict[str, Any]) -> str:
-        params["key"] = self.api_key
-        return f"{YOUTUBE_API_BASE}/{endpoint}"
+        self.request_timeout = settings.extraction.request_timeout
 
     @retry(
-        retry=retry_if_exception(_IsQuotaError()),
+        retry=retry_if_exception(_IsRetryable()),
         stop=stop_after_attempt(settings.extraction.retry_max_attempts),
         wait=wait_exponential(
             multiplier=settings.extraction.retry_base_delay_s,
@@ -61,12 +64,20 @@ class YouTubeClient:
         before=before_log(logger, logging.DEBUG),
     )
     def _request(self, endpoint: str, params: dict[str, Any]) -> dict[str, Any]:
-        url = self._build_url(endpoint, params)
-        logger.debug("GET %s?%s", endpoint, "&".join(f"{k}={v}" for k, v in params.items()))
-        resp = self.session.get(url, params={"key": self.api_key, **params}, timeout=30)
+        log_params = {k: (v if k != "key" else "***REDACTED***") for k, v in params.items()}
+        logger.debug("GET %s?%s", endpoint, "&".join(f"{k}={v}" for k, v in log_params.items()))
+        resp = self.session.get(
+            f"{YOUTUBE_API_BASE}/{endpoint}",
+            params={"key": self.api_key, **params},
+            timeout=self.request_timeout,
+        )
 
         if resp.status_code == 403:
-            body = resp.json()
+            try:
+                body = resp.json()
+            except requests.JSONDecodeError:
+                resp.raise_for_status()
+                return {}
             reason = body.get("error", {}).get("errors", [{}])[0].get("reason", "")
             if reason in ("quotaExceeded", "dailyLimitExceeded"):
                 logger.critical("Daily quota exhausted. Saving checkpoint and stopping.")
@@ -116,4 +127,4 @@ class YouTubeClient:
 
 
 def now_iso() -> str:
-    return datetime.now(timezone.utc).isoformat()
+    return datetime.now(UTC).isoformat()

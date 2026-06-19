@@ -1,15 +1,17 @@
 from __future__ import annotations
 
+import json
 import logging
 import warnings
 from pathlib import Path
 from typing import Any
 
 import pandas as pd
+from isodate import parse_duration
 
-from src.config import ROOT_DIR
+from src.config import ROOT_DIR, settings
 
-warnings.filterwarnings("ignore", message="Downcasting behavior in Series")
+warnings.filterwarnings("ignore", message="Downcasting behavior in Series", category=FutureWarning)
 
 logger = logging.getLogger(__name__)
 
@@ -19,7 +21,9 @@ def cast_numeric(series: pd.Series, name: str) -> pd.Series:
     result = pd.to_numeric(series, errors="coerce")
     dropped = original_count - result.notna().sum()
     if dropped > 0:
-        logger.warning("  %s: coerced %d values to NULL (non-numeric)", name, dropped)
+        logger.warning("  %s: coerced %d values to NaN (non-numeric)", name, dropped)
+    if result.notna().sum() == 0 and original_count > 0:
+        logger.warning("  %s: ALL values coerced to NaN — column may be corrupt", name)
     return result
 
 
@@ -27,7 +31,10 @@ def cap_outliers(
     series: pd.Series,
     name: str,
     percentile: float = 0.99,
+    enabled: bool = True,
 ) -> pd.Series:
+    if not enabled:
+        return series
     cap = series.quantile(percentile)
     capped_count = (series > cap).sum()
     if capped_count > 0:
@@ -45,6 +52,15 @@ def drop_duplicate_videos(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
+def _safe_load_json(filepath: Path) -> list[dict[str, Any]]:
+    try:
+        with open(filepath, encoding="utf-8") as f:
+            return json.load(f)
+    except (json.JSONDecodeError, OSError) as e:
+        logger.warning("Skipping corrupt JSON file %s: %s", filepath, e)
+        return []
+
+
 def load_and_clean_channels(channels_dir: str | Path | None = None) -> pd.DataFrame:
     channels_dir = Path(channels_dir or ROOT_DIR / "data" / "raw" / "channels")
     records: list[dict[str, Any]] = []
@@ -54,10 +70,7 @@ def load_and_clean_channels(channels_dir: str | Path | None = None) -> pd.DataFr
         return pd.DataFrame()
 
     for json_file in sorted(channels_dir.glob("*.json")):
-        import json
-
-        with open(json_file) as f:
-            items = json.load(f)
+        items = _safe_load_json(json_file)
         for item in items:
             cid = item.get("id", "")
             snippet = item.get("snippet", {})
@@ -68,16 +81,17 @@ def load_and_clean_channels(channels_dir: str | Path | None = None) -> pd.DataFr
                 "subscriber_count": stats.get("subscriberCount"),
                 "view_count_total": stats.get("viewCount"),
                 "video_count": stats.get("videoCount"),
-                "hidden_subscriber": stats.get("hiddenSubscriberCount", False),
+                "hidden_subscriber": stats.get("hiddenSubscriberCount", None),
             })
 
     df = pd.DataFrame(records)
     if df.empty:
         return df
 
+    cap_enabled = settings.cleaning.outlier_cap_flag
     for col in ["subscriber_count", "view_count_total", "video_count"]:
         df[col] = cast_numeric(df[col], col)
-        df[col] = cap_outliers(df[col].fillna(0), col)
+        df[col] = cap_outliers(df[col], col, enabled=cap_enabled)
 
     return df
 
@@ -91,11 +105,7 @@ def load_and_clean_videos(videos_dir: str | Path | None = None) -> pd.DataFrame:
         return pd.DataFrame()
 
     for json_file in sorted(videos_dir.glob("*.json")):
-        import json
-        from isodate import parse_duration
-
-        with open(json_file) as f:
-            items = json.load(f)
+        items = _safe_load_json(json_file)
         for item in items:
             snippet = item.get("snippet", {})
             stats = item.get("statistics", {})
@@ -131,7 +141,6 @@ def load_and_clean_videos(videos_dir: str | Path | None = None) -> pd.DataFrame:
 
     for col in ["view_count", "like_count", "comment_count"]:
         df[col] = cast_numeric(df[col], col)
-        df[col] = df[col].fillna(0).astype("int64")
 
     df["duration_seconds"] = cast_numeric(df["duration_seconds"], "duration_seconds")
 

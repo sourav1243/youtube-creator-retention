@@ -7,31 +7,10 @@ from pathlib import Path
 from typing import Any
 
 from src.config import ROOT_DIR
+from src.extraction.manifest import load_manifest, save_manifest
 from src.extraction.youtube_client import YouTubeClient, now_iso
 
 logger = logging.getLogger(__name__)
-
-
-MANIFEST_HEADER = ["channel_id", "stage", "status", "fetched_at"]
-
-
-def load_manifest(manifest_path: str | Path) -> dict[str, dict[str, str]]:
-    manifest_path = Path(manifest_path)
-    manifest: dict[str, dict[str, str]] = {}
-    if manifest_path.exists():
-        with open(manifest_path) as f:
-            for row in csv.DictReader(f):
-                manifest[row["channel_id"]] = row
-    return manifest
-
-
-def save_manifest(manifest_path: str | Path, entries: list[dict[str, str]]):
-    manifest_path = Path(manifest_path)
-    manifest_path.parent.mkdir(parents=True, exist_ok=True)
-    with open(manifest_path, "w", newline="") as f:
-        writer = csv.DictWriter(f, fieldnames=MANIFEST_HEADER)
-        writer.writeheader()
-        writer.writerows(entries)
 
 
 def extract_channels_tier_a(
@@ -47,16 +26,14 @@ def extract_channels_tier_a(
     client = client or YouTubeClient()
     manifest = load_manifest(manifest_path)
 
-    manifest_entries: list[dict[str, str]] = []
+    manifest_entries: list[dict[str, str]] = list(manifest.values())
+    existing_done = {
+        e["channel_id"] for e in manifest_entries
+        if e.get("stage") == "channels" and e.get("status") == "done"
+    }
+
     all_channels: list[dict[str, Any]] = []
-
-    # Include channels already done in manifest
-    for cid, entry in manifest.items():
-        if entry.get("stage") == "channels" and entry.get("status") == "done":
-            manifest_entries.append(entry)
-            logger.debug("Skipping already-fetched channel: %s", cid)
-
-    remaining = [cid for cid in channel_ids if cid not in {e["channel_id"] for e in manifest_entries}]
+    remaining = [cid for cid in channel_ids if cid not in existing_done]
 
     if remaining:
         logger.info("Extracting Tier A (channels.list) for %d channels...", len(remaining))
@@ -88,10 +65,17 @@ def extract_channels_tier_a(
                         "status": "failed",
                         "fetched_at": now_iso(),
                     })
+                save_manifest(manifest_path, manifest_entries)
                 raise
 
-    # Re-sort manifest to maintain stable order
-    manifest_entries.sort(key=lambda x: x["channel_id"])
+    else:
+        # Load channel data from previously saved JSON for already-done channels
+        for json_file in sorted(output_dir.glob("*.json")):
+            with open(json_file) as f:
+                items = json.load(f)
+            all_channels.extend(items)
+
+    manifest_entries.sort(key=lambda x: (x["channel_id"], x["stage"]))
     save_manifest(manifest_path, manifest_entries)
 
     return all_channels
@@ -103,7 +87,10 @@ def extract_channels_from_seed(
 ) -> list[str]:
     seed_csv = Path(seed_csv)
     channel_ids: list[str] = []
-    with open(seed_csv) as f:
+    if not seed_csv.exists():
+        logger.warning("Seed CSV not found: %s", seed_csv)
+        return []
+    with open(seed_csv, newline="") as f:
         for row in csv.DictReader(f):
             channel_ids.append(row["channel_id"])
 

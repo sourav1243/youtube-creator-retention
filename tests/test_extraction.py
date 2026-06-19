@@ -109,7 +109,7 @@ def test_quota_planner_computes_correctly():
 
 @patch("src.extraction.youtube_client.YouTubeClient.get_playlist_items")
 @patch("src.extraction.youtube_client.YouTubeClient.get_videos")
-def test_extract_channel_videos(mock_get_videos, mock_get_playlist_items):
+def test_extract_channel_videos(mock_get_videos, mock_get_playlist_items, tmp_path):
     mock_get_playlist_items.return_value = [
         {"contentDetails": {"videoId": "vid1"}},
         {"contentDetails": {"videoId": "vid2"}},
@@ -120,5 +120,5 @@ def test_extract_channel_videos(mock_get_videos, mock_get_playlist_items):
     ]
 
     client = YouTubeClient(api_key="test-key")
-    result = extract_channel_videos("UCtest", "UUtest", client, Path("/tmp"))
+    result = extract_channel_videos("UCtest", "UUtest", client, tmp_path)
     assert len(result) == 2

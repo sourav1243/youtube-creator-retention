@@ -1,13 +1,38 @@
 from __future__ import annotations
 
+import logging
 import os
+import re
+import warnings
 from dataclasses import dataclass, field
 from pathlib import Path
+from typing import Any
 
 import yaml
 from dotenv import load_dotenv
 
 ROOT_DIR = Path(__file__).resolve().parent.parent
+
+_ENV_VAR_PATTERN = re.compile(r"\$\{([^}]+)\}")
+
+logger = logging.getLogger(__name__)
+
+
+def _expand_env_vars(value: Any) -> Any:
+    if isinstance(value, str):
+        def _replacer(m: re.Match) -> str:
+            var_name = m.group(1)
+            env_val = os.getenv(var_name)
+            if env_val is None:
+                warnings.warn(f"Environment variable {var_name} is not set - using literal '${{{var_name}}}'")
+                return m.group(0)
+            return env_val
+        return _ENV_VAR_PATTERN.sub(_replacer, value)
+    if isinstance(value, dict):
+        return {k: _expand_env_vars(v) for k, v in value.items()}
+    if isinstance(value, list):
+        return [_expand_env_vars(v) for v in value]
+    return value
 
 
 @dataclass
@@ -16,6 +41,7 @@ class ExtractionConfig:
     quota_daily_default: int = 10000
     retry_max_attempts: int = 5
     retry_base_delay_s: float = 2.0
+    request_timeout: int = 30
     max_pages_per_channel: int = 1
 
 
@@ -80,6 +106,15 @@ class Settings:
     mysql: MySQLConfig = field(default_factory=MySQLConfig)
     logging: LoggingConfig = field(default_factory=LoggingConfig)
 
+    def update_from_dict(self, section: str, data: dict) -> None:
+        target = getattr(self, section, None)
+        if target is None:
+            logger.warning("Unknown config section '%s' — ignored", section)
+            return
+        for key, value in data.items():
+            if hasattr(target, key):
+                setattr(target, key, value)
+
     @property
     def youtube_api_key(self) -> str:
         key = os.getenv("YOUTUBE_API_KEY")
@@ -94,26 +129,25 @@ def load_settings() -> Settings:
     config_path = ROOT_DIR / "config" / "config.yaml"
     if config_path.exists():
         with open(config_path) as f:
-            raw = yaml.safe_load(f)
+            raw = yaml.safe_load(f) or {}
+        raw = _expand_env_vars(raw)
     else:
         raw = {}
 
     settings = Settings()
 
-    if "pipeline" in raw:
-        settings.pipeline = PipelineConfig(**raw["pipeline"])
-    if "extraction" in raw:
-        settings.extraction = ExtractionConfig(**raw["extraction"])
-    if "cleaning" in raw:
-        settings.cleaning = CleaningConfig(**raw["cleaning"])
-    if "features" in raw:
-        settings.features = FeaturesConfig(**raw["features"])
-    if "clustering" in raw:
-        settings.clustering = ClusteringConfig(**raw["clustering"])
-    if "mysql" in raw:
-        settings.mysql = MySQLConfig(**raw["mysql"])
-    if "logging" in raw:
-        settings.logging = LoggingConfig(**raw["logging"])
+    section_map = {
+        "pipeline": "pipeline",
+        "extraction": "extraction",
+        "cleaning": "cleaning",
+        "features": "features",
+        "clustering": "clustering",
+        "mysql": "mysql",
+        "logging": "logging",
+    }
+    for yaml_key, attr in section_map.items():
+        if yaml_key in raw:
+            settings.update_from_dict(attr, raw[yaml_key])
 
     return settings
 

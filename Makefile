@@ -10,9 +10,9 @@ test:
 	pytest tests/ -v --cov=src --cov-report=term-missing
 
 clean:
-	find . -type d -name "__pycache__" -exec rm -rf {} + 2>/dev/null || true
-	find . -type f -name "*.pyc" -delete
-	rm -rf .pytest_cache .ruff_cache
+	python -c "import shutil, pathlib; [shutil.rmtree(p, ignore_errors=True) for p in pathlib.Path().rglob('__pycache__')]"
+	python -c "import pathlib; [p.unlink(missing_ok=True) for p in pathlib.Path().rglob('*.pyc')]"
+	python -c "import pathlib; [shutil.rmtree(p, ignore_errors=True) for p in [pathlib.Path('.pytest_cache'), pathlib.Path('.ruff_cache')]]"
 
 run:
 	python -m src.run_pipeline
