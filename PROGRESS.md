@@ -20,7 +20,13 @@
 - [x] API key configured in .env
 
 ## Phase 3 — Extraction Pipeline
-- [ ] _pending_
+- [x] `youtube_client.py`: thin requests wrapper with tenacity retry, batch up to 50 IDs
+- [x] `extract_channels.py`: Tier A channel extraction with manifest checkpoint
+- [x] `extract_videos.py`: Tier B video extraction per channel
+- [x] Manifest CSV for resumability across quota-interrupted runs
+- [x] Verified on 5-channel sample: channels, playlist items, and video details all return correctly
+- [x] 403 quotaExceeded triggers clean QuotaExhausted exception (not infinite retry)
+- [x] 7 pytest tests pass (seeds, client, batching, quota error handling)
 
 ## Phase 4 — MySQL Schema & Load
 - [ ] _pending_

@@ -24,7 +24,22 @@
 
 ---
 
-## Phase 2 — API Access, Seed Channels & Quota Budgeting
+## Phase 3 — Extraction Pipeline
+
+### Decision: Tenacity retry strategy
+- **What:** Exponential backoff (2s base, 60s max) on HTTP 403/429/5xx. `QuotaExhausted` exception raised cleanly on confirmed `quotaExceeded`/`dailyLimitExceeded` — not retried.
+- **Why:** Retrying a dead quota wastes calls and time. The manifest checkpoint allows resumption on the next day.
+- **Alternative:** Retrying everything — burns remaining quota on pointless retries.
+
+### Decision: Manifest format
+- **What:** Simple CSV with columns: channel_id, stage, status, fetched_at. Updated after every successful batch.
+- **Why:** Human-readable, diffable, easy to debug. No database dependency needed for the extraction phase.
+- **Alternative:** JSON manifest — less human-readable; SQLite — overkill for a checkpoint file.
+
+### Decision: playlistItems pagination default
+- **What:** No page limit by default (max_pages=None) — pages through every page. Added max_pages parameter for testing.
+- **Why:** YouTube channels can have thousands of videos; truncating would miss data. Testing can limit pages.
+- **Alternative:** Hard limit of 500 items — would miss older videos for large channels.
 
 ### Decision: Seed channel source
 - **What:** Curated list of 40 real channel IDs across 6 niches (tech, gaming, education, music, finance, entertainment/news) with verified `UC[A-Za-z0-9_-]{22}` format. Sourced from public Hugging Face dataset (ytRankAI/Top_100_YouTube_Channels) and verified YouTube channel handles.
