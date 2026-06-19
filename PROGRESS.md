@@ -7,13 +7,17 @@
 - [x] `src/config.py` loads .env + config.yaml
 - [x] .env.example created
 - [x] README.md, DECISIONS.md, PROGRESS.md initialized
-- [ ] `python -m src.config` runs without errors
-- [ ] .env is in .gitignore and was never committed
-- [ ] Directory tree matches Section 4
-- [ ] requirements.txt is pinned
+- [x] `python -m src.config` runs without errors
+- [x] .env is in .gitignore and was never committed
+- [x] Directory tree matches Section 4
+- [x] requirements.txt is pinned
 
 ## Phase 2 — API Access, Seed Channels & Quota Budgeting
-- [ ] _pending_
+- [x] `seed_channel_ids.csv` exists with 40 validated, deduplicated IDs across 6 niches
+- [x] `quota_planner.py` outputs computed Tier A/Tier B plan
+- [x] Tiering decision and numbers documented in DECISIONS.md
+- [x] Compliance note added to README about YouTube API ToS
+- [x] API key configured in .env
 
 ## Phase 3 — Extraction Pipeline
 - [ ] _pending_

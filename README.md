@@ -62,6 +62,10 @@ python -m src.run_pipeline
 
 1. **Environment & Scaffolding** — Project skeleton, config, virtualenv
 2. **API Access & Seed Channels** — Channel ID list, quota budget
+
+## Compliance
+
+Review YouTube's [API Services Terms of Service](https://developers.google.com/youtube/terms/api-services-terms-of-service) for data caching/retention and refresh requirements before using this beyond a learning project. Do not publicly redistribute raw pulled payloads.
 3. **Extraction Pipeline** — Resumable, quota-aware YouTube API client
 4. **MySQL Schema & Load** — System of record with upsert semantics
 5. **Cleaning & Feature Engineering** — 30/90-day rolling features, momentum proxy
