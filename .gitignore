@@ -1,0 +1,12 @@
+.env
+data/raw/
+*.duckdb
+__pycache__/
+.venv/
+*.pyc
+*.pyo
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+models/*.joblib
+data/processed/*.parquet

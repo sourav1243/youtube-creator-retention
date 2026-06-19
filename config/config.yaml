@@ -1,0 +1,40 @@
+pipeline:
+  n_channels_total: 5000
+  sample_size_tier_b: 1000
+  random_seed: 42
+
+extraction:
+  max_ids_per_call: 50
+  quota_daily_default: 10000
+  retry_max_attempts: 5
+  retry_base_delay_s: 2.0
+
+cleaning:
+  outlier_method: cap_99th_percentile
+  outlier_cap_flag: true
+  log_transform: log1p
+
+features:
+  window_30d: 30
+  window_90d: 90
+  min_videos_for_scoring: 2
+
+clustering:
+  k_min: 2
+  k_max: 10
+  n_init: 10
+  random_state: 42
+  scaler: RobustScaler
+
+mysql:
+  host: ${MYSQL_HOST}
+  user: ${MYSQL_USER}
+  password: ${MYSQL_PASSWORD}
+  database: ${MYSQL_DATABASE}
+  port: 3306
+
+logging:
+  level: INFO
+  file: logs/pipeline.log
+  max_bytes: 10485760
+  backup_count: 5
