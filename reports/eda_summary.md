@@ -1,52 +1,52 @@
 # EDA Summary
 
-Generated: 2026-06-19T13:35:36.860463+00:00
+Generated: 2026-06-19T16:42:00.855880+00:00
 
 ## Overview
 
-- Total channels in feature table: 37
-- Channels with insufficient history (unscored): 2
-- Scored channels: 35
+- Total channels in feature table: 619
+- Channels with insufficient history (unscored): 127
+- Scored channels: 492
 
 ## Data Quality
 
 ### Feature Null Counts (scored channels)
 - upload_freq_30d: 0 nulls (0.0%)
 - upload_freq_90d: 0 nulls (0.0%)
-- momentum_ratio: 0 nulls (0.0%)
+- momentum_ratio: 7 nulls (1.4%)
 - avg_engagement_rate: 0 nulls (0.0%)
 - days_since_last_upload: 0 nulls (0.0%)
-- upload_regularity: 0 nulls (0.0%)
+- upload_regularity: 3 nulls (0.6%)
 - duration_trend: 0 nulls (0.0%)
 
 ### Feature Zero Counts (scored channels)
-- upload_freq_30d: 2 zeros (5.7%)
+- upload_freq_30d: 32 zeros (6.5%)
 - upload_freq_90d: 0 zeros (0.0%)
-- days_since_last_upload: 23 zeros (65.7%)
-- upload_regularity: 10 zeros (28.6%)
+- days_since_last_upload: 239 zeros (48.6%)
+- upload_regularity: 59 zeros (12.0%)
 - duration_trend: 0 zeros (0.0%)
 
 ## Feature Distributions
 
 | Feature | N | Mean | Std | Min | P25 | Median | P75 | Max |
 |---|---|---|---|---|---|---|---|---|
-| upload_freq_30d | 36 | 1.8481 | 2.0368 | 0.0 | 0.2667 | 0.95 | 5.0 | 5.0 |
-| upload_freq_90d | 36 | 0.9179 | 0.6266 | 0.0111 | 0.2806 | 0.9611 | 1.6667 | 1.6667 |
-| momentum_ratio | 36 | 3.6832 | 2.7983 | 0.2625 | 1.772 | 3.1437 | 4.7842 | 11.7321 |
-| avg_engagement_rate | 36 | 0.0311 | 0.0266 | 0.0027 | 0.0134 | 0.0282 | 0.0396 | 0.1439 |
-| days_since_last_upload | 36 | 5.1111 | 14.6127 | 0.0 | 0.0 | 0.0 | 1.0 | 62.0 |
-| upload_regularity | 36 | 2.7176 | 4.8842 | 0.0 | 0.0 | 0.7233 | 3.1792 | 25.5902 |
-| duration_trend | 36 | 19.9821 | 26.9716 | 1.3531 | 6.2479 | 10.792 | 21.5567 | 138.3365 |
+| upload_freq_30d | 511 | 1.1266 | 1.6112 | 0.0 | 0.1333 | 0.3333 | 1.1167 | 5.0 |
+| upload_freq_90d | 511 | 0.6593 | 0.6206 | 0.0111 | 0.1111 | 0.3889 | 1.1722 | 1.6667 |
+| momentum_ratio | 500 | 6.0991 | 20.7335 | 0.0 | 1.5983 | 3.1629 | 5.2029 | 407.4753 |
+| avg_engagement_rate | 509 | 0.0373 | 0.0521 | 0.0 | 0.0187 | 0.028 | 0.0409 | 0.8171 |
+| days_since_last_upload | 511 | 7.3679 | 16.1463 | 0.0 | 0.0 | 1.0 | 5.0 | 87.0 |
+| upload_regularity | 504 | 9.69 | 33.3166 | 0.0 | 0.5732 | 1.7802 | 6.7382 | 569.0645 |
+| duration_trend | 511 | 17.2735 | 33.8189 | 0.0497 | 3.7997 | 9.1375 | 18.1303 | 473.3062 |
 
 ## Feature Correlations
 
-- Upload frequency (30d) vs Momentum ratio: -0.2000
-- Upload frequency (30d) vs Engagement rate: -0.2384
-- Momentum ratio vs Engagement rate: 0.1123
-- Days since last upload vs Momentum ratio: -0.1879
-- Days since last upload vs Upload frequency: -0.3209
-- Upload regularity vs Upload frequency (30d): -0.4471
-- Duration trend vs Momentum ratio: -0.0467
+- Upload frequency (30d) vs Momentum ratio: -0.0724
+- Upload frequency (30d) vs Engagement rate: -0.0673
+- Momentum ratio vs Engagement rate: 0.0070
+- Days since last upload vs Momentum ratio: -0.0029
+- Days since last upload vs Upload frequency: -0.3078
+- Upload regularity vs Upload frequency (30d): -0.1868
+- Duration trend vs Momentum ratio: 0.0091
 
 ## Notes
 

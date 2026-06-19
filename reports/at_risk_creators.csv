@@ -1,38 +1,620 @@
 channel_id,title,risk_flag,risk_score,cluster_label,upload_freq_30d,upload_freq_90d,momentum_ratio,avg_engagement_rate,days_since_last_upload,upload_regularity,duration_trend,distance_to_centroid,recommended_action
-UCYO_jab_esuFRV4b17AJtAw,3Blue1Brown,At-Risk,1.0000,Low Momentum — Declining Engagement,0.1667,0.1000,7.0272,0.0416,2.0000,25.5902,7.6633,7.6071,Monitor — declining engagement trend
-UCLkAepWjdylmXSltofFvsYQ,BANGTANTV,At-Risk,0.8122,Low Momentum — Declining Engagement,0.9000,1.0778,5.1678,0.1439,1.0000,3.4392,5.7772,4.5536,Monitor — declining engagement trend
-UC5p_l5ZeB_wGjO_yDXwiqvw,TommyInnit,At-Risk,0.7717,Low Momentum — Declining Engagement,0.0000,0.1333,0.6835,0.0722,52.0000,8.6840,16.4690,4.4476,"Reach out — momentum declining, no upload in 21+ days"
-UCq-Fj5jknLsUf-MWSy4_brA,T-Series,At-Risk,0.6897,Low Momentum — Declining Engagement,5.0000,1.6667,11.7321,0.0144,0.0000,0.0000,5.3770,3.0925,Monitor — declining engagement trend
-UCppHT7SZKKvar4Oc9J4oljQ,Zee TV,At-Risk,0.6778,Low Momentum — Declining Engagement,5.0000,1.6667,0.2625,0.0560,0.0000,0.0000,5.1495,2.0895,Reach out — momentum sharply declining
-UCsBjURrPoezykLs9EqgamOA,Fireship,At-Risk,0.6773,Low Momentum — Declining Engagement,0.2333,0.2556,8.9218,0.0405,1.0000,3.8939,6.4143,1.9941,Monitor — declining engagement trend
-UCsXVk37bltHxD1rDPwtNM8Q,Kurzgesagt – In a Nutshell,At-Risk,0.6718,Low Momentum — Declining Engagement,0.2000,0.2333,5.4508,0.0488,2.0000,2.7227,5.6278,1.3546,Monitor — declining engagement trend
-UCFFbwnve3yF62-tVXkTyHqg,Zee Music Company,At-Risk,0.6681,Low Momentum — Declining Engagement,5.0000,1.6667,0.6475,0.0101,0.0000,0.0000,3.0459,1.9993,Monitor — declining engagement trend
-UCbCmjCuTUZos6Inko4u57UQ,Cocomelon - Nursery Rhymes,At-Risk,0.6661,Low Momentum — Declining Engagement,0.9667,0.9778,2.2184,0.0044,1.0000,0.5014,2.2902,1.5804,Monitor — declining engagement trend
-UCX6b17PVsYBQ0ip5gyeme-Q,CrashCourse,At-Risk,0.6628,Low Momentum — Declining Engagement,0.2667,0.1667,3.5302,0.0474,0.0000,3.2858,5.8188,1.2441,Monitor — declining engagement trend
-UCV6KDgJskWaEckne5aPA0aQ,Graham Stephan,At-Risk,0.6568,Low Momentum — Declining Engagement,0.9667,1.0889,4.5467,0.0196,0.0000,0.5779,2.9925,1.2674,Monitor — declining engagement trend
-UCUvvj5lwue7PspotMDjk5UA,Meet Kevin,At-Risk,0.6539,Low Momentum — Declining Engagement,2.2667,1.4667,11.2605,0.0280,0.0000,0.7194,10.6880,2.6765,Monitor — declining engagement trend
-UC-lHJZR3Gqxm24_Vd_AJ5Yw,PewDiePie,At-Risk,0.6534,Low Momentum — Declining Engagement,0.0667,0.0444,4.5724,0.0605,18.0000,6.9660,25.5083,3.1947,Monitor — declining engagement trend
-UCupvZG-5ko_eiXAupbDfxWw,CNN,At-Risk,0.6483,Low Momentum — Declining Engagement,5.0000,1.6667,0.9980,0.0276,0.0000,0.0000,6.6576,1.6736,Monitor — declining engagement trend
-UCBJycsmduvYEL83R_U4JriQ,Marques Brownlee,At-Risk,0.6461,Low Momentum — Declining Engagement,0.2667,0.2444,4.6915,0.0319,2.0000,3.0500,8.3625,0.9786,Monitor — declining engagement trend
-UC16niRr50-MSBwiO3YDb3RA,BBC News,At-Risk,0.6451,Low Momentum — Declining Engagement,5.0000,1.6667,1.8316,0.0217,0.0000,0.0000,6.3909,1.5850,Monitor — declining engagement trend
-UCGy7SkBjcIAgTiwkXEtPnYg,Andrei Jikh,At-Risk,0.6429,Low Momentum — Declining Engagement,0.8333,0.7778,6.8099,0.0242,0.0000,1.2515,6.7280,1.3902,Monitor — declining engagement trend
-UCHnyfMqiRRG1u-2MsSQLbXA,Veritasium,At-Risk,0.6335,Low Momentum — Declining Engagement,0.3333,0.2556,4.3189,0.0284,1.0000,5.4312,11.6267,1.1593,Monitor — declining engagement trend
-UCJ5v_MCY6GNUBTO8-D3XoAg,WWE,At-Risk,0.6325,Low Momentum — Declining Engagement,5.0000,1.6667,1.9241,0.0315,0.0000,0.0000,9.0471,1.4774,Monitor — declining engagement trend
-UC4JX40jDee_tINbkjycV4Sg,Tech With Tim,At-Risk,0.6178,Low Momentum — Declining Engagement,1.3333,1.5778,3.4909,0.0293,0.0000,0.4510,10.0971,1.0515,Monitor — declining engagement trend
-UCcdwLMPsaU2ezNSJU1nFoBQ,Baby Shark - Pinkfong Kids’ Songs & Stories,At-Risk,0.6150,Low Momentum — Declining Engagement,1.1000,0.9444,1.5933,0.0033,0.0000,0.8214,10.8960,1.5614,Monitor — declining engagement trend
-UCk8GzjMOrta8yxDcKfylJYw,✿ Kids Diana Show,At-Risk,0.6064,Low Momentum — Declining Engagement,0.8000,0.8333,0.9870,0.0046,0.0000,0.7232,12.8403,1.6362,Monitor — declining engagement trend
-UC6-F5tO8uklgE9Zy8IvbdFw,Sony SAB,At-Risk,0.5913,Low Momentum — Declining Engagement,5.0000,1.6667,2.1674,0.0198,0.0000,0.0000,15.4400,1.4712,Monitor — declining engagement trend
-UC55IWqFLDH1Xp7iu1_xknRA,Colors TV,At-Risk,0.5836,Low Momentum — Declining Engagement,5.0000,1.6667,2.9836,0.0306,0.0000,0.0000,17.0323,1.3302,Monitor — declining engagement trend
-UCX6OQ3DkcsbYNE6H8uQQuVA,MrBeast,At-Risk,0.5694,Low Momentum — Declining Engagement,0.2667,0.3667,1.9086,0.0213,1.0000,2.5465,20.3479,0.9757,Monitor — declining engagement trend
-UCJplp5SjeGSdVdwsfb9Q7lQ,Like Nastya,At-Risk,0.5672,Low Momentum — Declining Engagement,0.2667,0.3333,2.4795,0.0042,0.0000,1.9262,19.4875,1.4374,Monitor — declining engagement trend
-UCbRP3c757lWg9M-U7TyEkXA,Theo - t3․gg,At-Risk,0.5614,Low Momentum — Declining Engagement,0.9333,0.7667,5.7143,0.0358,0.0000,0.7234,20.9071,1.1502,Monitor — declining engagement trend
-UCvlE5gTbOvjiolFlEm-c_Ow,Vlad and Niki,At-Risk,0.5534,Low Momentum — Declining Engagement,0.3000,0.3000,2.2868,0.0027,2.0000,1.3049,23.5056,1.6081,Monitor — declining engagement trend
-UC9x0AN7BWHpCDHSm9NiJFJQ,NetworkChuck,At-Risk,0.5526,Low Momentum — Declining Engagement,0.5000,0.2889,2.2309,0.0342,0.0000,4.7635,25.4533,1.3641,Monitor — declining engagement trend
-UCpEhnqL0y41EpW2TvWAHD7Q,SET India,At-Risk,0.5413,Low Momentum — Declining Engagement,5.0000,1.6667,0.5678,0.0103,0.0000,0.0000,25.2157,1.9796,Monitor — declining engagement trend
-UCyoXW-Dse7fURq30EWl_CUA,Goldmines,At-Risk,0.4794,Low Momentum — Declining Engagement,5.0000,1.6667,1.5670,0.0084,0.0000,0.0000,35.1328,2.1630,Monitor — declining engagement trend
-UCTkXRDQl0luXxVQrRQvWS6w,Dream,At-Risk,0.4728,Low Momentum — Declining Engagement,0.0000,0.3889,3.5781,0.0393,39.0000,3.1437,64.9726,4.5090,"Reach out — momentum declining, no upload in 21+ days"
-UCXuqSBlHAE6Xw-yeJA0Tunw,Linus Tech Tips,At-Risk,0.4697,Low Momentum — Declining Engagement,1.1333,1.1111,5.0623,0.0325,0.0000,0.6108,35.9471,1.6514,Monitor — declining engagement trend
-UC8butISFwT-Wl7EV0hUK0BQ,freeCodeCamp.org,Healthy,0.1429,High Momentum — Frequent Uploaders,1.0667,1.3222,3.3039,0.0175,0.0000,0.4804,138.3365,1.5385,No action needed
-UC295-Dw_tDNtZXFeAPAW6Aw,5-Minute Crafts,Healthy,0.1429,High Momentum — Frequent Uploaders,1.3667,1.3111,4.6284,0.0061,0.0000,0.5106,90.7549,1.5385,No action needed
-UC6nSFpj9HTCZ5t-N3Rm3-HA,Vsauce,Unscored,,Unscored,0.0000,0.0111,1.4508,0.0675,62.0000,13.7149,1.3531,,Insufficient data — collect more upload history
+UCN_mEa9cavDEBpiSs0q361A,Cena Recipes,At-Risk,0.8020,Low Momentum — Declining Engagement,0.0000,0.1333,0.1470,0.0144,33.0000,171.2189,3.8460,34.8913,"Reach out — momentum declining, no upload in 21+ days"
+UCrbFc7tXguJZ62uMLgH4o_Q,Programming knowledge Code,At-Risk,0.7916,High Momentum — Frequent Uploaders,0.0000,0.1111,0.3907,0.0000,70.0000,1.5674,0.0497,4.5096,"Reach out — momentum declining, no upload in 21+ days"
+UC3noCWEg7b0MuJ8nf5GXIAg,World Flow,At-Risk,0.7577,High Momentum — Frequent Uploaders,0.0000,0.0444,0.4187,0.0051,44.0000,8.5049,2.4500,4.1068,"Reach out — momentum declining, no upload in 21+ days"
+UCPRCRM3JKm3sw55lB_427qg,Mystery Science,At-Risk,0.7550,High Momentum — Frequent Uploaders,0.0000,0.0778,0.7169,0.0019,36.0000,17.4631,7.0218,4.7135,"Reach out — momentum declining, no upload in 21+ days"
+UCmRgVCqzCa5MjbXbRGTgTJw,ESPN Sports Highlights ,At-Risk,0.7533,High Momentum — Frequent Uploaders,0.1000,0.1000,0.0588,0.0084,27.0000,32.6741,1.3222,6.6682,"Reach out — momentum declining, no upload in 21+ days"
+UCneiThvGvPVqz5xI0a-TIyA,The Learn Programming Channel,At-Risk,0.7461,Low Momentum — Declining Engagement,0.0000,0.1556,0.2855,0.0600,47.0000,101.1854,4.1422,20.4616,"Reach out — momentum declining, no upload in 21+ days"
+UCAxhJkrYQOyFCK8Uw6wwojg,HEALTHY PUSH - Dance-Fitness x Krafttraining ,At-Risk,0.7363,Low Momentum — Declining Engagement,0.0000,0.0222,0.6437,0.0242,55.0000,108.7271,6.7348,22.0109,"Reach out — momentum declining, no upload in 21+ days"
+UCHPKIXAkP3VuBLgmYe9dHPg,The Tiny Foods,At-Risk,0.7295,High Momentum — Frequent Uploaders,0.0000,0.0778,0.9982,0.0062,42.0000,53.8944,8.5614,10.9405,"Reach out — momentum declining, no upload in 21+ days"
+UCojVRofo2sVQZmfRIjcqGew,The Riot Comedy Club -Hottest Comedy Clubs in TX,At-Risk,0.7201,High Momentum — Frequent Uploaders,0.0333,0.1111,0.0268,0.0200,29.0000,2.5930,1.1833,3.4759,"Reach out — momentum declining, no upload in 21+ days"
+UCWv7vMbMWH4-V0ZXdmDpPBA,Programming with Mosh,At-Risk,0.7177,High Momentum — Frequent Uploaders,0.0000,0.0222,0.7148,0.0306,85.0000,30.9253,24.4187,6.8961,"Reach out — momentum declining, no upload in 21+ days"
+UCOSIXyYdT93OzpRnAuWaKjQ,Luke Combs,At-Risk,0.7033,High Momentum — Frequent Uploaders,0.0000,0.0444,0.5981,0.0443,44.0000,38.5445,1.7290,7.9512,"Reach out — momentum declining, no upload in 21+ days"
+UCwppdrjsBPAZg5_cUwQjfMQ,Charlie Puth,At-Risk,0.6971,High Momentum — Frequent Uploaders,0.0000,0.1333,0.8765,0.0342,73.0000,50.7974,3.8320,10.4087,"Reach out — momentum declining, no upload in 21+ days"
+UC2WEK2VZSoojZ1xdQnF2PXA,Life's Highlights,At-Risk,0.6966,High Momentum — Frequent Uploaders,0.0000,0.0222,0.6704,0.0301,81.0000,10.0949,0.6338,4.3690,"Reach out — momentum declining, no upload in 21+ days"
+UCoU5dVS8cRzY67XFaHDKNHg,Power Breakdown,At-Risk,0.6956,High Momentum — Frequent Uploaders,0.0667,0.0222,,0.0000,1.0000,,12.6417,3.3374,Monitor — declining engagement trend
+UCS8yoU1-FreJR76Pw1hBFqg,Investing Idiots,At-Risk,0.6918,High Momentum — Frequent Uploaders,0.1000,0.4222,0.0654,0.0178,15.0000,10.3103,0.1500,3.2179,Reach out — momentum sharply declining
+UCDIe33jysavHa4I71QDcncQ,America Today Brief,At-Risk,0.6912,High Momentum — Frequent Uploaders,0.0667,0.0222,,0.0000,0.0000,,2.1750,3.4583,Monitor — declining engagement trend
+UCWf43GShTqMDdJN9pICYd2Q,Natasha's Adventures,At-Risk,0.6906,High Momentum — Frequent Uploaders,0.0000,0.0222,0.6359,0.0870,55.0000,27.0172,17.3437,6.4384,"Reach out — momentum declining, no upload in 21+ days"
+UCcnk4InKu7FPRgJvU57sfKg,Business & Finance,At-Risk,0.6895,High Momentum — Frequent Uploaders,0.1000,0.0333,,0.0000,0.0000,0.7071,6.2889,3.4050,Monitor — declining engagement trend
+UCbGiBKf2rhQRPCxozh996Yg,Life On The Code | Web Dev & Programming,At-Risk,0.6888,High Momentum — Frequent Uploaders,0.0000,0.0333,0.3309,0.0632,65.0000,1.9709,29.9026,4.2820,"Reach out — momentum declining, no upload in 21+ days"
+UChyMqO1hwxBZdsGkrDYtDMQ,Kris Adventure Travel Vlog,At-Risk,0.6869,High Momentum — Frequent Uploaders,0.0000,0.0333,0.4660,0.0875,47.0000,12.5366,159.4158,4.6987,"Reach out — momentum declining, no upload in 21+ days"
+UCcSF2iErDdxm5r2o7zfkUSA,Adventures Music ∆ An On The Verge Artist Channel,At-Risk,0.6863,High Momentum — Frequent Uploaders,0.0667,0.0333,0.7523,0.0000,22.0000,15.8432,1.0833,4.0457,"Reach out — momentum declining, no upload in 21+ days"
+UCHlTbE4StpGT4-hhZyZz6Fw,Top 10 Sports Plays,At-Risk,0.6806,High Momentum — Frequent Uploaders,0.0000,0.0556,1.2762,0.0072,73.0000,5.6626,2.7618,4.3108,"Reach out — momentum declining, no upload in 21+ days"
+UCZAD9EG8NuXyunEx3_8oIAQ,Headline Decoded,At-Risk,0.6793,High Momentum — Frequent Uploaders,0.1333,0.0444,0.0000,0.0000,0.0000,0.0000,13.2292,3.4352,Reach out — momentum sharply declining
+UCE5GZ_c3trVGg5rmCT4Gq1A,Finance with Alex & Allen,At-Risk,0.6736,High Momentum — Frequent Uploaders,0.0000,0.0444,0.6240,0.0457,56.0000,7.8172,11.9629,3.9926,"Reach out — momentum declining, no upload in 21+ days"
+UCeLHszkByNZtPKcaVXOCOQQ,Post Malone,At-Risk,0.6728,High Momentum — Frequent Uploaders,0.0000,0.0667,0.5535,0.0498,37.0000,11.6060,0.7465,3.9181,"Reach out — momentum declining, no upload in 21+ days"
+UCAvn7WTmpzLZ0FoNkvMfEYQ,Exponent Investment Management,At-Risk,0.6645,Low Momentum — Declining Engagement,0.0000,0.0222,3.3833,0.0084,53.0000,96.4685,11.4316,19.4945,"Reach out — momentum declining, no upload in 21+ days"
+UCPKWE1H6xhxwPlqUlKgHb_w,Sabrina Carpenter,At-Risk,0.6613,High Momentum — Frequent Uploaders,0.0000,0.0222,0.9613,0.0524,52.0000,18.9122,0.9364,4.8686,"Reach out — momentum declining, no upload in 21+ days"
+UCUoWjpemcumDyh95Z9KPEdA,Looking at the Markets,At-Risk,0.6601,High Momentum — Frequent Uploaders,0.0000,0.0444,1.2053,0.0720,58.0000,47.4708,8.6519,9.8144,"Reach out — momentum declining, no upload in 21+ days"
+UCzDqEvWhZhwlDvkZsgpEAlQ,Sony Music Publishing,At-Risk,0.6575,Low Momentum — Declining Engagement,0.0333,0.0222,0.3229,0.0317,9.0000,243.1059,61.2333,49.7477,Reach out — momentum sharply declining
+UC5p_l5ZeB_wGjO_yDXwiqvw,TommyInnit,At-Risk,0.6528,High Momentum — Frequent Uploaders,0.0000,0.1333,0.6836,0.0722,52.0000,8.6840,16.4690,4.2317,"Reach out — momentum declining, no upload in 21+ days"
+UCrXElbXvCkFQ_tktnqekTtQ,Xeela Fitness,At-Risk,0.6525,High Momentum — Frequent Uploaders,0.0333,0.0778,0.7108,0.0316,28.0000,48.3586,17.8167,9.6039,"Reach out — momentum declining, no upload in 21+ days"
+UCMdtNorDKXuVDfxYEq55hoQ,RI ROBIN BASIC,At-Risk,0.6398,High Momentum — Frequent Uploaders,0.0333,0.0222,0.4838,0.0268,24.0000,23.6720,9.4833,4.8968,"Reach out — momentum declining, no upload in 21+ days"
+UCny89FtZqct-wWK6Zj9C0pQ,InfoTech in Telugu,At-Risk,0.6344,High Momentum — Frequent Uploaders,0.0000,0.0556,1.7238,0.0184,62.0000,8.9846,3.2957,4.1022,"Reach out — momentum declining, no upload in 21+ days"
+UCfJyQ3P2k_SuqfxVdqIEQNw,R Programming 101,At-Risk,0.6329,High Momentum — Frequent Uploaders,0.0333,0.0889,0.5281,0.0295,25.0000,7.7422,18.7167,3.2266,"Reach out — momentum declining, no upload in 21+ days"
+UCb2GCoLSBXjmI_Qj1vk-44g,Amoeba Sisters,At-Risk,0.6295,High Momentum — Frequent Uploaders,0.0667,0.0556,0.4391,0.0245,18.0000,18.1929,8.7083,3.9056,Reach out — momentum sharply declining
+UCoUM-UJ7rirJYP8CQ0EIaHA,Bruno Mars,At-Risk,0.6267,Low Momentum — Declining Engagement,0.0333,0.0222,1.1295,0.0146,24.0000,117.3517,3.7333,23.6451,"Reach out — momentum declining, no upload in 21+ days"
+UCxd3yIbEqKPDvwBKpFN443g,Chinese Comedian ,At-Risk,0.6243,High Momentum — Frequent Uploaders,0.0000,0.1111,1.5736,0.0270,43.0000,14.7445,5.5957,4.1986,"Reach out — momentum declining, no upload in 21+ days"
+UC6r85h1amgJzNJJma6eL2LQ,Music Channel,At-Risk,0.6180,High Momentum — Frequent Uploaders,0.1000,0.0333,,0.0097,0.0000,0.0000,0.3889,3.2554,Monitor — declining engagement trend
+UCp6DU_5_5JWUJeXTtqTEPsQ,Stromedy Studios,At-Risk,0.6139,Low Momentum — Declining Engagement,0.1333,0.1000,0.7402,0.0138,11.0000,116.7730,10.6708,23.4663,Monitor — declining engagement trend
+UCsP38z1keaLJdsER_sZCa1g,Enrich Your Life Fitness,At-Risk,0.6124,High Momentum — Frequent Uploaders,0.0000,0.0667,1.8444,0.0327,61.0000,8.8625,9.2026,3.9897,"Reach out — momentum declining, no upload in 21+ days"
+UC1CVU1pV2rqs8zSIy_OPPHA,Caleb Kids Show,At-Risk,0.6108,High Momentum — Frequent Uploaders,0.1000,0.1222,0.8806,0.0007,6.0000,3.7688,14.1000,2.6543,Monitor — declining engagement trend
+UClrJNVolt8PHT7o9HDkV-Bw,Village Cooking Boy,At-Risk,0.6083,High Momentum — Frequent Uploaders,0.1000,0.0889,0.2836,0.0122,6.0000,3.9843,1.1278,2.3867,Reach out — momentum sharply declining
+UCMtxqq7d7FqoWFyfkfMWMbw,MY NEWS CHANNEL ,At-Risk,0.6041,High Momentum — Frequent Uploaders,0.4667,0.1556,0.0314,0.0019,0.0000,0.0000,0.7107,3.2908,Reach out — momentum sharply declining
+UCqw8Qj8uBSugW0hZkCDHbTw,Great Family Artists,At-Risk,0.5947,Low Momentum — Declining Engagement,0.1000,0.0556,1.5946,0.0068,14.0000,116.9320,2.1556,23.5273,Monitor — declining engagement trend
+UCaw3KUHQ4kNe6YSqy9TH_Gg,Side Dish Recipes,At-Risk,0.5852,High Momentum — Frequent Uploaders,0.1667,0.2667,0.4577,0.0149,6.0000,9.5638,7.6567,2.5673,Reach out — momentum sharply declining
+UC30Yv18b8FKyEBojhI5-rXw,Programming with Amrit,At-Risk,0.5847,High Momentum — Frequent Uploaders,0.0667,0.0667,0.6163,0.0643,9.0000,35.1346,44.4667,6.7976,Monitor — declining engagement trend
+UCmTpLEs3Sk8hxbasbm612_Q,Bass fishing Productions,At-Risk,0.5832,High Momentum — Frequent Uploaders,0.0000,0.0222,6.3680,0.0134,47.0000,12.5565,25.5260,4.0807,"Reach out — momentum declining, no upload in 21+ days"
+UCpXUlokgfCt7CikQUITmrRQ,HAN Invest TV,At-Risk,0.5811,High Momentum — Frequent Uploaders,0.0000,0.2333,1.1382,0.3851,69.0000,1.4574,10.9750,16.1651,"Reach out — momentum declining, no upload in 21+ days"
+UCnY_mELQ2IppL5xfR77jUHg,NEW VAI VAI TELECOM,At-Risk,0.5811,High Momentum — Frequent Uploaders,0.0000,0.1222,2.4005,0.0809,54.0000,13.4087,0.2799,4.5887,"Reach out — momentum declining, no upload in 21+ days"
+UCfyrcva57Cq9k8XWQsNPbGw,Test Prep Champions,At-Risk,0.5808,High Momentum — Frequent Uploaders,0.0333,0.0333,0.7668,0.0325,18.0000,8.3199,22.0667,2.8018,Monitor — declining engagement trend
+UCjLzh3Uf5LJ1RQJ5Apcrbfg,ESPN Honolulu,At-Risk,0.5789,High Momentum — Frequent Uploaders,0.0333,0.1000,1.0199,0.0206,16.0000,5.3113,0.2833,2.9180,Monitor — declining engagement trend
+UC5JE7YF0lOik3RGez0Fd_vQ,Programming with Alex,At-Risk,0.5783,High Momentum — Frequent Uploaders,0.0333,0.0222,1.0682,0.0380,22.0000,25.9312,8.0500,5.1838,"Reach out — momentum declining, no upload in 21+ days"
+UCat6MqisTm8t-7cxjpelDRw,FITNESS WARRIOR ,At-Risk,0.5756,High Momentum — Frequent Uploaders,0.1333,1.6667,0.2082,0.0427,12.0000,1.0445,4.7583,3.0503,Reach out — momentum sharply declining
+UCaGEe4KXZrjou9kQx6ezG2w,Cognito,At-Risk,0.5750,High Momentum — Frequent Uploaders,0.0333,0.4889,1.1548,0.0197,29.0000,2.4170,4.8167,3.4428,"Reach out — momentum declining, no upload in 21+ days"
+UCSX-kSrFP_ploOVoAmj2LMA,Enoc fitness academy ,At-Risk,0.5746,High Momentum — Frequent Uploaders,0.2333,0.3889,0.1503,0.0382,2.0000,7.2624,1.6429,1.9914,Reach out — momentum sharply declining
+UClN-_4BGSkmqHdsqW-FlrsA,Political Prime,At-Risk,0.5726,High Momentum — Frequent Uploaders,0.0667,0.0222,,0.0669,0.0000,,16.5000,3.2940,Monitor — declining engagement trend
+UCcLKfZIxRXNGILgHHlsHLsw,Rico's Travel Adventures,At-Risk,0.5723,Low Momentum — Declining Engagement,0.0333,0.0333,2.0809,0.0371,28.0000,98.5754,14.5667,19.7467,"Reach out — momentum declining, no upload in 21+ days"
+UCI1G2xbS94XCxDCaqMsOPeQ,TECH SP 0.0,At-Risk,0.5672,High Momentum — Frequent Uploaders,0.0000,0.0444,2.3945,0.0521,34.0000,7.8778,14.4298,3.5287,"Reach out — momentum declining, no upload in 21+ days"
+UCKvJ_vxZZoN5yeWBU2CVGcQ,Fit Father Project - Fitness For Busy Fathers,At-Risk,0.5654,High Momentum — Frequent Uploaders,0.0000,0.2222,1.8312,0.0392,42.0000,2.6915,4.7773,3.6229,"Reach out — momentum declining, no upload in 21+ days"
+UC7EFWpvc1wYuUwrtZ_BLi9A,KLT,At-Risk,0.5577,High Momentum — Frequent Uploaders,0.2333,0.2111,1.0397,0.0029,0.0000,19.0512,1.1952,3.7953,Monitor — declining engagement trend
+UCmO_kM5RHLLBbZFw8sXCx6g,NEW NEWS USA,At-Risk,0.5561,High Momentum — Frequent Uploaders,0.1000,0.0333,,0.4444,0.0000,0.7071,12.7111,18.5410,Monitor — declining engagement trend
+UCM419LpqdTi2LMWAstg2duQ,Programming Journals,At-Risk,0.5549,High Momentum — Frequent Uploaders,0.1000,0.1333,0.8288,0.1436,18.0000,15.8744,31.8667,5.9435,Monitor — declining engagement trend
+UCTQe9C35ERifiLFG4fPuFuw,THE MAGA WATCH,At-Risk,0.5504,High Momentum — Frequent Uploaders,0.1000,0.0333,,0.8171,0.0000,0.0000,6.0278,35.1972,Monitor — declining engagement trend
+UC5bp1dwyNlNUXMnbQcuCTaw,The Programming Professor,At-Risk,0.5429,High Momentum — Frequent Uploaders,0.0000,0.0667,6.0435,0.0276,43.0000,6.7664,10.0092,3.5643,"Reach out — momentum declining, no upload in 21+ days"
+UCV7cZwHMX_0vk8DSYrS7GCg,Learn Coding,At-Risk,0.5396,High Momentum — Frequent Uploaders,0.1000,0.1333,1.0031,0.0272,19.0000,3.1109,246.7667,2.7992,Monitor — declining engagement trend
+UC-c822rbgiE75H8spNbMHKQ,Rob's Travels & Adventures,At-Risk,0.5370,High Momentum — Frequent Uploaders,0.0333,0.0778,1.1582,0.0307,6.0000,7.0621,38.3167,2.3048,Monitor — declining engagement trend
+UCgk93lGsVvGQrcQ-GHvh9uw,TGL,At-Risk,0.5346,High Momentum — Frequent Uploaders,0.1333,0.5222,0.6734,0.0105,0.0000,2.2370,1.0792,2.6525,Monitor — declining engagement trend
+UCtVDQNGBmS8DTP5fPzM_GmQ,Poorna - The nature girl,At-Risk,0.5296,High Momentum — Frequent Uploaders,0.0333,0.0333,2.3541,0.0150,15.0000,10.4955,20.1500,2.8480,Monitor — declining engagement trend
+UCfPyVJEBD7Di1YYjTdS2v8g,Homeschool Pop,At-Risk,0.5250,High Momentum — Frequent Uploaders,0.1000,0.1889,2.1266,0.0094,3.0000,20.5680,35.6333,3.9224,Monitor — declining engagement trend
+UC4uPfwRHPbYlmjNMiKIdWNg,Programming Pathshala,At-Risk,0.5233,High Momentum — Frequent Uploaders,0.0000,0.0444,29.9591,0.0259,45.0000,8.7293,15.6021,7.8977,"Reach out — momentum declining, no upload in 21+ days"
+UCUQNm17FqaU2AxIeVFfmBmw,Finance Today HQ,At-Risk,0.5226,High Momentum — Frequent Uploaders,0.2333,0.0778,1.4277,0.0002,1.0000,3.4059,0.5548,2.9596,Monitor — declining engagement trend
+UCGhTq7eI2yg2m6Hbo4nrKxg,Captain Workout,At-Risk,0.5218,High Momentum — Frequent Uploaders,0.1333,0.1222,0.6244,0.0451,6.0000,4.3444,11.2708,2.0404,Monitor — declining engagement trend
+UCTkXRDQl0luXxVQrRQvWS6w,Dream,At-Risk,0.5192,High Momentum — Frequent Uploaders,0.0000,0.3889,3.5766,0.0393,39.0000,3.1437,64.9726,3.4464,"Reach out — momentum declining, no upload in 21+ days"
+UCxTFPM1NYtPVk1jBwUMJcnw,DecodingYT,At-Risk,0.5183,High Momentum — Frequent Uploaders,0.0333,0.0556,1.6899,0.0446,11.0000,9.3716,9.5500,2.5797,Monitor — declining engagement trend
+UCTDTzy68kOwNdyJVLgDf8Og,ElderfitTV Experts In Over 60s Health & Fitness,At-Risk,0.5175,High Momentum — Frequent Uploaders,0.1000,0.1556,1.3234,0.0196,9.0000,4.8280,22.9111,2.3937,Monitor — declining engagement trend
+UCIPPMRA040LQr5QPyJEbmXA,MrBeast Gaming,At-Risk,0.5168,High Momentum — Frequent Uploaders,0.0667,0.0667,3.6237,0.0196,13.0000,45.2241,24.7333,8.7147,Monitor — declining engagement trend
+UCxVPH8W2ayMey1-b0SY8rBQ,The Coding Sloth,At-Risk,0.5164,High Momentum — Frequent Uploaders,0.1667,0.0667,1.0297,0.0483,14.0000,15.7849,3.5067,3.5710,Monitor — declining engagement trend
+UCRp-32Yi0KC2YMgHIg6mTag,SilverSneakers,At-Risk,0.5159,Low Momentum — Declining Engagement,0.0333,0.0333,7.1032,0.0195,14.0000,151.0594,8.2500,30.5816,Monitor — declining engagement trend
+UCzIyoPv6j1MAZpDHKLGP_eA,Morgan Wallen,At-Risk,0.5147,High Momentum — Frequent Uploaders,0.0333,0.0222,2.2529,0.0348,14.0000,22.2813,0.9833,4.2968,Monitor — declining engagement trend
+UCB80OYIR33HGCc-_cT0AsUA,Suno Music,At-Risk,0.5115,High Momentum — Frequent Uploaders,0.3333,0.6556,0.4225,0.0266,5.0000,2.0281,2.2217,2.1944,Reach out — momentum sharply declining
+UCE_M8A5yxnLfW0KghEeajjw,Apple,At-Risk,0.5113,High Momentum — Frequent Uploaders,0.2333,0.4111,1.2985,0.0192,3.0000,32.8543,11.6786,6.1397,Monitor — declining engagement trend
+UCWfvLq-t8xVQ4heof3feVMQ,James & Ellie's Adventures,At-Risk,0.5102,High Momentum — Frequent Uploaders,0.0667,0.0222,3.5737,0.0077,12.0000,18.8770,47.3167,4.2577,Monitor — declining engagement trend
+UC7uzuZJIYzcxV9JJ1yAtHHg,Complete Coding by Prashant Sir,At-Risk,0.5086,High Momentum — Frequent Uploaders,0.1000,0.0889,2.4337,0.0332,10.0000,53.1724,27.8222,10.2655,Monitor — declining engagement trend
+UCjAKzWYZLayOQfSud0lU1vQ,Royal Cooking,At-Risk,0.5082,High Momentum — Frequent Uploaders,0.0667,0.0667,1.4896,0.0187,6.0000,5.9873,24.8583,2.1237,Monitor — declining engagement trend
+UC8UQjouDT6jrpMpiCqemnLQ,CTO Music Artists,At-Risk,0.5054,Low Momentum — Declining Engagement,0.0667,0.0222,3.8184,0.0057,0.0000,97.9194,15.3333,19.6044,Monitor — declining engagement trend
+UCtNoE1yuvrs31ixvT5tSKXQ,RATEL NEWS,At-Risk,0.5049,High Momentum — Frequent Uploaders,0.2000,0.0667,1.5000,0.0000,0.0000,0.0000,14.8611,3.2578,Monitor — declining engagement trend
+UC1-BQ2oxqBVtCjMHF-Wf98w,Kapil Sharma,At-Risk,0.5045,High Momentum — Frequent Uploaders,0.1333,0.3556,1.6310,0.0193,14.0000,3.2762,0.9083,2.7200,Monitor — declining engagement trend
+UCJVYeaSDLbmzRWTYMdHLoOg,PICHEKKISTA BOBBY FOOD,At-Risk,0.5043,High Momentum — Frequent Uploaders,0.0667,0.0556,2.7542,0.0235,20.0000,10.2756,8.3250,2.8363,Monitor — declining engagement trend
+UCyi_FiCO8CiSExGYW2IALFw,vennala comedy,At-Risk,0.5004,High Momentum — Frequent Uploaders,0.1667,0.1000,1.4802,0.0140,12.0000,4.4541,0.6500,2.4905,Monitor — declining engagement trend
+UCanGaUp9luSTbqkCh9zVUIQ,Workout Health and Fitness,At-Risk,0.4994,High Momentum — Frequent Uploaders,0.0667,0.0444,2.1897,0.0218,4.0000,28.7866,6.3167,5.2773,Monitor — declining engagement trend
+UC8gFadPgK2r1ndqLI04Xvvw,Maangchi,At-Risk,0.4992,High Momentum — Frequent Uploaders,0.0333,0.0556,2.9028,0.0462,21.0000,6.8870,0.8667,2.7793,Monitor — declining engagement trend
+UCSZxaHGo1OEs06vQumIooug,The Masters,At-Risk,0.4934,High Momentum — Frequent Uploaders,0.0333,1.6667,2.8968,0.0126,17.0000,2.6562,1.7167,3.1853,Monitor — declining engagement trend
+UCAhFXSbJz9ZLlzSPBQUrDDw,ZeBall,At-Risk,0.4899,High Momentum — Frequent Uploaders,0.1333,0.0444,3.2119,0.0100,5.0000,39.6989,1.3500,7.7438,Monitor — declining engagement trend
+UCX8pnu3DYUnx8qy8V_c6oHg,Techno Gamerz,At-Risk,0.4878,High Momentum — Frequent Uploaders,0.0333,0.0667,3.9041,0.0322,18.0000,5.9044,105.6667,2.6156,Monitor — declining engagement trend
+UCVcQH8A634mauPrGbWs7QlQ,Jack Hartmann Kids Music Channel,At-Risk,0.4872,High Momentum — Frequent Uploaders,0.2000,0.2444,2.2447,0.0023,1.0000,2.4320,8.4722,2.2401,Monitor — declining engagement trend
+UCdlArXhKkCBlaR0R6w7_x3w,5-Minute Fitness,At-Risk,0.4870,High Momentum — Frequent Uploaders,0.0667,0.0667,1.8306,0.0300,13.0000,2.5903,5.1000,2.4075,Monitor — declining engagement trend
+UCOUgmmAD0Q5x9r1PT6WCVLQ,Taza Report News,At-Risk,0.4868,High Momentum — Frequent Uploaders,0.3000,0.1000,0.3734,0.0218,0.0000,0.0000,0.3093,2.9669,Reach out — momentum sharply declining
+UCkKDpnzIG29MA--Sh6oOtWg,Busy Fun Ltd,At-Risk,0.4857,High Momentum — Frequent Uploaders,0.1667,0.1667,2.9042,0.0023,3.0000,2.4967,8.2333,2.1827,Monitor — declining engagement trend
+UCxjc8mUzILAiXGPf1lBhqdQ,Bodybuilding Workout Routine And Diet Planing,At-Risk,0.4853,High Momentum — Frequent Uploaders,0.2000,0.1222,1.2996,0.0362,6.0000,15.2592,6.5278,2.8359,Monitor — declining engagement trend
+UCl1s4izms5LbnddYTJnTpqA,Telugudost Gaming,At-Risk,0.4839,High Momentum — Frequent Uploaders,0.1333,0.0444,1.3836,0.0246,6.0000,9.6461,11.8125,2.8847,Monitor — declining engagement trend
+UCJN3l7nQwqQIF2_RHfPxveg,Skinny Recipes,At-Risk,0.4838,High Momentum — Frequent Uploaders,0.0667,0.0667,2.5232,0.0222,10.0000,6.4946,2.3000,2.2199,Monitor — declining engagement trend
+UCVQ_DsLv2r9sPQfpQRQCR7g,MASLtv,At-Risk,0.4812,High Momentum — Frequent Uploaders,0.1333,0.7778,1.1287,0.0203,2.0000,1.8081,19.3375,2.3131,Monitor — declining engagement trend
+UCIpN4Y3Pt00Q9KoQMWI77_Q,Tyro Gaming,At-Risk,0.4795,High Momentum — Frequent Uploaders,0.1000,0.1000,2.0784,0.0052,0.0000,1.3740,11.3056,2.4244,Monitor — declining engagement trend
+UCwIWAbIeu0xI0ReKWOcw3eg,Unspeakable,At-Risk,0.4777,High Momentum — Frequent Uploaders,0.2000,0.1444,1.5053,0.0125,6.0000,3.1072,22.5861,2.1511,Monitor — declining engagement trend
+UCiGm_E4ZwYSHV3bcW1pnSeQ,Billie Eilish,At-Risk,0.4748,High Momentum — Frequent Uploaders,0.2333,0.1667,1.1863,0.0826,7.0000,14.5658,1.5048,3.4220,Monitor — declining engagement trend
+UCY1kMZp36IQSyNx_9h4mpCg,Mark Rober,At-Risk,0.4733,High Momentum — Frequent Uploaders,0.1333,0.1000,1.0884,0.0331,0.0000,6.5697,0.7389,1.9098,Monitor — declining engagement trend
+UCf3dc-Y3k5vBTCVpPCAfG6g,Tube Sensei,At-Risk,0.4676,High Momentum — Frequent Uploaders,0.1333,0.1556,1.6410,0.0469,6.0000,6.7507,13.7833,1.9822,Monitor — declining engagement trend
+UCBpYhz2nYLWulLJTTJ9cqsA,Pranit More Official,At-Risk,0.4659,High Momentum — Frequent Uploaders,0.2000,0.2222,2.1449,0.0403,14.0000,8.7164,18.8972,2.4212,Monitor — declining engagement trend
+UCqECaJ8Gagnn7YCbPEzWH6g,Taylor Swift,At-Risk,0.4646,High Momentum — Frequent Uploaders,0.0667,0.0333,4.2640,0.0302,11.0000,20.0752,1.7583,3.8118,Monitor — declining engagement trend
+UChpUSSTjbH8Ou8wz7wpkCTg,5 STAR,At-Risk,0.4643,High Momentum — Frequent Uploaders,0.1333,0.1556,3.7442,0.0184,11.0000,8.4471,9.1375,2.3343,Monitor — declining engagement trend
+UCsCAhWLi5XNDhVQDz8zVwnQ,Programming Fields,At-Risk,0.4626,High Momentum — Frequent Uploaders,0.2333,0.2333,0.9778,0.0561,5.0000,3.4507,36.2167,2.0258,Monitor — declining engagement trend
+UCvlE5gTbOvjiolFlEm-c_Ow,Vlad and Niki,At-Risk,0.4620,High Momentum — Frequent Uploaders,0.3000,0.3000,2.2955,0.0027,2.0000,1.3049,23.5056,2.1848,Monitor — declining engagement trend
+UCU2XpPnwebf9VwOuddBb9NQ,Adventures of A+K,At-Risk,0.4612,High Momentum — Frequent Uploaders,0.0667,0.0556,2.9038,0.0350,12.0000,5.0699,33.9333,2.1433,Monitor — declining engagement trend
+UCRgMIwmmh1-2k5HeTQ2cdkQ,Gaurav Thakur,At-Risk,0.4601,High Momentum — Frequent Uploaders,0.0333,0.0333,5.7084,0.0396,19.0000,6.7839,20.3167,2.4905,Monitor — declining engagement trend
+UCMBTtHoA-ft7Zc4Erkwe0Mg,Wealth Invest ,At-Risk,0.4585,High Momentum — Frequent Uploaders,0.4000,0.2000,0.8927,0.0312,13.0000,0.6642,6.2681,2.5482,Monitor — declining engagement trend
+UC8zJedg1f4sKnyuHWeS6vyw,50 Cent,At-Risk,0.4581,High Momentum — Frequent Uploaders,0.0333,0.0222,8.0230,0.0201,3.0000,43.9469,1.8167,8.3215,Monitor — declining engagement trend
+UCKGyEU7_oNIFkS1i5IpI-Mg,Youtube Tech Zone,At-Risk,0.4575,High Momentum — Frequent Uploaders,0.0667,0.0444,2.3581,0.0571,0.0000,30.2178,15.9833,5.6155,Monitor — declining engagement trend
+UCk3JZr7eS3pg5AGEvBdEvFg,Village Cooking Channel,At-Risk,0.4562,High Momentum — Frequent Uploaders,0.1000,0.0778,2.8596,0.0127,4.0000,3.9833,10.8944,1.8891,Monitor — declining engagement trend
+UCYzPXprvl5Y-Sf0g4vX-m6g,jacksepticeye,At-Risk,0.4536,High Momentum — Frequent Uploaders,0.1333,0.1778,2.0183,0.0408,4.0000,7.1738,120.0292,1.7988,Monitor — declining engagement trend
+UCC-RHF_77zQdKcA75hr5oTQ,FGTeeV,At-Risk,0.4534,High Momentum — Frequent Uploaders,0.0667,0.0333,6.5102,0.0109,5.0000,12.9618,20.6500,2.6720,Monitor — declining engagement trend
+UC4B6dDVB0Umrh5l4UgxUtyg,MY FAMILY,At-Risk,0.4515,High Momentum — Frequent Uploaders,0.1667,0.1556,6.0335,0.0030,4.0000,2.4582,9.0500,2.1329,Monitor — declining engagement trend
+UC2HNqPgeKtVr2gZmLeeIk3g,Nick's Kitchen,At-Risk,0.4504,High Momentum — Frequent Uploaders,0.3000,0.3556,1.0290,0.0210,0.0000,2.9356,3.3556,2.0421,Monitor — declining engagement trend
+UCa9LaWWnjav8p3tm2xVxE-g,Investing by the Books,At-Risk,0.4500,High Momentum — Frequent Uploaders,0.0333,0.0333,31.3481,0.0244,17.0000,12.7088,88.5000,7.9427,Monitor — declining engagement trend
+UC-lHJZR3Gqxm24_Vd_AJ5Yw,PewDiePie,At-Risk,0.4468,High Momentum — Frequent Uploaders,0.0667,0.0444,4.4026,0.0605,19.0000,6.9660,25.5083,2.6542,Monitor — declining engagement trend
+UC1n_yB_W-FZCbwajZPcs8Jw,UnspeakablePlays,At-Risk,0.4466,High Momentum — Frequent Uploaders,0.1333,0.2000,4.2353,0.0087,5.0000,1.9828,59.0917,2.1898,Monitor — declining engagement trend
+UC6T5Z5bTl9CCM8r3mQ0Q_Qw,Vegan Recipes,At-Risk,0.4464,High Momentum — Frequent Uploaders,0.2333,0.2556,1.0425,0.0379,1.0000,2.2782,8.4214,1.7324,Monitor — declining engagement trend
+UCJplp5SjeGSdVdwsfb9Q7lQ,Like Nastya,At-Risk,0.4460,High Momentum — Frequent Uploaders,0.2667,0.3333,2.5557,0.0042,0.0000,1.9262,19.4875,2.3284,Monitor — declining engagement trend
+UCMyxn5OJlScchmLwDUdmvBQ,Chinese Cooking Channel,At-Risk,0.4454,High Momentum — Frequent Uploaders,0.1667,0.0778,2.9251,0.0603,11.0000,17.7604,8.7000,3.6050,Monitor — declining engagement trend
+UChsFzlDgXxa4MDlFp-28FxQ,The Fun Squad,At-Risk,0.4454,High Momentum — Frequent Uploaders,0.3000,0.2556,2.9358,0.0029,0.0000,3.1328,13.8889,2.1882,Monitor — declining engagement trend
+UCuDTc9ztKJbsI6yleL3W2Vg,The Ohana Adventure,At-Risk,0.4429,High Momentum — Frequent Uploaders,0.2667,0.6222,1.5048,0.0238,6.0000,1.3189,18.1750,2.2455,Monitor — declining engagement trend
+UCxlJ45KjG4XVcQ_hd8j227A,Peekaboo Kidz,At-Risk,0.4413,High Momentum — Frequent Uploaders,0.3000,0.3111,2.4475,0.0036,0.0000,1.1084,8.6296,2.3501,Monitor — declining engagement trend
+UCk8GzjMOrta8yxDcKfylJYw,✿ Kids Diana Show,At-Risk,0.4371,High Momentum — Frequent Uploaders,0.7667,0.8222,1.0231,0.0046,1.0000,0.7232,13.3630,2.1974,Monitor — declining engagement trend
+UCMDfmvde1kecwrtE-m2wjmg,Travel Adventures with Eric B,At-Risk,0.4364,High Momentum — Frequent Uploaders,0.2333,0.1667,1.3077,0.2088,5.0000,6.6384,15.0667,7.9028,Monitor — declining engagement trend
+UC5EQWvy59VeHPJz8mDALPxg,Mic Set,At-Risk,0.4363,High Momentum — Frequent Uploaders,0.3333,0.5000,3.0960,0.0458,24.0000,8.0174,2.4733,2.7337,"Reach out — momentum declining, no upload in 21+ days"
+UC2BaKQ5vqal9yaC-VbpD5ZQ,Senior Fitness With Meredith,At-Risk,0.4343,High Momentum — Frequent Uploaders,0.1667,0.1556,1.7844,0.0316,5.0000,0.9283,9.7833,1.9324,Monitor — declining engagement trend
+UC4C20Zelty7V0fuy5uTHdjQ,Smart Programming,At-Risk,0.4336,High Momentum — Frequent Uploaders,0.2000,0.2222,2.8324,0.0272,4.0000,9.1905,15.3389,1.8060,Monitor — declining engagement trend
+UC1XyujUUAnV-WoJi8Pjm87Q,World Of An Adventure,At-Risk,0.4293,High Momentum — Frequent Uploaders,0.2333,0.1556,2.9611,0.0284,11.0000,5.5739,1.9833,2.0132,Monitor — declining engagement trend
+UCf5H6aT6NzCQES8OJIhciTw,freefincal - Prudent DIY Investing (freefincal),At-Risk,0.4289,High Momentum — Frequent Uploaders,0.1000,0.1111,5.1087,0.0305,1.0000,18.0953,10.7000,3.0576,Monitor — declining engagement trend
+UCncnlpiTnf89IJrekMKoa3A,Food on Farm,At-Risk,0.4286,High Momentum — Frequent Uploaders,0.2333,0.2667,1.8738,0.0206,3.0000,1.5505,11.1667,1.8646,Monitor — declining engagement trend
+UCBuvob-WMcvyTfvtFtWkuww,Programming With Vinoth,At-Risk,0.4284,High Momentum — Frequent Uploaders,0.0667,0.0222,4.6620,0.0464,1.0000,45.6739,1.5000,8.7997,Monitor — declining engagement trend
+UCRijo3ddMTht_IHyNSNXpNQ,Dude Perfect,At-Risk,0.4282,High Momentum — Frequent Uploaders,0.3000,0.2778,3.1683,0.0207,13.0000,4.5673,6.4667,2.1869,Monitor — declining engagement trend
+UCX6OQ3DkcsbYNE6H8uQQuVA,MrBeast,At-Risk,0.4262,High Momentum — Frequent Uploaders,0.2333,0.3444,1.8873,0.0209,1.0000,2.5648,9.6929,1.8235,Monitor — declining engagement trend
+UC7bYyWCCCLHDU0ZuNzGNTtg,The Comments Section,At-Risk,0.4255,High Momentum — Frequent Uploaders,0.0333,0.3889,9.7637,0.0574,13.0000,2.4552,1.0000,3.0445,Monitor — declining engagement trend
+UCKjjmMqvuxNYw8c6knceexQ,Blippi Learns - Educational Videos for Kids,At-Risk,0.4252,High Momentum — Frequent Uploaders,0.8667,0.8556,1.1060,0.0037,0.0000,0.7318,10.1545,2.3583,Monitor — declining engagement trend
+UCIY9gQFVZyysKiLAd-kGw8g,F3 Comedy Channel,At-Risk,0.4250,High Momentum — Frequent Uploaders,0.1000,1.0667,3.6360,0.0138,1.0000,2.1184,14.8222,2.2776,Monitor — declining engagement trend
+UC8H6icXC3vMR7lWtvDTw2Xg,Village Cooking - Kerala,At-Risk,0.4239,High Momentum — Frequent Uploaders,0.0333,0.1111,19.9595,0.0172,3.0000,4.1101,6.4833,4.6510,Monitor — declining engagement trend
+UCC9NzyYnR7UQK4fcZbXIPMg,Fitness For every1 Official,At-Risk,0.4228,High Momentum — Frequent Uploaders,0.3333,0.3000,1.0628,0.0363,0.0000,2.0823,22.0033,1.8614,Monitor — declining engagement trend
+UCmcUAA6iuCZHQMWXtoYHZBg,Tina Mini Cooking,Healthy,0.2913,High Momentum — Frequent Uploaders,1.1333,0.5667,2.5904,0.1017,0.0000,6.7454,65.4270,3.2224,No action needed
+UCKr8cByPETfDQfTxOReBD9A,Political Science Learning,Healthy,0.2912,High Momentum — Frequent Uploaders,0.6000,0.5111,6.0179,0.0724,0.0000,3.9910,8.9009,1.9672,No action needed
+UCh5Wf2KkLsSHsBykPGRAReg,WOMANLY Health and Fitness,Healthy,0.2902,High Momentum — Frequent Uploaders,0.5000,0.4778,8.6495,0.0452,1.0000,0.9397,9.5833,1.5883,No action needed
+UCjvNWB4Zw5AeOxDKP7WM9Ng,Sharp Tamil Gaming,Healthy,0.2902,High Momentum — Frequent Uploaders,0.4333,0.3444,17.4803,0.0421,0.0000,2.6608,40.5551,3.7332,No action needed
+UC8butISFwT-Wl7EV0hUK0BQ,freeCodeCamp.org,Healthy,0.2899,High Momentum — Frequent Uploaders,1.0667,1.3222,3.6261,0.0170,0.0000,0.4804,138.3365,1.8804,No action needed
+UCujuVKmt_utAQZJghxlRMIQ,ESPNcricinfo,Healthy,0.2895,High Momentum — Frequent Uploaders,5.0000,1.6667,0.5172,0.0503,0.0000,0.0000,3.4429,4.6614,No action needed
+UCLuH7A9-XUY3EM6kuAcNAqA,Unbiased Politics with Jordan Berman,Healthy,0.2882,High Momentum — Frequent Uploaders,0.4333,0.5111,11.2460,0.0686,0.0000,2.2137,25.3436,2.6640,No action needed
+UCiWLfSweyRNmLpgEHekhoAg,ESPN,Healthy,0.2876,High Momentum — Frequent Uploaders,5.0000,1.6667,0.7546,0.0202,0.0000,0.0000,5.3231,4.6733,No action needed
+UCke6I9N4KfC968-yRcd5YRg,SSundee,Healthy,0.2872,High Momentum — Frequent Uploaders,0.7333,0.7222,5.6071,0.0250,0.0000,0.6745,18.5697,1.5515,No action needed
+UC-ZlBFS4oNWfGDPOMCWtJmg,Funny Factory,Healthy,0.2869,High Momentum — Frequent Uploaders,1.2000,1.1556,3.0477,0.0204,0.0000,0.8511,3.5111,1.6938,No action needed
+UCq4isO8ZYOZfmvGJ-_1UdIA,GRAMMYS,Healthy,0.2867,High Momentum — Frequent Uploaders,1.3333,1.1000,2.4201,0.0359,2.0000,1.0754,1.6338,1.2008,No action needed
+UCOlnCUAKLENyFC8wftR-oNw,Excel Esports,Healthy,0.2866,High Momentum — Frequent Uploaders,0.9333,0.6111,8.7055,0.0149,0.0000,3.2661,43.3964,1.7814,No action needed
+UCNAf1k0yIjyGu3k9BwAg3lg,Sky Sports Premier League,Healthy,0.2842,High Momentum — Frequent Uploaders,3.5667,1.6667,1.0153,0.0211,0.0000,0.3506,14.9340,3.2278,No action needed
+UCygaJ2FHLv2HkmGua22dDYg,Buffalo Sabres,Healthy,0.2816,High Momentum — Frequent Uploaders,0.8333,1.6667,4.9445,0.0322,1.0000,0.8441,14.1667,1.6502,No action needed
+UCV6KDgJskWaEckne5aPA0aQ,Graham Stephan,Healthy,0.2816,High Momentum — Frequent Uploaders,0.9667,1.0889,4.6760,0.0198,0.0000,0.5779,2.9925,1.6934,No action needed
+UCsufaClk5if2RGqABb-09Uw,The Rest Is Politics,Healthy,0.2816,High Momentum — Frequent Uploaders,1.0667,1.1333,4.1873,0.0193,0.0000,0.8228,17.3740,1.6706,No action needed
+UCVMOQmAEqtzfBGV-_X6_zMw,The Savannah Bananas,Healthy,0.2816,High Momentum — Frequent Uploaders,1.6667,1.6667,2.2283,0.0200,0.0000,0.6195,34.0640,2.0217,No action needed
+UCsCrgTwPv3kBrPF9omhQpzA,HOMEWORKOUT,Healthy,0.2815,High Momentum — Frequent Uploaders,1.0000,1.0000,3.8438,0.0231,0.0000,0.3420,18.4822,1.6329,No action needed
+UCXApMhOwzONNAAbqxQfH5dA,Loki Anji Entertainment,Healthy,0.2779,High Momentum — Frequent Uploaders,1.1667,0.9222,3.3536,0.0248,0.0000,0.7760,0.7752,1.5092,No action needed
+UCGW2OA5IB1l1YbIeiVLxKcA,Miniature Cooking Ideas,Healthy,0.2779,High Momentum — Frequent Uploaders,1.7667,1.6667,2.4994,0.0150,0.0000,0.2262,0.8082,2.1378,No action needed
+UCJ2ZDzMRgSrxmwphstrm8Ww,Smosh Games,Healthy,0.2778,High Momentum — Frequent Uploaders,0.7667,0.7444,4.2463,0.0506,0.0000,0.5686,20.6804,1.5725,No action needed
+UCo_nWik261ZKSnjgoaIjz0w,Personal Finance with Ravi Sharma,Healthy,0.2777,High Momentum — Frequent Uploaders,1.3667,1.3333,4.1416,0.0123,0.0000,0.4561,4.9760,1.9048,No action needed
+UCGy7SkBjcIAgTiwkXEtPnYg,Andrei Jikh,Healthy,0.2776,High Momentum — Frequent Uploaders,0.8333,0.7778,6.3336,0.0252,0.0000,1.2504,6.7487,1.4736,No action needed
+UCfQrY2hBkTZd6sSYrlg83UA,Abhi Honeybee ,Healthy,0.2772,High Momentum — Frequent Uploaders,0.9000,0.9667,8.8859,0.0192,0.0000,2.5454,3.2130,1.8307,No action needed
+UCYn6CZe5UGIyPe9WJb0pTrg,Top5Gaming,Healthy,0.2748,High Momentum — Frequent Uploaders,0.9000,0.8667,6.5002,0.0251,1.0000,1.0207,7.1772,1.2113,No action needed
+UCJHAT3Uvv-g3I8H3GhHWV7w,"Ryan Hall, Y'all",Healthy,0.2740,High Momentum — Frequent Uploaders,0.5667,0.6778,15.9519,0.0407,1.0000,1.1453,206.3382,3.2862,No action needed
+UCXp7t87iLdty_jKYZtLg_lA,Funmoji,Healthy,0.2738,High Momentum — Frequent Uploaders,1.2333,0.7444,2.6622,0.0487,0.0000,1.4194,7.1041,1.5053,No action needed
+UCaYPb21Hvy65vwcDIrRYVOQ,Kaviraj funny videos,Healthy,0.2738,High Momentum — Frequent Uploaders,1.9667,1.6667,2.3444,0.0147,0.0000,0.0000,0.7658,2.2190,No action needed
+UC2wKfjlioOCLP4xQMOWNcgg,Typical Gamer,Healthy,0.2727,High Momentum — Frequent Uploaders,0.8000,1.1889,16.0175,0.0240,4.0000,0.5747,291.1417,3.4766,No action needed
+UC0cd_-e49hZpWLH3UIwoWRA,Professor Dave Explains,Healthy,0.2706,High Momentum — Frequent Uploaders,0.7000,0.6778,5.6116,0.0632,0.0000,0.7910,39.9794,1.8405,No action needed
+UC7t6QJ4u8qF8pI-vibX-BUQ,WORKOUT,Healthy,0.2706,High Momentum — Frequent Uploaders,0.7333,0.6889,5.7311,0.0521,0.0000,0.8722,7.9045,1.5529,No action needed
+UCwVEhEzsjLym_u1he4XWFkg,Finance With Sharan,Healthy,0.2692,High Momentum — Frequent Uploaders,0.8667,0.8556,16.2309,0.0150,0.0000,1.2197,12.0936,3.5527,No action needed
+UChqUTb7kYRX8-EiaN3XFrSQ,Reuters,Healthy,0.2692,High Momentum — Frequent Uploaders,5.0000,1.6667,0.8288,0.0314,0.0000,0.0000,26.0793,4.6109,No action needed
+UCv7Bgr5Mq-dPYu-Ol4AocEA,Shinedown,Healthy,0.2664,High Momentum — Frequent Uploaders,0.8667,0.4889,9.0884,0.0536,1.0000,4.5358,7.6628,1.4790,No action needed
+UCvyZS6W6zMJCZBVzF-Ei6sw,A2D Channel,Healthy,0.2662,High Momentum — Frequent Uploaders,0.7000,0.8444,6.6883,0.0575,0.0000,0.7431,14.9444,1.8227,No action needed
+UCsy9I56PY3IngCf_VGjunMQ,Zeihan on Geopolitics,Healthy,0.2653,High Momentum — Frequent Uploaders,0.8333,0.9333,6.0651,0.0394,0.0000,0.7814,5.4360,1.4867,No action needed
+UC4P7fgvQinbOJDEJ9lluZWA,Fun Da.,Healthy,0.2651,High Momentum — Frequent Uploaders,0.8667,0.8556,4.6805,0.0529,0.0000,0.6181,3.6135,1.5812,No action needed
+UCiqWGbfsJ3UZDk9s3cZXHHQ,Shiva_entertainment,Healthy,0.2641,High Momentum — Frequent Uploaders,1.0333,1.3111,3.7971,0.0471,0.0000,0.6020,1.8333,1.6759,No action needed
+UCrxmoWI2-adOSdY8psfmqQA,Courtney Holland - Any Weight Fitness,Healthy,0.2641,High Momentum — Frequent Uploaders,0.7000,0.6222,7.1044,0.0603,0.0000,0.8596,33.3151,1.8170,No action needed
+UCLkAepWjdylmXSltofFvsYQ,BANGTANTV,Healthy,0.2639,High Momentum — Frequent Uploaders,0.9000,1.0778,5.2397,0.1438,1.0000,3.4392,5.7772,4.8564,No action needed
+UCyoXW-Dse7fURq30EWl_CUA,Goldmines,Healthy,0.2632,High Momentum — Frequent Uploaders,5.0000,1.6667,1.6950,0.0082,0.0000,0.0000,35.1328,4.7326,No action needed
+UCja8sZ2T4ylIqjggA1Zuukg,CBS Sports,Healthy,0.2632,High Momentum — Frequent Uploaders,5.0000,1.6667,1.1503,0.0177,0.0000,0.0000,9.9649,4.6660,No action needed
+UCBi2mrWuNuyYy4gbM6fU18Q,ABC News,Healthy,0.2629,High Momentum — Frequent Uploaders,5.0000,1.6667,1.1249,0.0236,0.0000,1.1469,24.5197,4.5763,No action needed
+UCfQgsKhHjSyRLOp9mnffqVg,Renaissance Periodization,Healthy,0.2625,High Momentum — Frequent Uploaders,1.9667,1.6667,2.3810,0.0214,0.0000,0.1973,5.2483,2.0731,No action needed
+UCRkyWI1tbWchz0uHfCMXK0w,Wonderhussy Adventures,Healthy,0.2625,High Momentum — Frequent Uploaders,0.7667,0.4444,5.5124,0.0987,0.0000,1.5023,30.0659,3.0599,No action needed
+UCoguzybAI8Fgdj4Aze5tE8w,Fit Media Channel,Healthy,0.2623,High Momentum — Frequent Uploaders,0.9667,1.0222,5.0540,0.0434,0.0000,1.2660,1.4460,1.3894,No action needed
+UC5do440No8w7OVsrerwnuMQ,Invest With MarketMinds,Healthy,0.2610,High Momentum — Frequent Uploaders,1.8667,1.6667,9.9434,0.0046,0.0000,0.4030,109.5994,2.6527,No action needed
+UCbRP3c757lWg9M-U7TyEkXA,Theo - t3․gg,Healthy,0.2598,High Momentum — Frequent Uploaders,0.9333,0.7667,5.9817,0.0357,0.0000,0.7234,20.9071,1.3566,No action needed
+UCwNqHDsnBCKT-olwJwIFyfg,FOX Sports,Healthy,0.2570,High Momentum — Frequent Uploaders,5.0000,1.6667,1.4064,0.0141,0.0000,0.0000,2.1836,4.6827,No action needed
+UCHaHD477h-FeBbVh9Sh7syA,BBC Learning English,Healthy,0.2568,High Momentum — Frequent Uploaders,1.1333,1.1000,4.6372,0.0339,0.0000,0.6568,10.3255,1.4232,No action needed
+UCUxc0iEpV8wZV4WLOui0RwQ,Gabriel Iglesias,Healthy,0.2567,High Momentum — Frequent Uploaders,1.8667,1.6667,2.0807,0.0428,0.0000,0.3106,3.3589,1.9539,No action needed
+UCzYfz8uibvnB7Yc1LjePi4g,Aphmau,Healthy,0.2566,High Momentum — Frequent Uploaders,1.2000,1.3778,5.6300,0.0215,0.0000,0.4374,21.2120,1.7345,No action needed
+UC4JX40jDee_tINbkjycV4Sg,Tech With Tim,Healthy,0.2559,High Momentum — Frequent Uploaders,1.4000,1.6000,3.5241,0.0306,0.0000,0.4462,10.2063,1.7480,No action needed
+UCFaPKpyRj9OAqhs2A2Aw9Dg,ESPN Asia,Healthy,0.2540,High Momentum — Frequent Uploaders,1.1000,0.7111,99.9786,0.0154,0.0000,4.5362,1.4343,26.7393,No action needed
+UCXuqSBlHAE6Xw-yeJA0Tunw,Linus Tech Tips,Healthy,0.2535,High Momentum — Frequent Uploaders,1.1333,1.1111,5.1441,0.0325,0.0000,0.6108,35.9471,1.4375,No action needed
+UC4vmPjKs8tJM0HMd9JmgZ-g,ESPN MX,Healthy,0.2528,High Momentum — Frequent Uploaders,5.0000,1.6667,1.2341,0.0213,0.0000,0.0000,12.0797,4.6319,No action needed
+UCNvzD7Z-g64bPXxGzaQaa4g,gameranx,Healthy,0.2525,High Momentum — Frequent Uploaders,1.1333,1.1444,5.4871,0.0357,1.0000,0.4738,19.9407,1.1471,No action needed
+UCXIJgqnII2ZOINSWNOGFThA,Fox News,Healthy,0.2524,High Momentum — Frequent Uploaders,5.0000,1.6667,0.9676,0.0412,0.0000,0.0000,9.1780,4.5953,No action needed
+UCh_8srMF2Q-i1nORhHI8zdw,뮤직포아티스트 Music for Artist,Healthy,0.2516,High Momentum — Frequent Uploaders,1.1667,1.1000,20.2932,0.0136,0.0000,1.6711,473.3062,4.5861,No action needed
+UCupvZG-5ko_eiXAupbDfxWw,CNN,Healthy,0.2515,High Momentum — Frequent Uploaders,5.0000,1.6667,1.1223,0.0280,0.0000,0.0000,6.7517,4.6017,No action needed
+UClkO4MArT2WKWj32YDD_-Ew,The Democrats,Healthy,0.2508,High Momentum — Frequent Uploaders,3.3667,1.6667,1.2183,0.0608,0.0000,0.4402,12.8421,3.1187,No action needed
+UC3Xi3rLMaEzWV8g1Sp3FnJQ,Eat Travel Adventure,Healthy,0.2501,High Momentum — Frequent Uploaders,0.8667,0.8667,10.5938,0.0350,0.0000,0.7695,5.2840,2.0888,No action needed
+UCg40OxZ1GYh3u3jBntB6DLg,Forbes Breaking News,Healthy,0.2480,High Momentum — Frequent Uploaders,5.0000,1.6667,1.1622,0.0292,0.0000,0.0000,14.5759,4.5941,No action needed
+UC08mnbiC4FykqpHqbEWgFcg,ESPN Deportes,Healthy,0.2470,High Momentum — Frequent Uploaders,5.0000,1.6667,1.2488,0.0253,0.0000,0.0000,16.2331,4.6059,No action needed
+UCJg9wBPyKMNA5sRDnvzmkdg,LiveNOW from FOX,Healthy,0.2453,High Momentum — Frequent Uploaders,5.0000,1.6667,1.2968,0.0246,0.0000,0.0000,13.8453,4.6069,No action needed
+UC4vFsTSzZyFOrAYQpzEFxcg,Investing Tutorial,Healthy,0.2445,High Momentum — Frequent Uploaders,1.3333,1.4889,6.3709,0.0219,0.0000,0.3745,17.0992,1.7943,No action needed
+UCL0u5uz7KZ9q-pe-VC8TY-w,Candace Owens,Healthy,0.2424,High Momentum — Frequent Uploaders,0.9667,0.9889,7.9625,0.0587,0.0000,1.3438,30.7109,1.8263,No action needed
+UCMN0a7GHQnC6H74SmCGSmdw,You Suck at Programming,Healthy,0.2410,High Momentum — Frequent Uploaders,1.8667,1.6667,2.4885,0.0595,0.0000,0.4454,19.1098,2.1221,No action needed
+UC3ryOjJBUj7H1lh5tjv-zsQ,Exploring Life's Adventures,Healthy,0.2402,High Momentum — Frequent Uploaders,2.5667,1.6667,1.8877,0.0612,1.0000,0.2149,9.2502,2.3417,No action needed
+UCBIT1FSJW6yTlzqK-31FDWg,LIV Comedy,Healthy,0.2394,High Momentum — Frequent Uploaders,5.0000,1.6667,1.8099,0.0147,0.0000,0.0000,39.5996,4.6529,No action needed
+UC-zjH-e5XBzMpy_VtwIGRxQ,Arekkz Gaming,Healthy,0.2391,High Momentum — Frequent Uploaders,2.0333,1.6667,3.1458,0.0279,0.0000,0.3749,7.4959,1.9183,No action needed
+UCk8gzAOGprcGAFMWGzZ2zQw,ESPN UK,Healthy,0.2386,High Momentum — Frequent Uploaders,5.0000,1.6667,1.5067,0.0219,0.0000,0.0000,11.0080,4.6100,No action needed
+UCESh5daDcPqvG0QhbSdzIzw,Millionaires Investment Secrets,Healthy,0.2384,High Momentum — Frequent Uploaders,1.7000,1.6444,3.9244,0.0394,0.0000,1.5271,9.1101,1.6054,No action needed
+UCAuUUnT6oDeKwE6v1NGQxug,TED,Healthy,0.2379,High Momentum — Frequent Uploaders,1.3667,1.4667,6.2322,0.0270,0.0000,0.4088,17.9703,1.6873,No action needed
+UCmE674ZgiVetygp6aEHkccw,Funny comment,Healthy,0.2370,High Momentum — Frequent Uploaders,1.0000,0.9556,12.4508,0.0334,0.0000,0.5553,0.4456,2.5039,No action needed
+UCT2xzagsBVtStUCA2ulvKmQ,Manoj Dey,Healthy,0.2370,High Momentum — Frequent Uploaders,1.1000,1.0222,6.4672,0.0601,0.0000,0.9294,4.3328,1.7256,No action needed
+UCHuiy8bXnmK5nisYHUd1J5g,NVIDIA,Healthy,0.2368,High Momentum — Frequent Uploaders,1.4000,0.9889,73.7297,0.0272,8.0000,1.4891,11.2250,19.3773,No action needed
+UCDUlDJcPPOOQK-3UrxEyhAQ,Roberta's Gym,Healthy,0.2366,High Momentum — Frequent Uploaders,1.7333,1.6667,4.4145,0.0261,0.0000,0.5237,13.1827,1.7798,No action needed
+UCIALMKvObZNtJ6AmdCLP7Lg,Bloomberg Television,Healthy,0.2365,High Momentum — Frequent Uploaders,5.0000,1.6667,1.7493,0.0172,0.0000,0.0000,27.5456,4.6331,No action needed
+UCUyz_gEY_N-KBU4zjt2s-uQ,Los Angeles Chargers,Healthy,0.2362,High Momentum — Frequent Uploaders,1.5000,1.6667,4.5027,0.0386,0.0000,0.6266,10.8419,1.6810,No action needed
+UC0eLBYhxW9HC0P9PXQ73mpQ,Cash,Healthy,0.2346,High Momentum — Frequent Uploaders,1.7333,1.2556,7.6634,0.0147,0.0000,0.4761,11.2990,1.9573,No action needed
+UCPWXiRWZ29zrxPFIQT7eHSA,The Hill,Healthy,0.2337,High Momentum — Frequent Uploaders,5.0000,1.6667,1.4448,0.0289,0.0000,0.0000,14.5467,4.5765,No action needed
+UCb-xXZ7ltTvrh9C6DgB9H-Q,Prasadtechintelugu,Healthy,0.2328,High Momentum — Frequent Uploaders,1.3667,1.4000,4.8183,0.0526,0.0000,0.5533,6.9736,1.6761,No action needed
+UC6c1z7bA__85CIWZ_jpCK-Q,ESPN FC,Healthy,0.2311,High Momentum — Frequent Uploaders,5.0000,1.6667,1.6386,0.0235,0.0000,0.0000,8.0284,4.5916,No action needed
+UC0Wwu7r1ybaaR09ANhudTzA,Tampa Bay Buccaneers,Healthy,0.2309,High Momentum — Frequent Uploaders,1.4333,1.6667,5.1907,0.0417,0.0000,0.4451,6.2736,1.7088,No action needed
+UC6-F5tO8uklgE9Zy8IvbdFw,Sony SAB,Healthy,0.2289,High Momentum — Frequent Uploaders,4.9333,1.6444,1.5985,0.0277,0.0000,0.0000,17.0252,4.5169,No action needed
+UCVSSpcmZD2PwPBqb8yKQKBA,NBA on ESPN,Healthy,0.2283,High Momentum — Frequent Uploaders,5.0000,1.6667,1.6722,0.0249,0.0000,0.0000,6.3264,4.5818,No action needed
+UC--i2rV5NCxiEIPefr3l-zQ,TSN,Healthy,0.2277,High Momentum — Frequent Uploaders,5.0000,1.6667,2.3115,0.0134,0.0000,0.0000,20.2484,4.6401,No action needed
+UCrPseYLGpNygVi34QpGNqpA,Ludwig,Healthy,0.2272,High Momentum — Frequent Uploaders,2.0667,1.6667,4.5294,0.0226,0.0000,0.3235,123.3836,1.9321,No action needed
+UCgaPRP68bbyHnfkPhWWBrNw,PC Gamer,Healthy,0.2263,High Momentum — Frequent Uploaders,5.0000,1.6667,1.9394,0.0200,0.0000,0.1409,15.0637,4.5923,No action needed
+UCJx5KP-pCUmL9eZUv-mIcNw,GameTrailers,Healthy,0.2233,High Momentum — Frequent Uploaders,5.0000,1.6667,1.5975,0.0337,0.0000,0.0000,2.3221,4.5539,No action needed
+UCqQo7ewe87aYAe7ub5UqXMw,House of Highlights,Healthy,0.2223,High Momentum — Frequent Uploaders,5.0000,1.6667,2.2876,0.0161,0.0000,0.0000,6.0774,4.6144,No action needed
+UCLe5jAObhLYJqFHEI4aPi4g,United Football League (UFL),Healthy,0.2222,High Momentum — Frequent Uploaders,5.0000,1.6667,1.3625,0.0638,0.0000,0.1807,4.7987,4.7075,No action needed
+UC16niRr50-MSBwiO3YDb3RA,BBC News,Healthy,0.2218,High Momentum — Frequent Uploaders,5.0000,1.6667,1.9878,0.0214,0.0000,0.0000,6.5712,4.5857,No action needed
+UCZDpKRXDSFSc6IXPMQ3GHpA,ESPN New York,Healthy,0.2216,High Momentum — Frequent Uploaders,5.0000,1.6667,1.8608,0.0248,0.0000,0.0000,67.2901,4.5712,No action needed
+UCJkxjzp8DFadQRiJp3yUdKg,AngieFitnessTV Rebounding Workouts,Healthy,0.2214,High Momentum — Frequent Uploaders,1.6667,0.6667,10.5356,0.0434,0.0000,4.8990,5.3380,2.2756,No action needed
+UC6FAdYMu1iv-KJpC_fIIelA,"Wealth,Finance & Investment Center",Healthy,0.2212,High Momentum — Frequent Uploaders,1.4000,1.6000,6.9034,0.0509,0.0000,0.8272,57.3187,1.7971,No action needed
+UC-0CkA9L7_l1ORE5rUiQULA,Chrisman Commentary,Healthy,0.2210,High Momentum — Frequent Uploaders,4.7333,1.6667,2.8059,0.0137,0.0000,0.3718,16.8523,4.3185,No action needed
+UCCXoCcu9Rp7NPbTzIvogpZg,Fox Business,Healthy,0.2202,High Momentum — Frequent Uploaders,5.0000,1.6667,1.5743,0.0402,0.0000,0.0000,7.4331,4.5535,No action needed
+UCB_qr75-ydFVKSF9Dmo6izg,FORMULA 1,Healthy,0.2191,High Momentum — Frequent Uploaders,5.0000,1.6667,2.0015,0.0272,1.0000,0.0000,13.5038,4.4600,No action needed
+UCpXMHgjrpnynDSV5mXpqImw,San Francisco Giants,Healthy,0.2158,High Momentum — Frequent Uploaders,2.7000,1.6667,3.7671,0.0254,0.0000,0.3274,2.3352,2.2698,No action needed
+UCJ5v_MCY6GNUBTO8-D3XoAg,WWE,Healthy,0.2155,High Momentum — Frequent Uploaders,5.0000,1.6667,1.8512,0.0317,0.0000,0.0000,9.0984,4.5433,No action needed
+UCiio0ydw439X13KyZgMIcHw,NFL on ESPN,Healthy,0.2148,High Momentum — Frequent Uploaders,5.0000,1.6667,1.8633,0.0337,0.0000,0.1827,8.7050,4.5296,No action needed
+UC6ZFN9Tx6xh-skXCuRHCDpQ,PBS NewsHour,Healthy,0.2147,High Momentum — Frequent Uploaders,5.0000,1.6667,1.9186,0.0300,0.0000,0.0000,20.2741,4.5445,No action needed
+UCFfD9fWqkT4PNy7v6r8ilmg,Conservative Twins,Healthy,0.2141,High Momentum — Frequent Uploaders,1.6333,1.4444,5.5294,0.0784,1.0000,0.5778,5.6207,2.2298,No action needed
+UCmAPdImtXLGh5E-lTTH4Qmg,Flowers Comedy,Healthy,0.2131,High Momentum — Frequent Uploaders,5.0000,1.6667,2.9423,0.0140,0.0000,0.0000,10.3144,4.6069,No action needed
+UCBPWTukZBKKCUKh_oll9icA,The Trench Family,Healthy,0.2105,High Momentum — Frequent Uploaders,5.0000,1.6667,3.8809,0.0107,0.0000,0.2290,2.2864,4.6060,No action needed
+UCzRWWsFjqHk1an4OnVPsl9g,ESPN College Football,Healthy,0.2105,High Momentum — Frequent Uploaders,5.0000,1.6667,2.1114,0.0299,0.0000,0.2443,20.2652,4.5229,No action needed
+UCJFp8uSYCjXOMnkUyb3CQ3Q,Tasty,Healthy,0.2098,High Momentum — Frequent Uploaders,3.6333,1.6667,3.4216,0.0199,0.0000,0.0819,1.5758,3.1458,No action needed
+UChLtXXpo4Ge1ReTEboVvTDg,Global News,Healthy,0.2093,High Momentum — Frequent Uploaders,5.0000,1.6667,2.4054,0.0224,0.0000,0.0000,10.8269,4.5581,No action needed
+UC_zEzzq54Rm0iy7lmmZbCIg,America's Funniest Home Videos,Healthy,0.2087,High Momentum — Frequent Uploaders,3.4333,1.6667,4.1500,0.0168,0.0000,0.0000,3.4053,2.9842,No action needed
+UCvHm-lDQEhRJNCd8BdpzDkQ,ESPN MLB,Healthy,0.2086,High Momentum — Frequent Uploaders,5.0000,1.6667,2.5575,0.0204,0.0000,0.0000,6.4517,4.5652,No action needed
+UCzJXNzqz6VMHSNInQt_7q6w,Megyn Kelly,Healthy,0.2073,High Momentum — Frequent Uploaders,5.0000,1.6667,1.9868,0.0381,0.0000,0.0819,13.3174,4.5242,No action needed
+UC8Y-jrV8oR3s2Ix4viDkZtA,Food Network,Healthy,0.2061,High Momentum — Frequent Uploaders,3.1000,1.6667,3.2314,0.0334,0.0000,0.0000,14.8315,2.5824,No action needed
+UCa6vGFO9ty8v5KZJXQxdhaw,Jimmy Kimmel Live,Healthy,0.2033,High Momentum — Frequent Uploaders,2.1333,1.6667,7.3739,0.0324,0.0000,1.0923,10.3776,1.8773,No action needed
+UChZYqTJkeYV2r7WETcytdPQ,She Cooks,Healthy,0.2031,High Momentum — Frequent Uploaders,2.8333,1.6667,4.9706,0.0227,0.0000,0.0819,3.7867,2.3897,No action needed
+UC7i94bTxxuZBrllSxXHyFxg,NHL on ESPN,Healthy,0.2031,High Momentum — Frequent Uploaders,5.0000,1.6667,2.3024,0.0315,0.0000,0.0819,3.6352,4.5159,No action needed
+UCET00YnetHT7tOpu12v8jxg,CBS Sports Golazo,Healthy,0.2024,High Momentum — Frequent Uploaders,5.0000,1.6667,3.0518,0.0184,0.0000,0.0000,19.6936,4.5614,No action needed
+UCPziDcF76HnqXYYothHTyWw,Pana Matta,Healthy,0.1984,High Momentum — Frequent Uploaders,3.0000,1.6667,4.4386,0.0282,0.0000,0.0819,4.0441,2.4722,No action needed
+UCl3tJFKsFrw2p_Wxf1YDSow,Programming Live with Larry,Healthy,0.1980,High Momentum — Frequent Uploaders,3.9667,1.6667,2.6053,0.0499,0.0000,0.3190,25.1615,3.4432,No action needed
+UCKy1dAqELo0zrOtPkf0eTMw,IGN,Healthy,0.1962,High Momentum — Frequent Uploaders,5.0000,1.6667,2.7833,0.0268,0.0000,0.0000,5.4066,4.5156,No action needed
+UC_dYHajf7LqgxsK5XBYujOg,Raw News And Politics,Healthy,0.1961,High Momentum — Frequent Uploaders,2.0667,1.6667,4.4210,0.1513,0.0000,0.5412,8.3054,5.4228,No action needed
+UCFzK6VqXo90dthFXAmjcaJQ,U Turns Creations,Healthy,0.1946,High Momentum — Frequent Uploaders,3.5333,1.6667,4.8034,0.0212,0.0000,0.0819,0.9958,3.0027,No action needed
+UCBS1NUWY7oC6FFHaXQy4zAA,Zach's Tech Turf,Healthy,0.1926,High Momentum — Frequent Uploaders,2.9667,1.6667,3.4519,0.0627,0.0000,0.0000,1.4506,2.7018,No action needed
+UCKiaqToPffdbeSnsBhbPxrw,CoDing SeeKho ,Healthy,0.1916,High Momentum — Frequent Uploaders,2.5000,1.5444,8.0164,0.0358,0.0000,1.5850,7.5416,2.0618,No action needed
+UCUvvj5lwue7PspotMDjk5UA,Meet Kevin,Healthy,0.1913,High Momentum — Frequent Uploaders,2.2333,1.4667,11.4685,0.0281,0.0000,0.7194,10.6955,2.5538,No action needed
+UCsjx7L3gOJJYxmaEMiwxvVQ,Carolina Hurricanes,Healthy,0.1905,High Momentum — Frequent Uploaders,1.6333,1.2889,59.5861,0.0406,1.0000,0.9457,3.7255,15.3737,No action needed
+UCqVCSWnuOSPm26orvNDTuWQ,TG Plays,Healthy,0.1883,High Momentum — Frequent Uploaders,3.1000,1.6667,5.9821,0.0275,0.0000,0.4238,5.1539,2.5379,No action needed
+UChaRXjMDs4ppKfnTPE6Z89w,Pittsburgh Steelers,Healthy,0.1876,High Momentum — Frequent Uploaders,5.0000,1.6667,2.5188,0.0495,0.0000,0.0000,9.2460,4.5331,No action needed
+UC9pkqFpbiwpZ6vXwaaUV_FQ,Chat Sports,Healthy,0.1861,High Momentum — Frequent Uploaders,2.3667,1.6667,8.2421,0.0379,0.0000,0.3947,45.1700,2.1324,No action needed
+UCxcTeAKWJca6XyJ37_ZoKIQ,The Pat McAfee Show,Healthy,0.1836,High Momentum — Frequent Uploaders,4.0667,1.6667,6.3732,0.0188,0.0000,0.4429,30.9314,3.5402,No action needed
+UCsv4YOF2RBYh0NQ1vuHQ-hg,Comedy Central UK,Healthy,0.1812,High Momentum — Frequent Uploaders,5.0000,1.6667,4.4728,0.0214,0.0000,0.1155,5.6694,4.4990,No action needed
+UCT0s92hGjqLX6p7qY9BBrSA,NCERT OFFICIAL,Healthy,0.1795,High Momentum — Frequent Uploaders,5.0000,1.6667,3.5630,0.0327,0.0000,0.1155,30.6794,4.4628,No action needed
+UCwWhs_6x42TyRM4Wstoq8HA,The Daily Show,Healthy,0.1783,High Momentum — Frequent Uploaders,4.2667,1.6667,3.7840,0.0402,0.0000,0.0000,7.7120,3.6749,No action needed
+UCYwPOFSEYyCl85p1O04d-2A,Top Music Arts,Healthy,0.1771,High Momentum — Frequent Uploaders,5.0000,1.6667,3.5873,0.0347,0.0000,0.0000,0.8454,4.4643,No action needed
+UCuN9hYw2RpoAW8rZ3VK3isA,NASCAR,Healthy,0.1745,High Momentum — Frequent Uploaders,5.0000,1.6667,4.5909,0.0260,0.0000,0.1155,18.0856,4.4687,No action needed
+UCPG8CxOlWesGSPlKRR8B3zw,Grow Young Fitness,Healthy,0.1733,High Momentum — Frequent Uploaders,3.8333,1.6667,3.8863,0.0727,0.0000,0.2685,1.3778,3.5787,No action needed
+UCs9-XIXPfAF465u3OVdMILg,Anti-Trump Network,Healthy,0.1716,High Momentum — Frequent Uploaders,3.9333,1.6667,4.2746,0.0524,0.0000,0.0000,13.5379,3.3853,No action needed
+UCDRIjKy6eZOvKtOELtTdeUA,Breaking Points,Healthy,0.1685,High Momentum — Frequent Uploaders,4.0667,1.6667,5.5487,0.0385,0.0000,0.3693,18.4604,3.4262,No action needed
+UCnQC_G5Xsjhp9fEJKuIcrSw,Ben Shapiro,Healthy,0.1656,High Momentum — Frequent Uploaders,5.0000,1.6667,3.9817,0.0493,0.0000,0.1155,6.9913,4.4790,No action needed
+UCMm_V8YjmnZRhToXIqDYDuw,New England Patriots,Healthy,0.1639,High Momentum — Frequent Uploaders,4.0000,1.6667,5.1286,0.0556,0.0000,0.2262,17.8088,3.4601,No action needed
+UCq-Fj5jknLsUf-MWSy4_brA,T-Series,Healthy,0.1625,High Momentum — Frequent Uploaders,5.0000,1.6667,13.1960,0.0143,0.0000,0.0000,5.3770,5.0993,No action needed
+UCdoadna9HFHsxXWhafhNvKw,AWS Events,Healthy,0.1611,High Momentum — Frequent Uploaders,3.0000,1.6667,19.9653,0.0310,0.0000,0.4553,38.9939,4.8280,No action needed
+UCnbKOlm6H9njgmN-Yil90Rg,Heather Cox Richardson,Healthy,0.1556,High Momentum — Frequent Uploaders,5.0000,1.6667,4.0714,0.0830,0.0000,0.0000,12.0390,4.8978,No action needed
+UCG4Hp1KbGw4e02N7FpPXDgQ,The Bulwark,Healthy,0.1527,High Momentum — Frequent Uploaders,5.0000,1.6667,4.8122,0.0630,0.0000,0.0000,15.1681,4.5876,No action needed
+UCZ5cvDR2HhVUcdVoTvvQKLw,I've Had It,Healthy,0.1513,High Momentum — Frequent Uploaders,4.4667,1.6667,5.0621,0.0856,0.0000,0.0000,18.0057,4.4288,No action needed
+UCZl9z2UMvN9mwpUoU9-E9bA,Katie Phang,Healthy,0.1452,High Momentum — Frequent Uploaders,3.2000,1.6667,9.4428,0.1356,0.0000,0.1807,14.8141,5.2605,No action needed
+UCVyLgHYJ7huNiV15oq21bXw,Sebs Adventures Travel Vlog,Unscored,,Unscored,0.0000,0.0111,67.1611,0.0140,87.0000,569.0645,1.8273,,Insufficient data — collect more upload history
+UCeV2O_6QmFaaKBZHY3bJgsA,JoJo Siwa,Unscored,,Unscored,0.0000,0.0111,1.2719,0.0191,84.0000,61.3083,7.3164,,Insufficient data — collect more upload history
+UCiVJZlfcmWMUiXv5oywnDhQ,Wifies,Unscored,,Unscored,0.0000,0.0111,45.4788,0.0509,81.0000,20.5510,17.8154,,Insufficient data — collect more upload history
+UCz_yk8mDSAnxJq0ar66L4sw,RobTopGames,Unscored,,Unscored,0.0000,0.0111,0.6147,0.0374,74.0000,107.0762,4.0122,,Insufficient data — collect more upload history
+UCSL3Jd1qtL3RkeKCpbhOspg,DP Education - Science,Unscored,,Unscored,0.0000,0.0111,1.3863,0.0192,70.0000,67.4889,67.2648,,Insufficient data — collect more upload history
+UC6nSFpj9HTCZ5t-N3Rm3-HA,Vsauce,Unscored,,Unscored,0.0000,0.0111,1.4512,0.0675,62.0000,13.7149,1.3531,,Insufficient data — collect more upload history
+UC0uey280Iwf_2bCxxq_Gg-w,Travel Twins Adventure,Unscored,,Unscored,0.0000,0.0111,1.3385,0.0778,62.0000,15.4154,25.0659,,Insufficient data — collect more upload history
+UC3ivOTE5EgpmF2DHLBmWIWg,Programming With Nick,Unscored,,Unscored,0.0000,0.0111,29.0207,0.0343,55.0000,56.1180,21.4716,,Insufficient data — collect more upload history
+UCUPbhf86PzsDY2SBaAaCAeA,C# Programming,Unscored,,Unscored,0.0000,0.0111,4.4155,0.0371,45.0000,9.8477,7.9800,,Insufficient data — collect more upload history
+UCFOkoHuv1tMiaTj6V9aAPGQ,Travel Adventure,Unscored,,Unscored,0.0000,0.0111,7.0068,0.0215,45.0000,19.0762,12.7114,,Insufficient data — collect more upload history
+UCSfkNuyik319Wa7Q8khFB4w,UTHMAN'S TECH HUB,Unscored,,Unscored,0.0333,0.0111,4.0150,0.0181,16.0000,24.2963,12.4333,,Insufficient data — collect more upload history
+UCLVrYXt3SL9rT-IcDmgU9Wg,Programming With FlexZ,Unscored,,Unscored,0.0333,0.0111,0.7323,0.0344,10.0000,16.6019,0.9667,,Insufficient data — collect more upload history
+UCEzDdNqNkT-7rSfSGSr1hWg,Burna Boy,Unscored,,Unscored,0.0333,0.0111,1.8641,0.0365,3.0000,21.5071,1.1500,,Insufficient data — collect more upload history
+UC6RqLFVfPwx6l5bNsiBaBOw,Comedy FUN Tv,Unscored,,Unscored,0.0333,0.0111,0.5613,0.0036,2.0000,15.5860,8.1500,,Insufficient data — collect more upload history
+UCOldY0vJsRrQrJblsfpDeOg,Joydip Ghosh,Unscored,,Unscored,0.0333,0.0111,,0.2000,2.0000,,4.6333,,Insufficient data — collect more upload history
+UC__uE9C242UHPmiVc0Gcamg,news and media,Unscored,,Unscored,0.0333,0.0111,,,2.0000,,14.6000,,Insufficient data — collect more upload history
+UCdthavYoITaZJ5UY-AQZJcw,Maher Insights,Unscored,,Unscored,0.0333,0.0111,,0.0000,1.0000,,9.0167,,Insufficient data — collect more upload history
+UCTFFPzHv1VZiVww1siqJi9Q,Popular Music,Unscored,,Unscored,0.0333,0.0111,0.2079,0.0148,0.0000,36.6890,2.9833,,Insufficient data — collect more upload history
+UCZjyflCNvQKUKyrOwNgWq0w,PolitiCore,Unscored,,Unscored,0.0333,0.0111,,,0.0000,,0.3167,,Insufficient data — collect more upload history
+UCbxsCZXtVBDFmbfuIWd5v3A,Ai.education,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UCimxROEIlNsiRqT9X5tg2XQ,iBiology Techniques,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UC4OWy7qqr44th9eodOT8Vyw,What's Up Pup? -  Learning Fun Facts Cartoons,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UCWxc35u7G0qRIbWS35ffH1w,Plant Biology Made Easy,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UCVNr_CuwnMvSO7TJt-Q2DQw,The World Of Science,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UCzoJFJM1FtApbZs3xbtCD0w,Bright kids,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UCE7mPjWjZQEIk49sO_auHlQ,Physics for everyone,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UCUWMUlkI2idOrqSGkCAHWKQ,Dopamine Biology,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UCPM-4kFMDzu0HtbWbmVqlRw,Learning Space Digital,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UCxLF49_wwKq-0XDLEidminQ,co education,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UCDC3SY1KtqCHfLbHqAiPcsg,Learn Science,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UCcDkQkjT6IiCtrSps1Xmpcw,Computer Science and Math Channel,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UCZ5bRwlAPnKaGsOCyk9tzdg,KIDS Learning videos,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UCdyP65l98L1VrEElqCCTljA,Academic Endeavour,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UC0GyXbZSMtKnhhIR8WslQZQ,Light House,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UCtw7q4SyOeoCwM1i_3x8lDg,Comedy Central Stand-Up,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UCRmDJhK_ocN5jXBRIEAyNXg,Comedy Central Africa,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UC46oPmd2X72JrCTXCaMl7rA,Wealth Builder,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UC9KTxxYhLQj3yYlfSnS6hWg,Rich Mindset,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
 UCOmHUn--16B90oW2L6FRR3A,BLACKPINK,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UC-VaHNXmjvE-yJAgaz94ltQ,Finance & Investing,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UCDglUvJvlAnNiyjuYTyZw7w,"Darfin: Finance, Business and Investing",Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UCjKSQGTpjekekgOdpP1cV2g,Easy Invest,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UCkQUXe4jHshvsvrvjJMWEhg,The value investing channel,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UCcijgp7IuT6BLzyD6EKiA4w,Carlos Chaume - Investment & Finance,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UCqpYqHeSkRkaWvujGnq6_bw,Finance Investment Business Tutor ,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UCiy-mtdLBwADhn31KyRwarA,Everyday Investing,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UCfD3i-ImENyAiSTGOA_Ankw,Investing Unlocked,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UCojBYGoUkaDcUuy01_Z_cSA,Business $ Investment,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UCOFCwvhDoUvYcfpD7RJKQwA,V Shred,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UCro2OsgveDy1g6BvfSA-jQg,INVESTING,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UCy9A3bfxbI0c7YLhW_rpn8Q,Free Investing,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UC2sQtBNg2xWXiSEtvyXlHug,Health and Fitness Channel,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UCj2-9npOyz5mguqlCnoF9PQ,Millennial Investing,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UCfXlEbGloRWdVudoy-fB4cQ,Giovanni Rigters (Invest in Yourself),Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UCwxmeTw7TLIOqUEDM5HniBw,Fitness With Cindy - Senior Workouts ,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UCEqjl1uPDRN5P8ewU8n2nvA,Yummy Food World,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UCTTwVLUikQ3fNAyDJF7l-nQ,Body & Soul Fitness,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UCwdNS_uNS7sTs8JVf0ZIuyg, Health And Fitness Workouts,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UCxFA3HnQxiWU-I-0UANHqUw,BRAND FITNESS,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UCOpNcN46UbXVtpKMrmU4Abg,Gaming,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UC4R8DWoMoI7CAwX8_LjQHig,Live,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UCDrmmlVT45D4f-Sf37XBYkg,BEST GAMING CHANNEL,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UCjvGPQTRr2eIEhthL5y31VQ,Cooking With Lynja,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UCZvoUuniFzmOjfBt67lNsEQ,Tasty Recipes,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UCvaMpohMIVypvEWBEOHo1wA,The Traditional Life,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UCEJhpTguHY6P1tsMUeTFJRA,TOP GAMING,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UCWqgmGoinn63_uyUx0YIb-w,Green Healthy Cooking,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UC-9-kyTW8ZkZNDHQJ6FgpwQ,Music,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UCU7wc5-nq9lpeUHhu4FpC8A,All Gaming Channels,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UCw1SQ6QRRtfAhrN_cjkrOgA,LazarBeam,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UCemhZ2At2lgifTJLClGCz9A,Royalty Gaming,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UCzu_yWfvM7x2McGFCxjujHw,Top 5ive Channels,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UCStaiwu-FAgp_RC_tBiLh9A,YouTube Music,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UCS74lEQEAvyuhOSpbtuHaZw,GOTCHA,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UCiGYVaGjtIP5frTJEsFyRtg,Gorilla Tag - Topic,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UCCBBfL9Kc9WBAbaWm7n2WTw,Arias1101,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UClophEP4EMhw23GjDBUCWmQ,DAMIANKO'S SECRET SPECIAL GAMING AND TOP CHANNELS,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UCVS88tG_NYgxF6Udnx2815Q,Lil Baby Official ,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UCQ4g74vwuLyMokclbApl5Gw,USA  MUSIC ,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UCrTzPEQOWNAM-YOFn_g7k_w,BLACK007,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UC98WsFnuhfS3uT8PwdYCjbw,d4vd,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UCIu4_D9HnABj9wZfHmlYlMg,YouTubers Music,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UC7UkUQITjpLsDge73gCad6w,Synthwave Music Channel,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UCffzd1MAWctplBYEhpNp3HQ,T10 Musical Artist,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UCAql2DyGU2un1Ei2nMYsqOA,Donald J Trump,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UChwJDTqACGvdzI7-BI_BX5w,Djo Music,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UCuHzBCaKmtaLcRAOoazhCPA,Beyoncé,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UCmBA_wu8xGg1OfOkfW13Q0Q,Bad Bunny,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UCr6vQ9NDRy63nxl6A4glJLQ,Musicnotes SIGNATURE ARTIST®,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UC6uXp1goAPFU4kKleWHcDZA,ESPN SPORTS,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UCHTkIkzKq7kpOXQ4tdoYvZQ,Top10sports,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UC5CMtpogD_P3mOoeiDHD5eQ,Codecademy,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UC1gpk-exqBfcLtWyFzwRhTw,Programming By Vyom,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UCBr_Fu6q9iHYQCh13jmpbrg,Errichto Algorithms,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UC2Qb9aNKpX00aCXtzMjrdhA,Coding & Programming Tutorials,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UCDgM0-LZYvdZe6UiR8-l6gA,YouTube Top list,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UC87aDPYtFzmOVnxyDKjfMiA,Top Technology BD,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UC5K5wwDQnpuMB7FSHUxV75w,STEMinGames - Beginner Programming,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UCdKndoYGm3wufSskFcjVHdQ,gilgeekify programming,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UCfIdnfgpgwqv4Mu8ThuNsJw,PROGRAMMING TIPS💻,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UCYqCZOwHbnPwyjawKfE21wg,Tensor Programming,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UCYsu6hQkKQC2mTSxWQekPZA,Programming & Coding With Harsh,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UCXxCMIjO5r_yXqwXx72CkvQ,Learn Programming Yourself,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UCFAiFyGs6oDiF1Nf-rRJpZA,Technoblade,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UCPaVy8A6uhrKT4S6bU6Z8RQ,Programming Shikhbo,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UCG7rmUn0sWkWbMW0LdhMY0Q,Programming Code With Mukesh,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UCTEsFPBVj3s_kvif0WsrT1w,TechyBlox,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UCiRG0nSSsMgVcewS9JHJLoQ,Programming Hub: Learn to Code,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UCsM9jD9v-A7zoabxdaxf4oQ,programming,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UCxuaFyfxi-g8va1AgzvUsBg,Programming For Beginners,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UC9eUy1t0Caz4Rjxt8R1PVLQ,Valerie - Adventure Travel & Raw Moments,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UCq1_EAMQURgYpOYk0X-P3ug,Block Programming,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UCXZ5CRImmyCBMxzS8HyT_cg,Family Traveling Adventures,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UCw8nALuv2kWI7evtyUub0yA,Tech Limitation,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UCBI-0CqXz7Yhb-UdbOTudZg,A1 ADVENTURE Vlogs,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UCJbAVuhIfh41LNCHXRWUbeg,Australian Adventure,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UCykFv84bCOh8Xb0U1o-v40w,ProgrammerType,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UCuNgscZOhREn2TrZrLqHsvA,Eric Programming,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UCaoarQ-i8XSUdn7OlIGdqJw,MT Pocket Adventures,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UCV3dPQKy8m-KQxP-kwhEQ4w,Adventure Amigos,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UCCE5WMWjm3Sg4b8RXK5VjsQ,The Route To Adventure | Travel Guide Vlog,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UCbpgZM1ZoL5OEyuE_6Uochw,The Traveling Adventure,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UCyBnpGaK3caGK4Boyh5hYyw,vanhalla adventures™ ,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UCvGa_HJFY1VufMQCZKhm8_g,Travel Explore Adventure,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UCzQ6PmNEtU1BwN9pY9t8iLQ,Urban Monkey Adventures,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UCwA3j2A3Kydk1BfriFXo9gQ,TRAVEL ADVENTURES with ISLAND GIRL,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UCzwGFXWHAO9EfJ4MFq7g9iQ,Artem Grachev - Travel & Adventure,Unscored,,Unscored,,,,,,,,,Insufficient data — collect more upload history
+UCeVMnSShP_Iviwkknt83cww,CodeWithHarry,Watch,0.4221,High Momentum — Frequent Uploaders,0.1333,0.2667,4.4118,0.0396,8.0000,4.6525,40.5500,1.9688,Monitor — mid-range metrics
+UCVn4warYFHUopwaO4uR--jw,The Mediterranean Dish,Watch,0.4214,High Momentum — Frequent Uploaders,0.2333,0.2889,1.6961,0.0275,1.0000,1.9826,0.6119,1.7365,Monitor — mid-range metrics
+UCbprhISv-0ReKPPyhf7-Dtw,Science Max - Scholastic,Watch,0.4212,High Momentum — Frequent Uploaders,0.2667,0.1333,2.6485,0.0090,0.0000,4.0855,16.2938,2.1492,Monitor — mid-range metrics
+UCdUNVXOCR2F8nzpjYGnBn1A,Programming GuruJi,Watch,0.4209,High Momentum — Frequent Uploaders,0.1333,0.0889,3.8033,0.0306,6.0000,6.0690,11.8292,1.6300,Monitor — mid-range metrics
+UCBp7-qKRfnOngKqFJP_CpeA,Unwritten Adventures,Watch,0.4189,High Momentum — Frequent Uploaders,0.1333,0.0556,1.2847,0.3647,5.0000,0.5000,12.4208,14.9036,Monitor — mid-range metrics
+UCrR-9qug_zHoiBBGTXGP2Hw,Family Friendly,Watch,0.4184,High Momentum — Frequent Uploaders,0.5333,0.6667,1.3918,0.0327,2.0000,11.1596,7.2562,1.9236,Monitor — mid-range metrics
+UCs6nmQViDpUw0nuIx9c_WvA,ProgrammingKnowledge,Watch,0.4183,High Momentum — Frequent Uploaders,0.8333,0.6333,0.6864,0.0143,0.0000,1.0480,26.4453,2.0826,Monitor — mid-range metrics
+UCNh35NtktYxumhyASfnF1dg,Essen Recipes,Watch,0.4157,High Momentum — Frequent Uploaders,0.2000,0.1333,2.9185,0.0132,0.0000,3.7412,4.6472,1.9292,Monitor — mid-range metrics
+UCOD8lPSrcmelzjAsRbE4fzg,Zumba Class,Watch,0.4134,High Momentum — Frequent Uploaders,0.2667,0.3000,3.3148,0.0098,3.0000,1.1973,25.3083,1.9740,Monitor — mid-range metrics
+UC5nA6O_7aYs3zWEX83m3jnw,Miniature Cooking ,Watch,0.4129,High Momentum — Frequent Uploaders,0.6000,0.5667,2.4729,0.0086,0.0000,13.9700,25.8889,2.6709,Monitor — mid-range metrics
+UC-CBQChrXvLzYc9oxpMfFPg,Naa Anveshana,Watch,0.4128,High Momentum — Frequent Uploaders,0.2667,0.1667,2.3716,0.0431,5.0000,7.0253,14.0646,1.6300,Monitor — mid-range metrics
+UCuSD-BXA1p8S3HfE8LsEkHA,Village Food Channel,Watch,0.4125,High Momentum — Frequent Uploaders,0.1000,0.0667,4.7935,0.0307,7.0000,3.7447,12.0333,1.7079,Monitor — mid-range metrics
+UC9_Zvo01GEsPUSyDLMDGFiQ,Leo's adventure,Watch,0.4120,High Momentum — Frequent Uploaders,0.1333,0.0778,4.4137,0.0538,9.0000,7.0781,11.9625,2.0311,Monitor — mid-range metrics
+UCEDrRCC0qRtPd5-sSa1hajw,The Endless Adventure,Watch,0.4117,High Momentum — Frequent Uploaders,0.0667,0.0889,4.7840,0.0662,7.0000,2.7496,23.8917,2.2788,Monitor — mid-range metrics
+UC6KokxvBViNBPbDtS39n4nw,Scott's Travel Adventures,Watch,0.4117,High Momentum — Frequent Uploaders,0.4000,0.4778,1.5741,0.0390,5.0000,3.3692,6.8125,1.6927,Monitor — mid-range metrics
+UCIhSu8oj-mLOZGFgsnXIAjg,School4U | Programming School,Watch,0.4106,High Momentum — Frequent Uploaders,0.4333,0.2333,1.2703,0.0455,4.0000,3.3232,25.6179,1.6979,Monitor — mid-range metrics
+UCfeVHm8AqJ0AtvtjhFoFT5A,Comedy ka Hungama,Watch,0.4094,High Momentum — Frequent Uploaders,0.1333,0.1444,4.6790,0.0189,3.0000,2.6752,13.3208,1.6504,Monitor — mid-range metrics
+UC81VD6eeuLLSfyY_D-N8sVw,Madonna,Watch,0.4085,High Momentum — Frequent Uploaders,0.3667,0.2000,3.4633,0.0283,0.0000,49.5752,5.6348,9.4339,Monitor — mid-range metrics
+UCGMOauU8dOd4mv2bT3Tx57w,Guru Mann Fitness,Watch,0.4074,High Momentum — Frequent Uploaders,0.1667,0.2222,5.6770,0.0543,2.0000,21.0817,5.0933,3.6892,Monitor — mid-range metrics
+UCL_v4tC26PvOFytV1_eEVSg,Marko - WhiteBoard Finance,Watch,0.4071,High Momentum — Frequent Uploaders,0.1667,0.1889,3.3113,0.0527,1.0000,9.6380,16.5967,1.8024,Monitor — mid-range metrics
+UC2QTDn02Xobvy_N2bb_Zzlw,Kane Brown,Watch,0.4064,High Momentum — Frequent Uploaders,0.1000,0.0667,4.5616,0.0603,2.0000,12.3217,4.2222,2.2126,Monitor — mid-range metrics
+UC1JoCw5K0iVcmA1Sf5SQv9g,مطبخنا اليمني Our Yemeni Kitchen,Watch,0.4061,High Momentum — Frequent Uploaders,0.2667,0.2222,2.1443,0.0254,3.0000,1.5771,5.3646,1.6514,Monitor — mid-range metrics
+UCJZam2u1G0syq3kyqrCXrNw,PrestonPlayz,Watch,0.4043,High Momentum — Frequent Uploaders,0.3000,0.2444,2.9565,0.0106,0.0000,2.8875,19.9315,1.9611,Monitor — mid-range metrics
+UCrEmooicuZFBXCipV9LCBFg,High Adventure Videos,Watch,0.4024,High Momentum — Frequent Uploaders,0.1000,0.1000,6.4083,0.0305,4.0000,4.6062,53.1278,1.5092,Monitor — mid-range metrics
+UCZrh7jGCGMnxu5GZ_EuJaMw,Ordinary Adventures,Watch,0.4021,High Momentum — Frequent Uploaders,0.1333,0.1444,4.1621,0.0311,4.0000,2.3236,43.4667,1.5752,Monitor — mid-range metrics
+UCEBb1b_L6zDS3xTUrIALZOw,MIT OpenCourseWare,Watch,0.4017,High Momentum — Frequent Uploaders,0.2333,1.0333,3.1575,0.0234,3.0000,3.1231,41.5810,1.9499,Monitor — mid-range metrics
+UCwIqx0eWKDDzs-hm_Y_FyKw,JAPANESE COOKING CHANNEL,Watch,0.4015,High Momentum — Frequent Uploaders,0.3667,0.3556,1.7588,0.0244,1.0000,2.4895,2.4742,1.5717,Monitor — mid-range metrics
+UCYC6Vcczj8v-Y5OgpEJTFBw,Fit Tuber,Watch,0.4014,High Momentum — Frequent Uploaders,0.3000,0.3889,2.3407,0.0372,7.0000,1.4288,5.3667,1.9449,Monitor — mid-range metrics
+UCoXoFzBXnT6zRIKuxbisrlA,Adventures of Matt and Nat,Watch,0.4009,High Momentum — Frequent Uploaders,0.1000,0.0778,8.4901,0.0374,5.0000,8.5695,30.9667,1.9027,Monitor — mid-range metrics
+UCet9FEXim3LTgRYf3I8F5nA,Asif Dramaz,Watch,0.4009,High Momentum — Frequent Uploaders,0.2333,0.2111,3.8282,0.0134,2.0000,2.1369,2.2286,1.6837,Monitor — mid-range metrics
+UCYO_jab_esuFRV4b17AJtAw,3Blue1Brown,Watch,0.3998,High Momentum — Frequent Uploaders,0.1667,0.1000,7.1257,0.0416,2.0000,25.5902,7.6633,4.5008,Monitor — mid-range metrics
+UCI2FyL2V8NnNHR32ijiYz4A,Chef Grandma Cooking,Watch,0.3994,High Momentum — Frequent Uploaders,0.2667,0.2778,3.3601,0.0131,3.0000,0.6778,64.4104,1.9088,Monitor — mid-range metrics
+UCcxb3AV6qMB9Htfqyc_eIlQ,Fun with Siblings,Watch,0.3993,High Momentum — Frequent Uploaders,0.5667,0.6444,0.9226,0.0319,0.0000,0.8401,1.5676,1.9481,Monitor — mid-range metrics
+UC9x0AN7BWHpCDHSm9NiJFJQ,NetworkChuck,Watch,0.3987,High Momentum — Frequent Uploaders,0.4667,0.2889,1.3623,0.0342,0.0000,4.7635,24.9393,1.6499,Monitor — mid-range metrics
+UC_aEa8K-EOJ3D6gOs7HcyNg,NoCopyrightSounds,Watch,0.3966,High Momentum — Frequent Uploaders,0.2667,0.2889,2.7658,0.0223,3.0000,1.3995,3.0229,1.6972,Monitor — mid-range metrics
+UCIeVe6Bv-0K42wv911Zumsw,Adventure Tours Travel,Watch,0.3931,High Momentum — Frequent Uploaders,0.1667,0.2000,5.9763,0.0247,5.0000,2.5522,20.3567,1.7210,Monitor — mid-range metrics
+UCnYsutglhKLC5oymHjAB2Ew,Get Finance and Investment Tips,Watch,0.3929,High Momentum — Frequent Uploaders,0.1333,0.1444,3.7195,0.0546,4.0000,1.8878,5.8750,1.7833,Monitor — mid-range metrics
+UCMmZEL8jV1B61NKAXcyW87A,Helen's Recipes (Vietnamese Food),Watch,0.3926,High Momentum — Frequent Uploaders,0.1333,0.0778,15.1289,0.0246,0.0000,24.7418,1.4833,5.2610,Monitor — mid-range metrics
+UCU5_uIM8kO0Yzf3bcY1tMvQ,Funny man 22,Watch,0.3908,High Momentum — Frequent Uploaders,0.2333,0.2333,2.6695,0.0545,2.0000,3.9908,8.4619,1.5315,Monitor — mid-range metrics
+UCKjEtnnXEHsXE9IvCb92V7g,March Madness,Watch,0.3893,High Momentum — Frequent Uploaders,0.1333,1.6667,14.1452,0.0163,10.0000,1.0991,5.9917,3.7669,Monitor — mid-range metrics
+UCPqftlDSXpl3V4u044KT88w,Amazon Music,Watch,0.3889,High Momentum — Frequent Uploaders,0.3000,0.3889,5.8158,0.0122,0.0000,7.2108,7.9426,1.9392,Monitor — mid-range metrics
+UC8ywe-yqxdvDFvjKX_TM3yg,Veg Recipes of Karnataka,Watch,0.3883,High Momentum — Frequent Uploaders,0.5000,0.5000,1.5085,0.0208,0.0000,1.3476,2.4633,1.9327,Monitor — mid-range metrics
+UCu2D8oEJ34Z6XyS82ruupmw,Flying Passport,Watch,0.3878,High Momentum — Frequent Uploaders,0.1667,0.2111,6.5085,0.0246,3.0000,3.4335,31.0033,1.5620,Monitor — mid-range metrics
+UCfkfGNVFdqkmEck85PKKpRA,Adventure Around America,Watch,0.3878,High Momentum — Frequent Uploaders,0.1667,0.1222,7.2162,0.0295,2.0000,9.2821,13.0967,1.5995,Monitor — mid-range metrics
+UCE_btxAOsEVKw9LwNZPtDxg,Amit health & Fitness,Watch,0.3878,High Momentum — Frequent Uploaders,0.1000,0.1111,5.3132,0.0336,1.0000,2.5558,9.1444,1.4300,Monitor — mid-range metrics
+UCACU6FM4RgOgX0IHB7dudFA,Science and fun,Watch,0.3873,High Momentum — Frequent Uploaders,0.3000,0.4556,3.0237,0.0279,4.0000,1.7959,5.6870,1.7099,Monitor — mid-range metrics
+UCihcLx6UyseTlTmQd8uWUkQ,Baptism of Faith,Watch,0.3863,High Momentum — Frequent Uploaders,0.0667,0.0222,129.1349,0.0265,0.0000,34.5190,0.1000,35.5378,Monitor — mid-range metrics
+UC5c9VlYTSvBSCaoMu_GI6gQ,Total Gaming,Watch,0.3861,High Momentum — Frequent Uploaders,0.1333,0.1000,4.8726,0.0586,4.0000,4.3946,25.9375,1.6426,Monitor — mid-range metrics
+UCcdwLMPsaU2ezNSJU1nFoBQ,Baby Shark - Pinkfong Kids’ Songs & Stories,Watch,0.3855,High Momentum — Frequent Uploaders,1.1000,0.9444,1.6561,0.0033,0.0000,0.8214,10.8960,2.2515,Monitor — mid-range metrics
+UC9lSC6AT4d0qour-aIbMjFQ,"D Pineault - Tech, Programming and more",Watch,0.3844,High Momentum — Frequent Uploaders,0.1333,0.0778,8.7879,0.0500,2.0000,15.0159,7.2875,2.7011,Monitor — mid-range metrics
+UC3DxQF4wzjUjRlsLZxxkOLA,Village Kitchen,Watch,0.3837,High Momentum — Frequent Uploaders,0.1667,0.1444,3.7094,0.0254,0.0000,1.6950,13.9967,1.7603,Monitor — mid-range metrics
+UCO6AukH32hxFCZHPb87wN3w,Sufian Tech Zone,Watch,0.3834,High Momentum — Frequent Uploaders,0.0667,0.0333,71.6389,0.0562,12.0000,7.3762,10.4250,18.8760,Monitor — mid-range metrics
+UC54SLBnD5k5U3Q6N__UjbAw,Chinese Cooking Demystified,Watch,0.3832,High Momentum — Frequent Uploaders,0.0667,0.0667,12.8590,0.0409,1.0000,7.3135,12.3500,2.6008,Monitor — mid-range metrics
+UC8K9ptYhFDTtnUDoz95WJQw,FunPataka,Watch,0.3829,High Momentum — Frequent Uploaders,0.2667,0.3333,4.4579,0.0279,1.0000,7.0037,3.2312,1.3514,Monitor — mid-range metrics
+UCASM0cgfkJxQ1ICmRilfHLw,Patrick Boyle,Watch,0.3819,High Momentum — Frequent Uploaders,0.1333,0.1333,6.2460,0.0373,5.0000,1.7029,33.2167,1.6701,Monitor — mid-range metrics
+UC6VcWc1rAoWdBCM0JxrRQ3A,Rockstar Games,Watch,0.3817,Mid Momentum — Regular Creators,0.0667,0.0444,407.4753,0.0379,1.0000,20.7834,0.5500,113.3139,Monitor — mid-range metrics
+UCg7x6NabNm2VGOuAhMW6WXw,Finance & Investing,Watch,0.3809,High Momentum — Frequent Uploaders,0.9000,0.3000,4.4571,0.0000,0.0000,1.0228,0.5654,2.8613,Monitor — mid-range metrics
+UC8a9CoFxHYrTjsfCvhjisCw,Healthy zone,Watch,0.3795,High Momentum — Frequent Uploaders,0.2667,0.2778,2.8088,0.0476,2.0000,2.6796,1.4688,1.4358,Monitor — mid-range metrics
+UCx3RchaoRFpDpB60x7xRREw,Meekah - Educational Videos for Kids,Watch,0.3790,High Momentum — Frequent Uploaders,0.9667,0.9778,2.0089,0.0035,0.0000,0.5136,42.8552,2.2742,Monitor — mid-range metrics
+UCZsTkJVl4vIamsBd6t8B-OA,Rep. Jasmine Crockett,Watch,0.3784,High Momentum — Frequent Uploaders,0.2667,0.1667,3.7609,0.0840,9.0000,3.6177,3.4479,2.7451,Monitor — mid-range metrics
+UClfll_TO6FpOPLUg4Aawhlw,M4 Tech,Watch,0.3778,High Momentum — Frequent Uploaders,0.2000,0.2222,6.0622,0.0229,1.0000,3.8343,31.0583,1.4271,Monitor — mid-range metrics
+UCc7gpqMnnOSbU_F2-5MVVZw,Sheryians Coding School,Watch,0.3769,High Momentum — Frequent Uploaders,0.2667,0.6889,2.7817,0.0463,0.0000,3.3706,17.1833,1.9281,Monitor — mid-range metrics
+UCaAUvDSYpreMi8QnMHiGhuQ,EAC News,Watch,0.3764,High Momentum — Frequent Uploaders,0.2667,0.1889,10.5398,0.0158,3.0000,6.8567,80.8250,2.1561,Monitor — mid-range metrics
+UC9OZr81hjV8Ww80vhygC6OQ,Chithru ki comedy ,Watch,0.3759,High Momentum — Frequent Uploaders,0.3667,0.3778,4.0238,0.0161,4.0000,1.3764,0.5955,1.7286,Monitor — mid-range metrics
+UCu3jqoS_x96WIplJKJLWRzA,DEE'S  ADVENTURES,Watch,0.3755,High Momentum — Frequent Uploaders,0.2333,0.1889,16.4017,0.0541,4.0000,24.6017,12.9214,5.3818,Monitor — mid-range metrics
+UCo33niDKpTpgwZ_dohqvylg,TubeBuddy,Watch,0.3755,High Momentum — Frequent Uploaders,0.3667,0.4000,2.4637,0.0524,2.0000,4.2038,1.4955,1.4347,Monitor — mid-range metrics
+UCsXVk37bltHxD1rDPwtNM8Q,Kurzgesagt – In a Nutshell,Watch,0.3754,High Momentum — Frequent Uploaders,0.2000,0.2333,4.3641,0.0488,3.0000,2.7227,5.6278,1.4774,Monitor — mid-range metrics
+UCiCt5ZivDFir334WIPDpd1Q,RS Vlog,Watch,0.3751,High Momentum — Frequent Uploaders,0.2667,0.1667,18.0955,0.0356,1.0000,47.1665,4.5229,9.5929,Monitor — mid-range metrics
+UCxjzlr0hdKWfIwK2lY0SvEg,TopPop,Watch,0.3742,High Momentum — Frequent Uploaders,0.3667,0.3778,2.3378,0.0267,0.0000,1.7526,3.2561,1.7700,Monitor — mid-range metrics
+UCBY3f7lGn0AU9TtWpmk7rEw,Real Adventure,Watch,0.3737,High Momentum — Frequent Uploaders,0.2667,0.2556,4.0982,0.0289,2.0000,3.0223,28.8708,1.2396,Monitor — mid-range metrics
+UC7_gcs09iThXybpVgjHZ_7g,PBS Space Time,Watch,0.3727,High Momentum — Frequent Uploaders,0.1000,0.0667,6.8293,0.0424,0.0000,5.3024,19.1444,1.6164,Monitor — mid-range metrics
+UCQpPo9BNwezg54N9hMFQp6Q,Nischa,Watch,0.3711,High Momentum — Frequent Uploaders,0.2333,0.3667,7.5927,0.0352,5.0000,4.0068,7.9000,1.7215,Monitor — mid-range metrics
+UCuEOSK8blSM6j5jxVp3ttnQ,Programming Advices,Watch,0.3709,High Momentum — Frequent Uploaders,0.2667,0.2667,5.0971,0.0794,7.0000,5.1202,62.6417,2.4468,Monitor — mid-range metrics
+UC2UepIqPGZDixiRgpqC0Dyg,Musical Artist Official,Watch,0.3708,High Momentum — Frequent Uploaders,0.2667,0.2333,13.0577,0.0161,2.0000,7.2236,9.6917,2.6886,Monitor — mid-range metrics
+UClU1_8hUFeixVByX_MG5pMg,Soul Food Cooking,Watch,0.3703,High Momentum — Frequent Uploaders,0.1333,0.1444,13.1493,0.0468,5.0000,4.0542,2.9375,2.7612,Monitor — mid-range metrics
+UCkWYei5MULuRDhH7uxtZqqA,SeniorShape Fitness,Watch,0.3702,High Momentum — Frequent Uploaders,0.3000,0.2556,2.5906,0.0410,0.0000,2.4311,12.6685,1.6280,Monitor — mid-range metrics
+UCuZ4O3I810sn1Qm00s5YZXQ,Vilmark Adventures,Watch,0.3696,High Momentum — Frequent Uploaders,0.2000,0.2222,5.1653,0.0361,2.0000,2.4433,1.7472,1.3118,Monitor — mid-range metrics
+UCEXGDNclvmg6RW0vipJYsTQ,Channels Television,Watch,0.3692,High Momentum — Frequent Uploaders,5.0000,1.6667,0.6090,0.0021,0.0000,0.0000,15.9572,4.8864,Monitor — mid-range metrics
+UC9dg8mfTDjUXOReyCnWmcig,ESPN BET,Watch,0.3679,High Momentum — Frequent Uploaders,0.6000,0.6333,2.3756,0.0167,3.0000,1.2881,1.5519,1.6902,Monitor — mid-range metrics
+UCxoDMG0tvaYO5Xobvtqw5nw,Smile and Learn - English,Watch,0.3675,High Momentum — Frequent Uploaders,1.1000,1.1333,2.0036,0.0039,0.0000,0.5240,5.3884,2.2750,Monitor — mid-range metrics
+UCMiJRAwDNSNzuYeN2uWa0pA,Mrwhosetheboss,Watch,0.3668,High Momentum — Frequent Uploaders,0.2667,0.2667,4.5881,0.0303,2.0000,2.7361,9.5854,1.2322,Monitor — mid-range metrics
+UCf1XIplYiqNv9baGsFHwPPQ,WildLens by Abrar,Watch,0.3668,High Momentum — Frequent Uploaders,0.3000,0.2889,3.9453,0.0468,1.0000,6.2947,35.4926,1.2053,Monitor — mid-range metrics
+UC5PYHgAzJ1wLEidB58SK6Xw,Blippi - Educational Videos for Kids,Watch,0.3660,High Momentum — Frequent Uploaders,0.8333,0.8667,2.5807,0.0048,0.0000,0.5824,8.8487,2.1861,Monitor — mid-range metrics
+UCBJycsmduvYEL83R_U4JriQ,Marques Brownlee,Watch,0.3652,High Momentum — Frequent Uploaders,0.2667,0.2444,4.7065,0.0319,2.0000,3.0500,8.3625,1.1586,Monitor — mid-range metrics
+UCClWr__j4WsnyM9leH8sq-g,Comedy Shop,Watch,0.3649,High Momentum — Frequent Uploaders,0.2667,0.3444,4.6153,0.0265,2.0000,1.3575,10.9438,1.5038,Monitor — mid-range metrics
+UCW5YeuERMmlnqo4oq8vwUpg,Net Ninja,Watch,0.3649,High Momentum — Frequent Uploaders,0.3667,0.3000,3.8848,0.0242,1.0000,4.1846,7.6273,1.1692,Monitor — mid-range metrics
+UCHnyfMqiRRG1u-2MsSQLbXA,Veritasium,Watch,0.3643,High Momentum — Frequent Uploaders,0.3000,0.2556,5.0761,0.0284,1.0000,5.4312,12.7241,1.0945,Monitor — mid-range metrics
+UCUOdTQuFq4Z-36QSlWHg9Ig,The Nitesh Fitness Empire,Watch,0.3642,High Momentum — Frequent Uploaders,0.6667,1.3556,1.2552,0.0406,1.0000,0.5249,1.0967,1.9405,Monitor — mid-range metrics
+UC0Ize0RLIbGdH5x4wI45G-A,Drew Binsky,Watch,0.3642,High Momentum — Frequent Uploaders,0.3000,0.2444,4.3553,0.0265,1.0000,3.4031,6.7593,1.1834,Monitor — mid-range metrics
+UCbCmjCuTUZos6Inko4u57UQ,Cocomelon - Nursery Rhymes,Watch,0.3638,High Momentum — Frequent Uploaders,1.0000,0.9889,2.2265,0.0045,0.0000,0.5016,2.2311,2.2159,Monitor — mid-range metrics
+UCaebxrfVje2g0nRQ92D8DfA,Desi Gym Fitness,Watch,0.3632,High Momentum — Frequent Uploaders,0.4667,0.4444,1.9011,0.0425,0.0000,2.1173,4.1798,1.6734,Monitor — mid-range metrics
+UC0s9-UL3fSEEnEI76Ch_wHw,NL Fitness,Watch,0.3631,High Momentum — Frequent Uploaders,0.3333,0.3222,2.6808,0.0359,0.0000,1.6398,9.3167,1.6754,Monitor — mid-range metrics
+UCbQCh5rptqgseakhEOTMteQ,Elnick.Adventures,Watch,0.3628,High Momentum — Frequent Uploaders,0.1333,0.1111,6.3425,0.0540,0.0000,4.1490,33.2917,1.7148,Monitor — mid-range metrics
+UC55IWqFLDH1Xp7iu1_xknRA,Colors TV,Watch,0.3626,High Momentum — Frequent Uploaders,5.0000,1.6667,0.1568,0.0243,0.0000,0.0000,20.3309,4.6934,Monitor — mid-range metrics
+UC8VddvuHJzIj__Ud0rY2_ww,Red Bull Gaming,Watch,0.3618,High Momentum — Frequent Uploaders,0.2667,0.5778,7.1357,0.0229,3.0000,1.9273,1.6042,1.8228,Monitor — mid-range metrics
+UCr4XXQznhlgfzo4mwOgkF8w,Investing Simplified - Professor G,Watch,0.3610,High Momentum — Frequent Uploaders,0.3333,0.3778,3.5594,0.0355,3.0000,1.3853,10.8217,1.4393,Monitor — mid-range metrics
+UC-C1omzU11Wl1qfmYjMesVQ,Saad Rashid - YouTube Automation,Watch,0.3610,High Momentum — Frequent Uploaders,0.3667,0.3111,3.8308,0.0360,0.0000,7.1682,24.1258,1.4279,Monitor — mid-range metrics
+UCKE0Xnj818IDaHvIcRiq0Bg,KIDZ BOP,Watch,0.3609,High Momentum — Frequent Uploaders,3.7667,1.6333,0.3837,0.0141,1.0000,0.4153,6.7450,3.4403,Monitor — mid-range metrics
+UCX6b17PVsYBQ0ip5gyeme-Q,CrashCourse,Watch,0.3608,High Momentum — Frequent Uploaders,0.2667,0.1667,3.6244,0.0474,1.0000,3.2858,5.8188,1.2832,Monitor — mid-range metrics
+UCqH4HsbLldOaPvCgcXiLBQA,eagle healthy fitness & hiking,Watch,0.3607,High Momentum — Frequent Uploaders,0.3000,0.3889,4.8475,0.0241,2.0000,1.5145,7.5981,1.4986,Monitor — mid-range metrics
+UC5FNiPVkYzw5040Fx3s576A,EFFECTIVE WORKOUT,Watch,0.3603,High Momentum — Frequent Uploaders,0.3333,0.3778,2.8978,0.0366,1.0000,0.9972,3.7700,1.5002,Monitor — mid-range metrics
+UCzZM2XyXAogNCgvxKHnOd0w,Eva Fitness,Watch,0.3600,High Momentum — Frequent Uploaders,0.3000,0.2889,4.2467,0.0244,1.0000,1.5302,32.2241,1.4229,Monitor — mid-range metrics
+UCMp_u3Obu_ciXzk5HLUT0qQ,ChineseHealthyCook,Watch,0.3598,High Momentum — Frequent Uploaders,0.1000,0.0667,15.2978,0.0359,0.0000,5.7480,2.6611,3.2523,Monitor — mid-range metrics
+UCy3zgWom-5AGypGX_FVTKpg,Olivia Rodrigo,Watch,0.3592,High Momentum — Frequent Uploaders,0.3667,0.2444,5.4219,0.0770,0.0000,25.3458,1.7606,4.7876,Monitor — mid-range metrics
+UCpNuxCE1gi0Sesw0a9DHK4A,Travel and Adventure Studios,Watch,0.3585,High Momentum — Frequent Uploaders,0.3333,0.4000,4.0243,0.0255,2.0000,1.0567,37.3683,1.5007,Monitor — mid-range metrics
+UCsBjURrPoezykLs9EqgamOA,Fireship,Watch,0.3560,High Momentum — Frequent Uploaders,0.2333,0.2556,7.1874,0.0405,2.0000,3.8939,6.4143,1.3210,Monitor — mid-range metrics
+UCz4XY6NPKaMUWNWMONTw3NQ,Investing Made Simple,Watch,0.3559,High Momentum — Frequent Uploaders,0.1667,0.0667,5.8912,0.0557,1.0000,5.0670,10.0300,1.9396,Monitor — mid-range metrics
+UCwUlit_Tlx3HsgfDX_ladJg,CLASSIC COMEDY CHANNEL,Watch,0.3539,High Momentum — Frequent Uploaders,0.2667,0.2667,5.6698,0.0316,3.0000,1.1792,52.3938,1.4388,Monitor — mid-range metrics
+UCm96d4-ZUg2kwDV-JB93Hmw,Akhil Jackson Vines,Watch,0.3539,High Momentum — Frequent Uploaders,0.4000,0.3889,5.1254,0.0159,2.0000,1.3430,4.1333,1.5445,Monitor — mid-range metrics
+UCO9B3V-5P0ydYVVqhv41bPQ,Personal Finance & Investing,Watch,0.3536,High Momentum — Frequent Uploaders,0.1333,0.0444,8.9302,0.1947,0.0000,16.5898,1.2667,7.9250,Monitor — mid-range metrics
+UC0PKLLmL8pIJLjOI1gBH_pA,Shemaroo Comedy,Watch,0.3534,High Momentum — Frequent Uploaders,0.4667,0.8556,28.6026,0.0066,7.0000,0.7233,30.3679,7.0142,Monitor — mid-range metrics
+UCsooa4yRKGN_zEE8iknghZA,TED-Ed,Watch,0.3520,High Momentum — Frequent Uploaders,0.3000,0.3000,4.6903,0.0308,1.0000,1.9211,5.5426,1.2813,Monitor — mid-range metrics
+UC3oqdEh316IxwRULplmvPAg,Madden Competitive Gaming,Watch,0.3507,High Momentum — Frequent Uploaders,0.2333,0.3000,9.5520,0.0215,1.0000,1.4827,0.5952,2.0374,Monitor — mid-range metrics
+UCUAg71CJEvFdOnujmep1Svw,Joshua Weissman Recipes ,Watch,0.3486,High Momentum — Frequent Uploaders,0.2667,0.2667,7.8941,0.0306,1.0000,3.7526,7.0646,1.4073,Monitor — mid-range metrics
+UC5P5EleAPz8xRDUs3vntZEQ,Programming Skills,Watch,0.3484,High Momentum — Frequent Uploaders,0.2000,0.1556,11.4381,0.1741,9.0000,3.3627,0.9139,6.6349,Monitor — mid-range metrics
+UCnlgiPLpnXdXr7opagJv3fA,Health And Fitness Tips,Watch,0.3478,High Momentum — Frequent Uploaders,0.5333,0.6000,4.9966,0.0125,2.0000,1.6510,3.4875,1.5896,Monitor — mid-range metrics
+UC8C_BoC2a-w7PC3AB-C3wBw,E Adventure Travel Vlog  ,Watch,0.3476,High Momentum — Frequent Uploaders,0.2333,0.2000,6.9361,0.0507,1.0000,4.2572,1.5238,1.3474,Monitor — mid-range metrics
+UCh2D2ss44sKdb6l7iGU7eLg,The Whole Food Plant Based Cooking Show,Watch,0.3468,High Momentum — Frequent Uploaders,0.1333,0.2444,14.8128,0.0761,1.0000,3.2224,9.9583,3.5797,Monitor — mid-range metrics
+UClQ3NafOy_42dJ0toK3QUKw,Stay Wild,Watch,0.3466,High Momentum — Frequent Uploaders,0.8333,0.8333,2.2841,0.0121,0.0000,1.2655,7.2120,1.9398,Monitor — mid-range metrics
+UCF1M91ptiuNID6VfxtdRWow,Channel5 Gaming,Watch,0.3458,High Momentum — Frequent Uploaders,0.3333,0.3556,6.0293,0.0403,0.0000,6.7359,22.4533,1.4660,Monitor — mid-range metrics
+UCTOoRgpHTjAQPk6Ak70u-pA,CNN 10,Watch,0.3454,High Momentum — Frequent Uploaders,0.7333,0.6667,2.2739,0.0177,0.0000,1.7644,8.8455,1.7535,Monitor — mid-range metrics
+UCVlNQ5Olu3Uiv5FL8e-yEmQ,SoloSign,Watch,0.3451,High Momentum — Frequent Uploaders,0.3667,0.4444,4.3022,0.0258,0.0000,1.6948,1.7924,1.6706,Monitor — mid-range metrics
+UCFFbwnve3yF62-tVXkTyHqg,Zee Music Company,Watch,0.3447,High Momentum — Frequent Uploaders,5.0000,1.6667,0.4387,0.0101,0.0000,0.0000,2.7740,4.7946,Monitor — mid-range metrics
+UCN8ZbPs-1KR4AcL5MiyvJwA,THE GYM,Watch,0.3431,High Momentum — Frequent Uploaders,0.5000,0.5000,2.8494,0.0226,0.0000,0.5125,5.0344,1.8125,Monitor — mid-range metrics
+UCeSRjhfeeqIgr--AcP9qhyg,Guinness World Records,Watch,0.3419,High Momentum — Frequent Uploaders,1.7000,1.5667,0.8909,0.0179,0.0000,0.4024,6.1036,2.2122,Monitor — mid-range metrics
+UC8t-zBdvXc5WmGwcDE6u1aw,Trump Latest News,Watch,0.3415,High Momentum — Frequent Uploaders,0.1667,0.1333,7.3010,0.1396,2.0000,2.6604,21.7133,4.7921,Monitor — mid-range metrics
+UC6qK85pJLGS64PixlrT-wwg,Finance and Invest Hub,Watch,0.3399,High Momentum — Frequent Uploaders,0.2333,0.5333,5.3501,0.1095,2.0000,1.1713,10.4595,3.6357,Monitor — mid-range metrics
+UC3xWCpnWd8l7HaiqfvtzIhQ,FunnyMike,Watch,0.3395,High Momentum — Frequent Uploaders,3.4333,1.4333,1.6633,0.0088,13.0000,3.4807,2.2845,3.4749,Monitor — mid-range metrics
+UCDSH949wxJ_UI08rbCL2I8Q,LayeredData,Watch,0.3380,High Momentum — Frequent Uploaders,0.2333,0.1000,7.1158,0.0387,2.0000,1.8323,5.4167,1.7719,Monitor — mid-range metrics
+UCMyOj6fhvKFMjxUCp3b_3gA,Nick DiGiovanni,Watch,0.3375,High Momentum — Frequent Uploaders,0.5333,0.4444,4.3967,0.0202,0.0000,3.7008,5.4375,1.4508,Monitor — mid-range metrics
+UCBTIfttCPdIii49bjBWyebg,ESPN F1,Watch,0.3359,High Momentum — Frequent Uploaders,0.2667,0.3333,23.7192,0.0362,5.0000,2.4818,0.4125,5.4585,Monitor — mid-range metrics
+UCNU_lfiiWBdtULKOw6X0Dig,Krish Naik,Watch,0.3352,High Momentum — Frequent Uploaders,0.3333,0.4000,9.7157,0.0253,1.0000,2.9668,154.7800,1.8396,Monitor — mid-range metrics
+UC547XA_zfSXKLaqe-GAiXCg,The Hillbilly Kitchen - Down Home Country Cooking,Watch,0.3352,High Momentum — Frequent Uploaders,0.3667,0.4333,3.1818,0.1034,0.0000,2.1795,13.6045,3.3727,Monitor — mid-range metrics
+UCJHA_jMfCvEnv-3kRjTCQXw,Binging with Babish,Watch,0.3350,High Momentum — Frequent Uploaders,0.4667,0.4222,4.0392,0.0237,0.0000,1.5866,6.9643,1.5886,Monitor — mid-range metrics
+UCrWcRcjitwFig9XCQ78rVYQ,Great Live Music,Watch,0.3340,High Momentum — Frequent Uploaders,0.8333,1.4111,2.8249,0.0156,2.0000,1.1567,2.0107,1.8405,Monitor — mid-range metrics
+UCwCj-mTphfnjBcRag6MEM2A,ProjectJamesify,Watch,0.3336,High Momentum — Frequent Uploaders,1.0000,1.0000,2.8973,0.0073,0.0000,0.5014,20.7189,2.0710,Monitor — mid-range metrics
+UChGJGhZ9SOOHvBB0Y4DOO_w,Ryan's World,Watch,0.3335,High Momentum — Frequent Uploaders,2.4333,1.5667,1.2165,0.0065,0.0000,0.6514,6.7260,2.6216,Monitor — mid-range metrics
+UCW9C8RhdHglQ_zzoMpu4V6g,Exercise For Health,Watch,0.3320,High Momentum — Frequent Uploaders,0.3000,0.2444,6.0845,0.0372,0.0000,1.9123,5.1315,1.5185,Monitor — mid-range metrics
+UC0quLfqtExnTlNow-a25BKA,Amar Raghu,Watch,0.3318,High Momentum — Frequent Uploaders,0.8000,0.7889,2.4164,0.0198,1.0000,0.8002,1.6222,1.5383,Monitor — mid-range metrics
+UCQIUhhcmXsu6cN6n3y9-Pww,Jesser,Watch,0.3292,High Momentum — Frequent Uploaders,0.7333,0.6667,3.3338,0.0150,0.0000,1.5528,8.1356,1.7259,Monitor — mid-range metrics
+UCNhLt0Z5VL_9dcR27wnbQhA,jimgaffigan,Watch,0.3289,High Momentum — Frequent Uploaders,0.5333,0.4333,3.4155,0.0315,0.0000,2.0420,5.6812,1.4333,Monitor — mid-range metrics
+UCZiiGwQJ0ybsCcN3fyGBQCQ,Top Hat Gaming Man,Watch,0.3266,High Momentum — Frequent Uploaders,0.9333,0.9222,1.5432,0.0409,0.0000,1.0040,7.5405,1.6986,Monitor — mid-range metrics
+UCppHT7SZKKvar4Oc9J4oljQ,Zee TV,Watch,0.3262,High Momentum — Frequent Uploaders,5.0000,1.6667,0.2376,0.0628,0.0000,0.0000,5.3103,4.7858,Monitor — mid-range metrics
+UCdL0Zdq18Wrtx5yRLFgiwDA,Wealthboard ,Watch,0.3239,High Momentum — Frequent Uploaders,0.4667,1.2333,3.6504,0.0498,1.0000,1.2438,50.5631,1.7887,Monitor — mid-range metrics
+UCo_IB5145EVNcf8hw1Kku7w,The Game Theorists,Watch,0.3229,High Momentum — Frequent Uploaders,0.3667,0.3000,6.1526,0.0446,1.0000,2.0317,9.2303,1.1929,Monitor — mid-range metrics
+UC1gVb9-zg2cRQhR4WAHjG4A,UNBEATABLE CULTURE ,Watch,0.3218,High Momentum — Frequent Uploaders,0.6667,0.8111,2.8685,0.0305,1.0000,0.6568,2.1300,1.4367,Monitor — mid-range metrics
+UC4tAgeVdaNB5vD_mBoxg50w,Allrecipes,Watch,0.3217,High Momentum — Frequent Uploaders,0.5333,0.5000,3.7248,0.0334,0.0000,1.6054,18.7979,1.4625,Monitor — mid-range metrics
+UC2uQvUg3YYzoOtj1yZLT0Ow,FoltynPlays,Watch,0.3216,High Momentum — Frequent Uploaders,0.7333,0.7778,3.3861,0.0187,1.0000,0.7700,12.8826,1.4995,Monitor — mid-range metrics
+UCH2PslY8MY2bW_CccvFSz0Q,Suresh Guru Comedy,Watch,0.3214,High Momentum — Frequent Uploaders,0.7667,0.9000,2.7028,0.0301,2.0000,0.8746,0.9971,1.3821,Monitor — mid-range metrics
+UCsLF0qPTpkYKq81HsjgzhwQ,growingannanas,Watch,0.3211,High Momentum — Frequent Uploaders,0.6000,0.6222,4.6441,0.0251,2.0000,1.6188,15.0870,1.1922,Monitor — mid-range metrics
+UCBa5G_ESCn8Yd4vw5U-gIcg,Stanford Online,Watch,0.3209,High Momentum — Frequent Uploaders,0.8667,0.8889,3.4115,0.0197,1.0000,3.2536,64.3705,1.1900,Monitor — mid-range metrics
+UCvJiYiBUbw4tmpRSZT2r1Hw,Science Channel,Watch,0.3193,High Momentum — Frequent Uploaders,0.8667,0.9111,3.0262,0.0172,1.0000,0.8999,19.5423,1.5323,Monitor — mid-range metrics
+UCqoAEDirJPjEUFcF2FklnBA,StarTalk,Watch,0.3188,High Momentum — Frequent Uploaders,0.7000,0.5889,2.8151,0.0301,0.0000,1.2682,20.0833,1.5174,Monitor — mid-range metrics
+UCKiB29TN0fWr28pvafeiISw,Tiya & Advik Chathamkulam NimishaRajeesh Vlogs,Watch,0.3182,High Momentum — Frequent Uploaders,0.9333,1.1444,3.1110,0.0125,0.0000,0.7792,5.6554,1.9685,Monitor — mid-range metrics
+UCTU3m4rCUS-7qXuHK-j9Uqw,TechyCrew,Watch,0.3166,High Momentum — Frequent Uploaders,0.8000,0.7778,3.6694,0.0159,1.0000,0.6668,11.9764,1.5183,Monitor — mid-range metrics
+UCkKGYXQpaecQWA8bjIqbKCg,Kannada Health and Fitness,Watch,0.3166,High Momentum — Frequent Uploaders,0.6000,0.5333,5.5371,0.0254,0.0000,4.1208,0.7620,1.2916,Monitor — mid-range metrics
+UCCya-YUszMuiTAR3lfYMuog,Mr Perfect Tech,Watch,0.3164,High Momentum — Frequent Uploaders,0.3333,0.2444,9.7996,0.0382,0.0000,2.7719,5.8817,1.9206,Monitor — mid-range metrics
+UCpEhnqL0y41EpW2TvWAHD7Q,SET India,Watch,0.3161,High Momentum — Frequent Uploaders,5.0000,1.6667,0.6440,0.0116,0.0000,0.0000,25.0868,4.7615,Monitor — mid-range metrics
+UCe2JAC5FUfbxLCfAvBWmNJA,Your Food Lab,Watch,0.3157,High Momentum — Frequent Uploaders,0.7667,0.6889,3.0868,0.0223,0.0000,1.1642,8.4623,1.6064,Monitor — mid-range metrics
+UC4mLlRa_dezwvytudo9s1sw,Deestroying,Watch,0.3149,High Momentum — Frequent Uploaders,0.5000,0.2333,9.2492,0.0311,0.0000,7.3464,7.8011,1.9919,Monitor — mid-range metrics
+UCFmMw7yTuLTCuMhpZD5dVsg,ESPN Fans,Watch,0.3144,High Momentum — Frequent Uploaders,5.0000,1.6667,0.4437,0.0255,0.0000,0.0000,5.1208,4.6637,Monitor — mid-range metrics
+UCGqkCJkjKjybPDLwfJTy5Pg,My Adventure and Vlogs Channel,Watch,0.3141,High Momentum — Frequent Uploaders,0.2333,0.1778,50.4522,0.0381,0.0000,3.1099,2.3857,12.8448,Monitor — mid-range metrics
+UCKDoMPbRUAmC89aUjCHolQg,Finance & Investing Explained,Watch,0.3133,High Momentum — Frequent Uploaders,0.9333,0.3111,9.0148,0.0201,0.0000,21.1606,2.1101,4.2213,Monitor — mid-range metrics
+UCTIwFB4ciFi5ZCIu-VlwaOg,Little Sports,Watch,0.3130,High Momentum — Frequent Uploaders,1.3333,1.3333,3.1738,0.0071,0.0000,0.8817,9.5629,2.0738,Monitor — mid-range metrics
+UC0T6MVd3wQDB5ICAe45OxaQ,WsCube Tech,Watch,0.3106,High Momentum — Frequent Uploaders,1.0000,0.9444,1.8498,0.0366,0.0000,0.6193,11.7011,1.6655,Monitor — mid-range metrics
+UCDdX__CY4YLGoggpG2vvILg,Rajkzr ,Watch,0.3104,High Momentum — Frequent Uploaders,0.8333,0.8667,2.7325,0.0253,0.0000,0.7252,1.7540,1.6743,Monitor — mid-range metrics
+UCp4Ii_WWNRygrunLIZmz6UA,Suma ,Watch,0.3104,High Momentum — Frequent Uploaders,0.6000,0.5667,9.1547,0.0153,0.0000,2.5160,9.9796,1.9821,Monitor — mid-range metrics
+UC6I9xtXwwo87Dik1xMPgLdw,RD Fitness Unlimited,Watch,0.3099,High Momentum — Frequent Uploaders,1.3667,1.1222,1.7035,0.0242,0.0000,1.4351,9.0882,1.7048,Monitor — mid-range metrics
+UC1rIOwTqDuWkFj87HZYRFOg,NYT Cooking,Watch,0.3083,High Momentum — Frequent Uploaders,0.6333,0.7556,5.1221,0.0248,1.0000,1.2738,6.1956,1.2969,Monitor — mid-range metrics
+UC6OjooeFqsuH1kVOTEAxjIA,Punjabi Travel Couple,Watch,0.3078,High Momentum — Frequent Uploaders,0.8667,0.8778,3.7567,0.0238,0.0000,3.5979,35.5006,1.3504,Monitor — mid-range metrics
+UC07LXvJakNQAMN3Z3nWTI9A,Music For You,Watch,0.3070,High Momentum — Frequent Uploaders,0.5000,0.5111,6.8082,0.0273,1.0000,0.6175,6.3422,1.4238,Monitor — mid-range metrics
+UCGi2Q4YyKiJFiBOx4cGXsgw,Science and Fun Education ,Watch,0.3056,High Momentum — Frequent Uploaders,0.5667,0.6000,5.0900,0.0348,1.0000,1.0565,3.1676,1.1749,Monitor — mid-range metrics
+UCPD5p5Qe-NhRGfWBpwqpt1w,Caylus Top Videos,Watch,0.3053,High Momentum — Frequent Uploaders,0.9333,0.8333,3.4072,0.0158,0.0000,0.6574,132.6845,1.7469,Monitor — mid-range metrics
+UCP-iaFrmWcOG0o461wMicdg,TheGamingBeaver,Watch,0.3048,High Momentum — Frequent Uploaders,0.5667,0.1889,14.1853,0.0402,1.0000,11.0307,53.4461,3.5062,Monitor — mid-range metrics
+UCht8qITGkBvXKsR1Byln-wA,Audio Library,Watch,0.3048,High Momentum — Frequent Uploaders,1.0000,0.9889,3.1094,0.0155,0.0000,0.5149,2.9506,1.8246,Monitor — mid-range metrics
+UCZv586Bs75XnaIujkhmn48g,Finance & Investing,Watch,0.3042,High Momentum — Frequent Uploaders,0.4333,0.1444,10.0677,0.1875,13.0000,0.3892,3.8128,7.4560,Monitor — mid-range metrics
+UCBSwcEOp0PMwhvE6FVjgITw,Vismai Food,Watch,0.3038,High Momentum — Frequent Uploaders,0.6333,0.6222,6.5032,0.0168,0.0000,0.6672,3.5184,1.7881,Monitor — mid-range metrics
+UC60o82Sf4SpkgH4lOH0GGuw,Business of Life - Investing,Watch,0.3036,High Momentum — Frequent Uploaders,0.7000,0.7667,4.3849,0.0263,1.0000,0.8266,15.8619,1.2796,Monitor — mid-range metrics
+UCrWMk23uepWVEg3xs02dz7A,Foods and Flavors,Watch,0.3033,High Momentum — Frequent Uploaders,1.0000,0.9667,2.5773,0.0227,0.0000,0.5633,3.4106,1.7142,Monitor — mid-range metrics
+UCVf5nbGJmJER1SWL4JXr1yg,Investment & Finance ,Watch,0.3021,High Momentum — Frequent Uploaders,1.0667,0.3556,2.4442,0.0217,0.0000,0.3408,0.8323,2.5553,Monitor — mid-range metrics
+UCJFcU5RyTQnjWuz_9KYve0Q,Western confused brit views ,Watch,0.3002,High Momentum — Frequent Uploaders,0.8333,0.2778,2.1381,0.0721,0.0000,0.5898,16.8340,2.9386,Monitor — mid-range metrics
+UCYPvAwZP8pZhSMW8qs7cVCw,India Today,Watch,0.2992,High Momentum — Frequent Uploaders,5.0000,1.6667,0.9243,0.0094,0.0000,0.0000,13.8362,4.7669,Monitor — mid-range metrics
+UCpVm7bg6pXKo1Pr6k5kxG9A,National Geographic,Watch,0.2973,High Momentum — Frequent Uploaders,0.8667,1.3333,4.1275,0.0183,0.0000,0.7174,53.3192,1.9022,Monitor — mid-range metrics
+UChOEaXi13Gme9w7Laf-jx9A,Preet Fitness & Health,Watch,0.2966,High Momentum — Frequent Uploaders,0.7667,0.8222,9.1578,0.0245,0.0000,7.0227,0.4986,1.7774,Monitor — mid-range metrics
+UCdYmlK5tGqxFuSkbLl_7a1w,Adventure Tube,Watch,0.2961,High Momentum — Frequent Uploaders,0.6333,0.6556,6.9627,0.0301,2.0000,1.1329,17.0570,1.2580,Monitor — mid-range metrics
+UCoNEdsEvbgRjmV1WywA9S0Q,fitness__kaykay,Watch,0.2960,High Momentum — Frequent Uploaders,0.6000,0.6333,5.9306,0.0368,0.0000,2.0332,11.9667,1.3793,Monitor — mid-range metrics
+UCwGTY5sOiTeN29iOXrfA92w,K-LOVE,Watch,0.2958,High Momentum — Frequent Uploaders,1.8333,1.5222,1.0692,0.0616,0.0000,0.5530,1.2336,2.2625,Monitor — mid-range metrics
+UCT3EznhW_CNFcfOlyDNTLLw,Minority Mindset,Watch,0.2951,High Momentum — Frequent Uploaders,0.8000,0.7556,3.3616,0.0345,0.0000,0.8108,22.3153,1.4792,Monitor — mid-range metrics
+UCGnsRwFS8Xm13lMAeouzT9g,Allie Sherlock,Watch,0.2944,High Momentum — Frequent Uploaders,0.7333,0.8667,4.5905,0.0277,0.0000,1.1013,1.9697,1.5363,Monitor — mid-range metrics
+UC295-Dw_tDNtZXFeAPAW6Aw,5-Minute Crafts,Watch,0.2940,High Momentum — Frequent Uploaders,1.4333,1.3333,4.4635,0.0063,0.0000,0.4913,88.2953,2.0586,Monitor — mid-range metrics
+UCwlvSJdcMc7iGdR-aducSog,Geopolitical Economy Report,Watch,0.2936,High Momentum — Frequent Uploaders,0.6667,0.8444,3.7651,0.0627,1.0000,0.6531,10.9917,1.7458,Monitor — mid-range metrics
+UCw5-xj3AKqEizC7MvHaIPqA,ESPN Brasil,Watch,0.2928,High Momentum — Frequent Uploaders,5.0000,1.6667,0.5473,0.0364,0.0000,0.0000,11.6159,4.6242,Monitor — mid-range metrics
+UCpSgg_ECBj25s9moCDfSTsA,Jamie Oliver,Watch,0.2924,High Momentum — Frequent Uploaders,0.8000,0.9667,4.4164,0.0236,0.0000,0.7308,13.3236,1.6457,Monitor — mid-range metrics
+UCEATT6H3U5lu20eKPuHVN8A,The Chris Hedges YouTube Channel,Watch,0.2922,High Momentum — Frequent Uploaders,0.7000,0.6889,3.5557,0.0646,0.0000,1.3774,23.4000,1.8781,Monitor — mid-range metrics
+UCLu1jSLRGzVgOsViFic42Gg,HomeCookingShow,Watch,0.2920,High Momentum — Frequent Uploaders,0.9333,0.9556,4.3774,0.0166,0.0000,0.5521,2.9917,1.7315,Monitor — mid-range metrics
+UCAq_cxYupJT7OUlI-8u1P_Q,Raabi,Watch,0.2917,High Momentum — Frequent Uploaders,0.9667,1.2222,2.7347,0.0516,2.0000,0.6229,2.6247,1.5542,Monitor — mid-range metrics
+UCnMn36GT_H0X-w5_ckLtlgQ,Financial Education,Watch,0.2915,High Momentum — Frequent Uploaders,0.4333,0.3556,10.1832,0.0626,1.0000,1.5426,28.1038,2.1342,Monitor — mid-range metrics
+UCew5br5cO1ZKO7Z_F1WA8Bg,ThatsGoodSports,Watch,0.2914,High Momentum — Frequent Uploaders,0.5333,0.7444,8.0624,0.0401,1.0000,0.9852,22.1427,1.5694,Monitor — mid-range metrics

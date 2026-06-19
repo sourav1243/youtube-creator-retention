@@ -1,13 +1,13 @@
 # Model Card: KMEANS Clustering
 
-Generated: 2026-06-19T15:11:45.589316+00:00
+Generated: 2026-06-19T16:42:24.983117+00:00
 
 ## Model Overview
 
 - Algorithm: KMEANS
 - Number of clusters (K): 3
-- Silhouette score: 0.5134
-- Bootstrap stability (mean confidence): 0.5499
+- Silhouette score: 0.8065
+- Bootstrap stability (mean confidence): 0.7845
 - Random state: 42
 - Feature columns: upload_freq_30d, upload_freq_90d, freq_trend_ratio, momentum_ratio, avg_engagement_rate, days_since_last_upload, upload_regularity
 - Preprocessing: RobustScaler on continuous features, log1p on days_since_last_upload
@@ -29,21 +29,21 @@ Each component is normalized to [0,1] and weighted. Higher score = higher churn 
 
 | Cluster | Label | Risk Flag | Size | Mean Risk Score |
 |---|---|---|---|---|
-| 0 | High Momentum — Frequent Uploaders | Healthy | 30 | 0.3103 |
-| 1 | Mid Momentum — Regular Creators | At-Risk | 1 | 0.4002 |
-| 2 | Low Momentum — Declining Engagement | At-Risk | 4 | 0.4700 |
+| 0 | High Momentum — Frequent Uploaders | At-Risk | 480 | 0.3711 |
+| 1 | Low Momentum — Declining Engagement | At-Risk | 11 | 0.6396 |
+| 2 | Mid Momentum — Regular Creators | Watch | 1 | 0.3817 |
 
 ## Centroid Values (unscaled)
 
 | Feature | 0 | 1 | 2 |
 |---|---|---|---|
-| upload_freq_30d | 2.1800 | 0.1667 | 0.2417 |
-| upload_freq_90d | 1.0430 | 0.1000 | 0.4111 |
-| freq_trend_ratio | 1.7191 | 1.6667 | 0.5838 |
-| momentum_ratio | 3.6705 | 7.0272 | 3.5004 |
-| avg_engagement_rate | 0.0232 | 0.0416 | 0.0789 |
-| days_since_last_upload | 0.3333 | 2.0000 | 27.5000 |
-| upload_regularity | 1.2099 | 25.5902 | 5.5582 |
+| upload_freq_30d | 1.1977 | 0.0394 | 0.0667 |
+| upload_freq_90d | 0.7001 | 0.0566 | 0.0444 |
+| freq_trend_ratio | 1.3794 | 1.0121 | 1.5000 |
+| momentum_ratio | 5.1888 | 1.9318 | 407.4753 |
+| avg_engagement_rate | 0.0376 | 0.0215 | 0.0379 |
+| days_since_last_upload | 5.7812 | 26.1818 | 1.0000 |
+| upload_regularity | 5.0090 | 129.0288 | 20.7834 |
 
 ## Labeling Rule
 

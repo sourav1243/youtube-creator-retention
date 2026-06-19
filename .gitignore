@@ -1,7 +1,9 @@
 .env
 .env.local
 data/raw/
-data/processed/
+data/processed/videos_clean.parquet
+data/processed/youtube_creator_retention.db
+data/processed/creator_analytics.duckdb
 backups/
 .agents/
 DECISIONS.md

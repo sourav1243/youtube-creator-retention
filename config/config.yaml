@@ -9,7 +9,7 @@ extraction:
   retry_max_attempts: 5
   retry_base_delay_s: 2.0
   request_timeout: 30
-  max_pages_per_channel: 20
+  max_pages_per_channel: 3
 
 cleaning:
   outlier_method: cap_99th_percentile
