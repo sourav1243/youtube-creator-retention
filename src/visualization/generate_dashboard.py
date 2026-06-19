@@ -311,66 +311,6 @@ def gen_dashboard():
 <div id="root">
 <div class="loading"><div class="spinner"></div>Loading dashboard...</div>
 </div>
-<script>
-const D = {charts};
-
-function err(msg) {{
-  document.getElementById('root').innerHTML = '<div class="error-card"><h3>Something went wrong</h3><p>' + msg + '</p></div>';
-}}
-function esc(s) {{ var d=document.createElement('div');d.appendChild(document.createTextNode(s));return d.innerHTML; }}
-
-function render() {{
-  try {{
-    var ids = ['pie','bar','scatter','risk-dist','centroids','corr'];
-    var keys = ['pie','bar','scatter','risk_dist','centroids','corr'];
-    for (var i=0;i<ids.length;i++) {{
-      Plotly.newPlot('c-'+ids[i], JSON.parse(D[keys[i]]).data, JSON.parse(D[keys[i]]).layout, {{responsive:true,displayModeBar:false,hovermode:'closest'}});
-    }}
-    renderTable();
-    document.getElementById('loading').style.display='none';
-    document.getElementById('content').style.display='block';
-  }} catch(e) {{ err(e.message); }}
-}}
-
-var sortKey='risk_raw', sortAsc=false;
-
-function renderTable() {{
-  var tier=document.getElementById('tf').value;
-  var q=document.getElementById('search').value.toLowerCase();
-  var rows=D.table_data.slice();
-  if(tier!=='all') rows=rows.filter(function(r){{return r.flag===tier}});
-  if(q) rows=rows.filter(function(r){{return r.title.toLowerCase().includes(q)}});
-  rows.sort(function(a,b){{var av=a[sortKey],bv=b[sortKey];if(av==='N/A')av='';if(bv==='N/A')bv='';var cmp=typeof av==='number'&&typeof bv==='number'?av-bv:String(av).localeCompare(String(bv));return sortAsc?cmp:-cmp}});
-  var cols=[{{k:'title',l:'Channel'}},{{k:'subs',l:'Subscribers'}},{{k:'freq',l:'Freq 30d'}},{{k:'mom',l:'Momentum'}},{{k:'eng',l:'Engagement'}},{{k:'days',l:'Days Idle'}},{{k:'risk_s',l:'Risk Score'}},{{k:'conf',l:'Confidence'}},{{k:'cluster',l:'Cluster'}},{{k:'action',l:'Action'}}];
-  var h='<table><thead><tr>';
-  for(var c=0;c<cols.length;c++){{var col=cols[c],act=sortKey===col.k;h+='<th onclick="st(\\\\''+col.k+'\\\\')" tabindex="0" onkeydown="if(event.key===\\\'Enter\\\')st(\\\\''+col.k+'\\\\')">'+col.l+'<span class="sort-arrow'+(act?' active':'')+'">'+(act?(sortAsc?'\\u25B2':'\\u25BC'):'\\u25BD')+'</span></th>';}}
-  h+='</tr></thead><tbody>';
-  if(rows.length===0){{h+='<tr><td colspan="'+cols.length+'" class="no-data">No channels match your filter.</td></tr>';}}else{{
-    for(var i=0;i<rows.length;i++){{var r=rows[i],dc=r.flag==='Healthy'?'#22c55e':r.flag==='Watch'?'#f59e0b':r.flag==='At-Risk'?'#ef4444':'#6b7280';var ac='action-auto';if(r.action.indexOf('Urgent')>=0)ac='action-urgent';else if(r.action.indexOf('Check')>=0)ac='action-check';else if(r.action.indexOf('Priority')>=0||r.action.indexOf('Monitor')>=0)ac='action-monitor';
-    h+='<tr><td><span class="risk-dot" style="background:'+dc+'"></span>'+esc(r.title)+'</td><td>'+r.subs+'</td><td>'+r.freq+'</td><td>'+r.mom+'</td><td>'+r.eng+'</td><td>'+r.days+'</td><td>'+r.risk_s+'</td><td>'+r.conf+'</td><td>'+esc(r.cluster)+'</td><td><span class="action-badge '+ac+'">'+esc(r.action)+'</span></td></tr>';
-    }}
-  }}
-  h+='</tbody></table>';
-  document.getElementById('tc').innerHTML=h;
-}}
-
-function st(k){{if(sortKey===k)sortAsc=!sortAsc;else{{sortKey=k;sortAsc=k==='risk_raw'}}renderTable();}}
-
-document.getElementById('tf').addEventListener('change',renderTable);
-document.getElementById('search').addEventListener('input',renderTable);
-
-if(typeof Plotly!=='undefined'){{render();}}else{{setTimeout(function(){{if(typeof Plotly!=='undefined')render();else err('Plotly library did not load. Check your internet connection.');}},5000);}}
-
-function exportCSV() {{
-  var rows=D.table_data.slice();
-  var headers=['Channel','Subscribers','Freq 30d','Momentum','Engagement','Days Idle','Risk Score','Confidence','Cluster','Risk Flag','Action'];
-  var csv=headers.join(',')+'\\n';
-  for(var i=0;i<rows.length;i++){{var r=rows[i];csv+='"'+esc(r.title).replace(/"/g,'""')+'",'+r.subs+','+r.freq+','+r.mom+','+r.eng+','+r.days+','+r.risk_s+','+r.conf+',"'+esc(r.cluster).replace(/"/g,'""')+'","'+r.flag+'","'+esc(r.action).replace(/"/g,'""')+'"\\n';}}
-  var blob=new Blob([csv],{{type:'text/csv'}});
-  var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='creator_dashboard_export.csv';a.click();
-}}
-</script>
-
 <div id="loading" class="loading"><div class="spinner"></div>Rendering charts...</div>
 <div id="content" style="display:none">
 
@@ -442,6 +382,66 @@ function exportCSV() {{
 YouTube Creator Retention Pipeline v2 &middot; {ts}
 </div>
 </div>
+
+<script>
+const D = {charts};
+
+function err(msg) {{
+  document.getElementById('root').innerHTML = '<div class="error-card"><h3>Something went wrong</h3><p>' + msg + '</p></div>';
+}}
+function esc(s) {{ var d=document.createElement('div');d.appendChild(document.createTextNode(s));return d.innerHTML; }}
+
+function render() {{
+  try {{
+    var ids = ['pie','bar','scatter','risk-dist','centroids','corr'];
+    var keys = ['pie','bar','scatter','risk_dist','centroids','corr'];
+    for (var i=0;i<ids.length;i++) {{
+      Plotly.newPlot('c-'+ids[i], JSON.parse(D[keys[i]]).data, JSON.parse(D[keys[i]]).layout, {{responsive:true,displayModeBar:false,hovermode:'closest'}});
+    }}
+    renderTable();
+    document.getElementById('loading').style.display='none';
+    document.getElementById('content').style.display='block';
+  }} catch(e) {{ err(e.message); }}
+}}
+
+var sortKey='risk_raw', sortAsc=false;
+
+function renderTable() {{
+  var tier=document.getElementById('tf').value;
+  var q=document.getElementById('search').value.toLowerCase();
+  var rows=D.table_data.slice();
+  if(tier!=='all') rows=rows.filter(function(r){{return r.flag===tier}});
+  if(q) rows=rows.filter(function(r){{return r.title.toLowerCase().includes(q)}});
+  rows.sort(function(a,b){{var av=a[sortKey],bv=b[sortKey];if(av==='N/A')av='';if(bv==='N/A')bv='';var cmp=typeof av==='number'&&typeof bv==='number'?av-bv:String(av).localeCompare(String(bv));return sortAsc?cmp:-cmp}});
+  var cols=[{{k:'title',l:'Channel'}},{{k:'subs',l:'Subscribers'}},{{k:'freq',l:'Freq 30d'}},{{k:'mom',l:'Momentum'}},{{k:'eng',l:'Engagement'}},{{k:'days',l:'Days Idle'}},{{k:'risk_s',l:'Risk Score'}},{{k:'conf',l:'Confidence'}},{{k:'cluster',l:'Cluster'}},{{k:'action',l:'Action'}}];
+  var h='<table><thead><tr>';
+  for(var c=0;c<cols.length;c++){{var col=cols[c],act=sortKey===col.k;h+='<th onclick="st(\\\\''+col.k+'\\\\')" tabindex="0" onkeydown="if(event.key===\\\'Enter\\\')st(\\\\''+col.k+'\\\\')">'+col.l+'<span class="sort-arrow'+(act?' active':'')+'">'+(act?(sortAsc?'\\u25B2':'\\u25BC'):'\\u25BD')+'</span></th>';}}
+  h+='</tr></thead><tbody>';
+  if(rows.length===0){{h+='<tr><td colspan="'+cols.length+'" class="no-data">No channels match your filter.</td></tr>';}}else{{
+    for(var i=0;i<rows.length;i++){{var r=rows[i],dc=r.flag==='Healthy'?'#22c55e':r.flag==='Watch'?'#f59e0b':r.flag==='At-Risk'?'#ef4444':'#6b7280';var ac='action-auto';if(r.action.indexOf('Urgent')>=0)ac='action-urgent';else if(r.action.indexOf('Check')>=0)ac='action-check';else if(r.action.indexOf('Priority')>=0||r.action.indexOf('Monitor')>=0)ac='action-monitor';
+    h+='<tr><td><span class="risk-dot" style="background:'+dc+'"></span>'+esc(r.title)+'</td><td>'+r.subs+'</td><td>'+r.freq+'</td><td>'+r.mom+'</td><td>'+r.eng+'</td><td>'+r.days+'</td><td>'+r.risk_s+'</td><td>'+r.conf+'</td><td>'+esc(r.cluster)+'</td><td><span class="action-badge '+ac+'">'+esc(r.action)+'</span></td></tr>';
+    }}
+  }}
+  h+='</tbody></table>';
+  document.getElementById('tc').innerHTML=h;
+}}
+
+function st(k){{if(sortKey===k)sortAsc=!sortAsc;else{{sortKey=k;sortAsc=k==='risk_raw'}}renderTable();}}
+
+document.getElementById('tf').addEventListener('change',renderTable);
+document.getElementById('search').addEventListener('input',renderTable);
+
+function exportCSV() {{
+  var rows=D.table_data.slice();
+  var headers=['Channel','Subscribers','Freq 30d','Momentum','Engagement','Days Idle','Risk Score','Confidence','Cluster','Risk Flag','Action'];
+  var csv=headers.join(',')+'\\n';
+  for(var i=0;i<rows.length;i++){{var r=rows[i];csv+='"'+esc(r.title).replace(/"/g,'""')+'",'+r.subs+','+r.freq+','+r.mom+','+r.eng+','+r.days+','+r.risk_s+','+r.conf+',"'+esc(r.cluster).replace(/"/g,'""')+'","'+r.flag+'","'+esc(r.action).replace(/"/g,'""')+'"\\n';}}
+  var blob=new Blob([csv],{{type:'text/csv'}});
+  var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='creator_dashboard_export.csv';a.click();
+}}
+
+if(typeof Plotly!=='undefined'){{render();}}else{{setTimeout(function(){{if(typeof Plotly!=='undefined'){{render();}}else{{err('Plotly library did not load.');}}}},5000);}}
+</script>
 </body>
 </html>"""
 
