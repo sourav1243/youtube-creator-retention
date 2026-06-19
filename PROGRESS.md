@@ -79,5 +79,14 @@
 - [x] DECISIONS.md finalized with all autonomous decisions logged
 - [x] `src/run_pipeline.py` orchestrates all phases end-to-end
 
-## Phase 11 — Stretch: Real Historical Snapshots
-- [ ] _pending_
+## Phase 11 — Live Data & Production Hardening
+- [x] **Live YouTube API extraction**: 37 seed channels (6 niches), 5,550 videos (150/channel, 3 pages)
+- [x] **Real EDA**: distributions, correlations, histograms on live data
+- [x] **K-Means clustering on real data**: K=2, silhouette=0.9075 (very strong)
+- [x] **At-risk report with real creators**: TommyInnit & Dream flagged At-Risk (52 & 38 days inactive)
+- [x] **Momentum ratio NaN fix**: fallback to median-split for high-frequency uploaders (news/TV channels)
+- [x] **Cluster label NaN fix**: fillna(0) in centroid ranking prevents mislabeling
+- [x] **Reporting column collision fix**: proper merge strategy for cluster+feature+channel data
+- [x] **End-to-end pipeline verified**: `python -m src.run_pipeline` completes all 7 steps
+- [x] **Pipeline now includes video extraction** (was previously missing from orchestrator)
+- [x] **Temporary scripts removed**: production codebase is clean

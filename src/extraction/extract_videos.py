@@ -6,7 +6,7 @@ import logging
 from pathlib import Path
 from typing import Any
 
-from src.config import ROOT_DIR
+from src.config import ROOT_DIR, settings
 from src.extraction.youtube_client import YouTubeClient, now_iso
 
 logger = logging.getLogger(__name__)
@@ -39,10 +39,11 @@ def extract_channel_videos(
     uploads_playlist_id: str,
     client: YouTubeClient,
     output_dir: Path,
+    max_pages: int | None = None,
 ) -> list[dict[str, Any]]:
-    """Extract all video IDs + metadata for a single channel."""
+    """Extract video IDs + metadata for a single channel."""
     try:
-        playlist_items = client.get_playlist_items(uploads_playlist_id)
+        playlist_items = client.get_playlist_items(uploads_playlist_id, max_pages=max_pages)
     except Exception as e:
         logger.warning("  %s: playlistItems failed: %s", channel_id, e)
         return []
@@ -71,12 +72,15 @@ def extract_videos_tier_b(
     output_dir: str | Path | None = None,
     manifest_path: str | Path | None = None,
     client: YouTubeClient | None = None,
+    max_pages: int | None = None,
 ) -> list[dict[str, Any]]:
     output_dir = Path(output_dir or ROOT_DIR / "data" / "raw" / "videos")
     output_dir.mkdir(parents=True, exist_ok=True)
     manifest_path = Path(manifest_path or ROOT_DIR / "data" / "raw" / "manifest.csv")
 
     client = client or YouTubeClient()
+    if max_pages is None:
+        max_pages = settings.extraction.max_pages_per_channel
     manifest = load_manifest(manifest_path)
 
     manifest_entries: list[dict[str, str]] = []
@@ -93,7 +97,7 @@ def extract_videos_tier_b(
 
     for channel_id, playlist_id in remaining:
         logger.info("  Channel %s: extracting videos...", channel_id)
-        videos = extract_channel_videos(channel_id, playlist_id, client, output_dir)
+        videos = extract_channel_videos(channel_id, playlist_id, client, output_dir, max_pages=max_pages)
 
         if videos:
             video_path = output_dir / f"{channel_id}.json"

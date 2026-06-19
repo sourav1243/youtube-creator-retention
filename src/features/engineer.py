@@ -88,6 +88,18 @@ def compute_features(
 
         if recent_vpd is not None and older_vpd is not None and older_vpd > 0:
             momentum_ratio = recent_vpd / older_vpd
+        elif len(channel_videos) >= 4:
+            # Fallback: split available videos by median date when date-window comparison is impossible
+            sorted_vids = channel_videos.sort_values("published_at")
+            mid = len(sorted_vids) // 2
+            older_half = sorted_vids.iloc[:mid]
+            recent_half = sorted_vids.iloc[mid:]
+            older_vpd_fb = _avg_views_per_day(older_half)
+            recent_vpd_fb = _avg_views_per_day(recent_half)
+            if recent_vpd_fb is not None and older_vpd_fb is not None and older_vpd_fb > 0:
+                momentum_ratio = recent_vpd_fb / older_vpd_fb
+            else:
+                momentum_ratio = None
         else:
             momentum_ratio = None
 
@@ -176,6 +188,12 @@ def run_feature_pipeline(
 
     channels_df = load_and_clean_channels(channels_dir)
     videos_df = load_and_clean_videos(videos_dir)
+
+    # Persist cleaned DataFrames for downstream consumers (e.g. reporting)
+    processed_dir = ROOT_DIR / "data" / "processed"
+    processed_dir.mkdir(parents=True, exist_ok=True)
+    channels_df.to_parquet(processed_dir / "channels_clean.parquet", index=False)
+    videos_df.to_parquet(processed_dir / "videos_clean.parquet", index=False)
 
     features_df = compute_features(channels_df, videos_df)
     save_features(features_df)

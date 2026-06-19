@@ -1,12 +1,15 @@
 from __future__ import annotations
 
 import logging
+import warnings
 from pathlib import Path
 from typing import Any
 
 import pandas as pd
 
 from src.config import ROOT_DIR
+
+warnings.filterwarnings("ignore", message="Downcasting behavior in Series")
 
 logger = logging.getLogger(__name__)
 

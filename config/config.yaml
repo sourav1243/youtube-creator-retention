@@ -8,6 +8,7 @@ extraction:
   quota_daily_default: 10000
   retry_max_attempts: 5
   retry_base_delay_s: 2.0
+  max_pages_per_channel: 3
 
 cleaning:
   outlier_method: cap_99th_percentile

@@ -103,7 +103,7 @@ def label_clusters(
     if feature_cols is None:
         feature_cols = FEATURE_COLUMNS
 
-    centroids = df.groupby(cluster_col)[feature_cols].mean()
+    centroids = df.groupby(cluster_col)[feature_cols].mean().fillna(0)
     momentum_rank = centroids["momentum_ratio"].rank(ascending=True)
     freq_rank = centroids["upload_freq_30d"].rank(ascending=True)
     combined_rank = momentum_rank + freq_rank

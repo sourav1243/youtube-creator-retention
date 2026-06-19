@@ -16,6 +16,7 @@ class ExtractionConfig:
     quota_daily_default: int = 10000
     retry_max_attempts: int = 5
     retry_base_delay_s: float = 2.0
+    max_pages_per_channel: int = 1
 
 
 @dataclass

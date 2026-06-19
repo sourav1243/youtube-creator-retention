@@ -1,31 +1,31 @@
 # EDA Summary
 
-Generated: 2026-06-19T09:45:50.486935+00:00
+Generated: 2026-06-19T11:21:09.458105+00:00
 
 ## Overview
 
-- Total channels in feature table: 100
-- Channels with insufficient history (unscored): 5
-- Scored channels: 95
+- Total channels in feature table: 37
+- Channels with insufficient history (unscored): 2
+- Scored channels: 35
 
 ## Feature Distributions
 
 | Feature | N | Mean | Std | Min | P25 | Median | P75 | Max |
 |---|---|---|---|---|---|---|---|---|
-| upload_freq_30d | 100 | 0.2744 | 0.2759 | 0.0017 | 0.0644 | 0.1872 | 0.393 | 1.3002 |
-| upload_freq_90d | 100 | 0.2929 | 0.2724 | 0.0021 | 0.0831 | 0.2113 | 0.4361 | 1.2732 |
-| freq_trend_ratio | 100 | 2.6845 | 1.4084 | 0.2243 | 1.529 | 2.9003 | 3.8114 | 4.9523 |
-| momentum_ratio | 100 | 1.1621 | 0.5741 | 0.1978 | 0.7387 | 1.0426 | 1.458 | 2.9211 |
-| avg_engagement_rate | 100 | 0.0845 | 0.0451 | 0.0116 | 0.047 | 0.0879 | 0.1251 | 0.149 |
-| days_since_last_upload | 100 | 9.32 | 11.8721 | 0.0 | 2.0 | 6.0 | 12.25 | 81.0 |
+| upload_freq_30d | 37 | 1.8009 | 2.0303 | 0.0 | 0.2667 | 0.9333 | 5.0 | 5.0 |
+| upload_freq_90d | 37 | 0.8937 | 0.6359 | 0.0 | 0.2556 | 0.9444 | 1.6667 | 1.6667 |
+| freq_trend_ratio | 36 | 1.5413 | 0.9938 | 0.0 | 0.8801 | 1.1278 | 3.0 | 3.0 |
+| momentum_ratio | 37 | 3.7075 | 2.8505 | 0.2625 | 1.7959 | 3.1493 | 4.6915 | 12.6772 |
+| avg_engagement_rate | 37 | 0.0325 | 0.0276 | 0.0027 | 0.0144 | 0.0284 | 0.0405 | 0.1439 |
+| days_since_last_upload | 37 | 7.5676 | 20.9636 | 0.0 | 0.0 | 0.0 | 1.0 | 98.0 |
 
 ## Feature Correlations
 
-- Upload frequency (30d) vs Momentum ratio: 0.1877
-- Upload frequency (30d) vs Engagement rate: -0.0899
-- Momentum ratio vs Engagement rate: 0.048
-- Days since last upload vs Momentum ratio: 0.0412
-- Days since last upload vs Upload frequency: 0.1508
+- Upload frequency (30d) vs Momentum ratio: -0.1842
+- Upload frequency (30d) vs Engagement rate: -0.2715
+- Momentum ratio vs Engagement rate: 0.0872
+- Days since last upload vs Momentum ratio: -0.153
+- Days since last upload vs Upload frequency: -0.3255
 
 ## Notes
 

@@ -33,15 +33,29 @@ def run_pipeline():
     logger.info("=" * 60)
 
     # Phase 2-3: Extraction
-    logger.info("[1/6] Extracting seed channels (Tier A)...")
+    logger.info("[1/7] Extracting seed channels (Tier A)...")
     from src.extraction.extract_channels import extract_channels_from_seed, extract_channels_tier_a
 
     channel_ids = extract_channels_from_seed()
     channels = extract_channels_tier_a(channel_ids)
     logger.info("  %d channels extracted", len(channels))
 
+    logger.info("[2/7] Extracting videos (Tier B)...")
+    from src.extraction.youtube_client import YouTubeClient
+    from src.extraction.extract_videos import extract_videos_tier_b
+
+    client = YouTubeClient()
+    pairs = []
+    for c in channels:
+        cid = c.get("id")
+        upl = c.get("contentDetails", {}).get("relatedPlaylists", {}).get("uploads")
+        if cid and upl:
+            pairs.append((cid, upl))
+    videos = extract_videos_tier_b(pairs, client=client)
+    logger.info("  %d videos extracted from %d channels", len(videos), len(pairs))
+
     # Phase 4: Load to MySQL
-    logger.info("[2/6] Loading to MySQL...")
+    logger.info("[3/7] Loading to MySQL...")
     from src.load.load_mysql import load_all
 
     try:
@@ -51,7 +65,7 @@ def run_pipeline():
         logger.warning("  MySQL load skipped (not available): %s", e)
 
     # Phase 5: Clean & Feature Engineer
-    logger.info("[3/6] Cleaning and feature engineering...")
+    logger.info("[4/7] Cleaning and feature engineering...")
     from src.features.engineer import run_feature_pipeline
 
     features_df = run_feature_pipeline()
@@ -61,21 +75,21 @@ def run_pipeline():
     save_histograms(features_df)
 
     # Phase 6: DuckDB EDA
-    logger.info("[4/6] DuckDB analytical layer...")
+    logger.info("[5/7] DuckDB analytical layer...")
     from src.analysis.duckdb_setup import setup_and_analyze
 
     conn = setup_and_analyze()
     conn.close()
 
     # Phase 7: Clustering
-    logger.info("[5/6] K-Means clustering...")
+    logger.info("[6/7] K-Means clustering...")
     from src.modeling.cluster import run_clustering_pipeline
 
     result = run_clustering_pipeline()
     logger.info("  Cluster distribution:\n%s", result["cluster_label"].value_counts())
 
     # Phase 8: Reporting
-    logger.info("[6/6] Generating at-risk report...")
+    logger.info("[7/7] Generating at-risk report...")
     from src.reporting.at_risk_report import generate_report
 
     report = generate_report()
