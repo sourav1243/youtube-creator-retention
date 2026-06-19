@@ -75,14 +75,16 @@ def load_and_clean_channels(channels_dir: str | Path | None = None) -> pd.DataFr
             cid = item.get("id", "")
             snippet = item.get("snippet", {})
             stats = item.get("statistics", {})
-            records.append({
-                "channel_id": cid,
-                "title": snippet.get("title"),
-                "subscriber_count": stats.get("subscriberCount"),
-                "view_count_total": stats.get("viewCount"),
-                "video_count": stats.get("videoCount"),
-                "hidden_subscriber": stats.get("hiddenSubscriberCount", None),
-            })
+            records.append(
+                {
+                    "channel_id": cid,
+                    "title": snippet.get("title"),
+                    "subscriber_count": stats.get("subscriberCount"),
+                    "view_count_total": stats.get("viewCount"),
+                    "video_count": stats.get("videoCount"),
+                    "hidden_subscriber": stats.get("hiddenSubscriberCount", None),
+                }
+            )
 
     df = pd.DataFrame(records)
     if df.empty:
@@ -120,16 +122,18 @@ def load_and_clean_videos(videos_dir: str | Path | None = None) -> pd.DataFrame:
                 except Exception:
                     pass
 
-            records.append({
-                "video_id": item.get("id", ""),
-                "channel_id": cid,
-                "published_at": snippet.get("publishedAt"),
-                "view_count": stats.get("viewCount"),
-                "like_count": stats.get("likeCount"),
-                "comment_count": stats.get("commentCount"),
-                "comments_disabled": "commentCount" not in stats,
-                "duration_seconds": duration_s,
-            })
+            records.append(
+                {
+                    "video_id": item.get("id", ""),
+                    "channel_id": cid,
+                    "published_at": snippet.get("publishedAt"),
+                    "view_count": stats.get("viewCount"),
+                    "like_count": stats.get("likeCount"),
+                    "comment_count": stats.get("commentCount"),
+                    "comments_disabled": "commentCount" not in stats,
+                    "duration_seconds": duration_s,
+                }
+            )
 
     df = pd.DataFrame(records)
     if df.empty:

@@ -10,11 +10,13 @@ from src.features.engineer import compute_features
 
 @pytest.fixture
 def channels_df():
-    return pd.DataFrame({
-        "channel_id": ["UCactive", "UCinsufficient", "UCno_videos"],
-        "title": ["Active Channel", "Insufficient", "No Videos"],
-        "subscriber_count": [100000, 5000, 1000],
-    })
+    return pd.DataFrame(
+        {
+            "channel_id": ["UCactive", "UCinsufficient", "UCno_videos"],
+            "title": ["Active Channel", "Insufficient", "No Videos"],
+            "subscriber_count": [100000, 5000, 1000],
+        }
+    )
 
 
 @pytest.fixture
@@ -25,40 +27,46 @@ def videos_df():
     # View counts scaled to days-since-published to keep vpd roughly constant
     for i in range(10):
         days_ago = i * 2 + 1  # 1, 3, 5, ... 19 days ago
-        rows.append({
-            "video_id": f"active_recent_{i}",
-            "channel_id": "UCactive",
-            "published_at": ref - pd.Timedelta(days=days_ago),
-            "view_count": days_ago * 1000,  # ~1000 views/day
-            "like_count": 50,
-            "comment_count": 5,
-            "comments_disabled": False,
-            "duration_seconds": 300,
-        })
+        rows.append(
+            {
+                "video_id": f"active_recent_{i}",
+                "channel_id": "UCactive",
+                "published_at": ref - pd.Timedelta(days=days_ago),
+                "view_count": days_ago * 1000,  # ~1000 views/day
+                "like_count": 50,
+                "comment_count": 5,
+                "comments_disabled": False,
+                "duration_seconds": 300,
+            }
+        )
     for i in range(20):
         days_ago = 35 + i * 2  # 35, 37, 39, ... 73 — all within 90d
-        rows.append({
-            "video_id": f"active_older_{i}",
-            "channel_id": "UCactive",
-            "published_at": ref - pd.Timedelta(days=days_ago),
-            "view_count": days_ago * 1000,  # same ~1000 views/day
+        rows.append(
+            {
+                "video_id": f"active_older_{i}",
+                "channel_id": "UCactive",
+                "published_at": ref - pd.Timedelta(days=days_ago),
+                "view_count": days_ago * 1000,  # same ~1000 views/day
+                "like_count": 50,
+                "comment_count": 5,
+                "comments_disabled": False,
+                "duration_seconds": 300,
+            }
+        )
+
+    # UCinsufficient: only 1 video
+    rows.append(
+        {
+            "video_id": "insufficient_1",
+            "channel_id": "UCinsufficient",
+            "published_at": ref - pd.Timedelta(days=5),
+            "view_count": 1000,
             "like_count": 50,
             "comment_count": 5,
             "comments_disabled": False,
             "duration_seconds": 300,
-        })
-
-    # UCinsufficient: only 1 video
-    rows.append({
-        "video_id": "insufficient_1",
-        "channel_id": "UCinsufficient",
-        "published_at": ref - pd.Timedelta(days=5),
-        "view_count": 1000,
-        "like_count": 50,
-        "comment_count": 5,
-        "comments_disabled": False,
-        "duration_seconds": 300,
-    })
+        }
+    )
 
     # UCno_videos: no videos
 

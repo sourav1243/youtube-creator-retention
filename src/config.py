@@ -20,6 +20,7 @@ logger = logging.getLogger(__name__)
 
 def _expand_env_vars(value: Any) -> Any:
     if isinstance(value, str):
+
         def _replacer(m: re.Match) -> str:
             var_name = m.group(1)
             env_val = os.getenv(var_name)
@@ -27,6 +28,7 @@ def _expand_env_vars(value: Any) -> Any:
                 warnings.warn(f"Environment variable {var_name} is not set - using literal '${{{var_name}}}'")
                 return m.group(0)
             return env_val
+
         return _ENV_VAR_PATTERN.sub(_replacer, value)
     if isinstance(value, dict):
         return {k: _expand_env_vars(v) for k, v in value.items()}

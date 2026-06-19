@@ -76,7 +76,9 @@ def run_pipeline():
             else:
                 skipped_channels.append(cid or "unknown")
         if skipped_channels:
-            logger.info("  %d channels have no uploads playlist: %s", len(skipped_channels), ", ".join(skipped_channels[:5]))
+            logger.info(
+                "  %d channels have no uploads playlist: %s", len(skipped_channels), ", ".join(skipped_channels[:5])
+            )
         if not pairs:
             logger.warning("No channel uploads playlists found — no videos to extract")
             videos = []

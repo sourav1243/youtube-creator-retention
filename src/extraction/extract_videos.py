@@ -66,8 +66,7 @@ def extract_videos_tier_b(
 
     manifest_entries: list[dict[str, str]] = list(manifest.values())
     existing_done = {
-        e["channel_id"] for e in manifest_entries
-        if e.get("stage") == "videos" and e.get("status") == "done"
+        e["channel_id"] for e in manifest_entries if e.get("stage") == "videos" and e.get("status") == "done"
     }
 
     all_videos: list[dict[str, Any]] = []
@@ -92,12 +91,14 @@ def extract_videos_tier_b(
             logger.info("    -> %d videos saved", len(videos))
 
         status = "done" if videos else "empty"
-        manifest_entries.append({
-            "channel_id": channel_id,
-            "stage": "videos",
-            "status": status,
-            "fetched_at": now_iso(),
-        })
+        manifest_entries.append(
+            {
+                "channel_id": channel_id,
+                "stage": "videos",
+                "status": status,
+                "fetched_at": now_iso(),
+            }
+        )
 
     save_manifest(manifest_path, manifest_entries)
 

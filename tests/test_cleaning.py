@@ -43,18 +43,22 @@ def test_cap_outliers_does_not_affect_most_data():
 
 
 def test_drop_duplicate_videos():
-    df = pd.DataFrame({
-        "video_id": ["a", "b", "a", "c", "b"],
-        "view_count": [100, 200, 100, 300, 200],
-    })
+    df = pd.DataFrame(
+        {
+            "video_id": ["a", "b", "a", "c", "b"],
+            "view_count": [100, 200, 100, 300, 200],
+        }
+    )
     result = drop_duplicate_videos(df)
     assert len(result) == 3  # a, b, c
 
 
 def test_drop_duplicate_videos_no_duplicates():
-    df = pd.DataFrame({
-        "video_id": ["a", "b", "c"],
-        "view_count": [100, 200, 300],
-    })
+    df = pd.DataFrame(
+        {
+            "video_id": ["a", "b", "c"],
+            "view_count": [100, 200, 300],
+        }
+    )
     result = drop_duplicate_videos(df)
     assert len(result) == 3

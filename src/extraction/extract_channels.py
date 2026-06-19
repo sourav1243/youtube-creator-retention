@@ -28,8 +28,7 @@ def extract_channels_tier_a(
 
     manifest_entries: list[dict[str, str]] = list(manifest.values())
     existing_done = {
-        e["channel_id"] for e in manifest_entries
-        if e.get("stage") == "channels" and e.get("status") == "done"
+        e["channel_id"] for e in manifest_entries if e.get("stage") == "channels" and e.get("status") == "done"
     }
 
     all_channels: list[dict[str, Any]] = []
@@ -49,22 +48,26 @@ def extract_channels_tier_a(
 
                 for item in items:
                     cid = item.get("id", "")
-                    manifest_entries.append({
-                        "channel_id": cid,
-                        "stage": "channels",
-                        "status": "done",
-                        "fetched_at": now_iso(),
-                    })
+                    manifest_entries.append(
+                        {
+                            "channel_id": cid,
+                            "stage": "channels",
+                            "status": "done",
+                            "fetched_at": now_iso(),
+                        }
+                    )
                     all_channels.append(item)
             except Exception as e:
                 logger.error("  Batch %s failed: %s", batch_id, e)
                 for cid in batch:
-                    manifest_entries.append({
-                        "channel_id": cid,
-                        "stage": "channels",
-                        "status": "failed",
-                        "fetched_at": now_iso(),
-                    })
+                    manifest_entries.append(
+                        {
+                            "channel_id": cid,
+                            "stage": "channels",
+                            "status": "failed",
+                            "fetched_at": now_iso(),
+                        }
+                    )
                 save_manifest(manifest_path, manifest_entries)
                 raise
 

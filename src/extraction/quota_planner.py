@@ -65,15 +65,21 @@ class QuotaPlan:
             "Breakdown:",
         ]
         for est in self.estimates:
-            lines.append(f"  {est.stage:40s} {est.api_calls:6d} calls × {est.cost_per_call:3d} = {est.total_units:8,d} units  | {est.description}")
+            lines.append(
+                f"  {est.stage:40s} {est.api_calls:6d} calls × {est.cost_per_call:3d} = {est.total_units:8,d} units  | {est.description}"
+            )
         lines.append("")
         lines.append(f"  Tier A only (channel-level):       {self.total_cost_tier_a_only:>8,d} units")
         lines.append(f"  Full pipeline (A + B, all {self.n_channels_total}):      {self.total_cost_full:>8,d} units")
         lines.append(f"  Days needed (full, single key):    {self.days_needed_for_full:>8d} days")
         lines.append("")
         lines.append("TIERING STRATEGY:")
-        lines.append(f"  Tier A — channels.list for ALL {self.n_channels_total} channels: ~{self.total_cost_tier_a_only} units (trivial, do for all)")
-        lines.append(f"  Tier B — video-level extraction for {self.n_channels_tier_b} channels: fits in 1 day with headroom")
+        lines.append(
+            f"  Tier A — channels.list for ALL {self.n_channels_total} channels: ~{self.total_cost_tier_a_only} units (trivial, do for all)"
+        )
+        lines.append(
+            f"  Tier B — video-level extraction for {self.n_channels_tier_b} channels: fits in 1 day with headroom"
+        )
         lines.append("  Future: resume multi-day extraction using manifest checkpoint for remaining channels")
         lines.append("=" * 60)
         return "\n".join(lines)
@@ -96,36 +102,42 @@ def compute_quota_plan(
 
     # Tier A: channels.list for ALL channels
     calls_a = math.ceil(n_channels / max_per_call)
-    estimates.append(QuotaEstimate(
-        stage="Tier A — channels.list (all channels)",
-        api_calls=calls_a,
-        cost_per_call=1,
-        total_units=calls_a * 1,
-        description=f"{n_channels} channels at {max_per_call}/call",
-        tier="A",
-    ))
+    estimates.append(
+        QuotaEstimate(
+            stage="Tier A — channels.list (all channels)",
+            api_calls=calls_a,
+            cost_per_call=1,
+            total_units=calls_a * 1,
+            description=f"{n_channels} channels at {max_per_call}/call",
+            tier="A",
+        )
+    )
 
     # Tier B: playlistItems.list per channel in sample
     calls_pl = n_tier_b * math.ceil(avg_videos / max_per_call)
-    estimates.append(QuotaEstimate(
-        stage="Tier B — playlistItems.list (sample)",
-        api_calls=calls_pl,
-        cost_per_call=1,
-        total_units=calls_pl * 1,
-        description=f"{n_tier_b} channels × {avg_videos} videos, paged at {max_per_call}",
-        tier="B",
-    ))
+    estimates.append(
+        QuotaEstimate(
+            stage="Tier B — playlistItems.list (sample)",
+            api_calls=calls_pl,
+            cost_per_call=1,
+            total_units=calls_pl * 1,
+            description=f"{n_tier_b} channels × {avg_videos} videos, paged at {max_per_call}",
+            tier="B",
+        )
+    )
 
     # Tier B: videos.list per batch of video IDs in sample
     calls_vid = n_tier_b * math.ceil(avg_videos / max_per_call)
-    estimates.append(QuotaEstimate(
-        stage="Tier B — videos.list (sample)",
-        api_calls=calls_vid,
-        cost_per_call=1,
-        total_units=calls_vid * 1,
-        description=f"{n_tier_b} channels × {avg_videos} videos, batched at {max_per_call}",
-        tier="B",
-    ))
+    estimates.append(
+        QuotaEstimate(
+            stage="Tier B — videos.list (sample)",
+            api_calls=calls_vid,
+            cost_per_call=1,
+            total_units=calls_vid * 1,
+            description=f"{n_tier_b} channels × {avg_videos} videos, batched at {max_per_call}",
+            tier="B",
+        )
+    )
 
     return QuotaPlan(
         n_channels_total=n_channels,

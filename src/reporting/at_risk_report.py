@@ -47,7 +47,9 @@ def _check_data_freshness(clusters_df: pd.DataFrame, features_df: pd.DataFrame) 
     if len(overlap) < max(len(cluster_channels), len(feature_channels)):
         logger.warning(
             "Data staleness detected: clusters has %d channels, features has %d, overlap: %d",
-            len(cluster_channels), len(feature_channels), len(overlap),
+            len(cluster_channels),
+            len(feature_channels),
+            len(overlap),
         )
     return len(overlap) > 0
 
@@ -89,7 +91,15 @@ def generate_report(
 
     merged["recommended_action"] = merged.apply(_recommended_action, axis=1)
 
-    float_cols = ["upload_freq_30d", "upload_freq_90d", "momentum_ratio", "avg_engagement_rate", "upload_regularity", "duration_trend", "risk_score"]
+    float_cols = [
+        "upload_freq_30d",
+        "upload_freq_90d",
+        "momentum_ratio",
+        "avg_engagement_rate",
+        "upload_regularity",
+        "duration_trend",
+        "risk_score",
+    ]
     for col in float_cols:
         if col in merged.columns:
             merged[col] = merged[col].round(4)

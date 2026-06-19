@@ -93,9 +93,7 @@ def compute_features(
     upload_freq_90d = n_90d / w90
 
     last_upload = grouped["published_at"].max()
-    days_since = last_upload.apply(
-        lambda x: max((reference_date - x).days, 0) if pd.notna(x) else None
-    )
+    days_since = last_upload.apply(lambda x: max((reference_date - x).days, 0) if pd.notna(x) else None)
 
     features_rows: list[dict] = []
 
@@ -103,18 +101,20 @@ def compute_features(
         total_videos = n_30d.get(cid, 0) + (n_90d.get(cid, 0) - n_30d.get(cid, 0))
 
         if total_videos == 0:
-            features_rows.append({
-                "channel_id": cid,
-                "computed_at": reference_date,
-                "upload_freq_30d": None,
-                "upload_freq_90d": None,
-                "momentum_ratio": None,
-                "avg_engagement_rate": None,
-                "days_since_last_upload": None,
-                "upload_regularity": None,
-                "duration_trend": None,
-                "insufficient_history": True,
-            })
+            features_rows.append(
+                {
+                    "channel_id": cid,
+                    "computed_at": reference_date,
+                    "upload_freq_30d": None,
+                    "upload_freq_90d": None,
+                    "momentum_ratio": None,
+                    "avg_engagement_rate": None,
+                    "days_since_last_upload": None,
+                    "upload_regularity": None,
+                    "duration_trend": None,
+                    "insufficient_history": True,
+                }
+            )
             continue
 
         channel_videos = videos_df[videos_df["channel_id"] == cid]
@@ -167,19 +167,21 @@ def compute_features(
         f90 = float(upload_freq_90d.get(cid, 0))
         freq_trend_ratio = _safe_ratio(f30, f90)
 
-        features_rows.append({
-            "channel_id": cid,
-            "computed_at": reference_date,
-            "upload_freq_30d": f30,
-            "upload_freq_90d": f90,
-            "freq_trend_ratio": freq_trend_ratio,
-            "momentum_ratio": momentum_ratio,
-            "avg_engagement_rate": avg_engagement_rate,
-            "days_since_last_upload": days_since.get(cid),
-            "upload_regularity": upload_regularity,
-            "duration_trend": duration_trend,
-            "insufficient_history": insufficient,
-        })
+        features_rows.append(
+            {
+                "channel_id": cid,
+                "computed_at": reference_date,
+                "upload_freq_30d": f30,
+                "upload_freq_90d": f90,
+                "freq_trend_ratio": freq_trend_ratio,
+                "momentum_ratio": momentum_ratio,
+                "avg_engagement_rate": avg_engagement_rate,
+                "days_since_last_upload": days_since.get(cid),
+                "upload_regularity": upload_regularity,
+                "duration_trend": duration_trend,
+                "insufficient_history": insufficient,
+            }
+        )
 
     result = pd.DataFrame(features_rows)
     logger.info(
@@ -200,7 +202,16 @@ def save_histograms(features_df: pd.DataFrame, output_dir: str | Path | None = N
     for old_file in output_dir.glob("*_histogram.png"):
         old_file.unlink(missing_ok=True)
 
-    numeric_cols = ["upload_freq_30d", "upload_freq_90d", "freq_trend_ratio", "momentum_ratio", "avg_engagement_rate", "days_since_last_upload", "upload_regularity", "duration_trend"]
+    numeric_cols = [
+        "upload_freq_30d",
+        "upload_freq_90d",
+        "freq_trend_ratio",
+        "momentum_ratio",
+        "avg_engagement_rate",
+        "days_since_last_upload",
+        "upload_regularity",
+        "duration_trend",
+    ]
 
     for col in numeric_cols:
         if col not in features_df.columns:

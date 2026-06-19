@@ -118,7 +118,7 @@ def get_engine():
         # Try creating MySQL engine and testing connection
         engine = create_engine(mysql_dsn, connect_args={"connect_timeout": 3})
         # Smoke test connection
-        with engine.connect() as conn:
+        with engine.connect():
             pass
         logger.info("Connected to MySQL database")
         return engine
@@ -126,10 +126,7 @@ def get_engine():
         db_dir = ROOT_DIR / "data" / "processed"
         db_dir.mkdir(parents=True, exist_ok=True)
         sqlite_path = db_dir / "youtube_creator_retention.db"
-        logger.warning(
-            "MySQL connection failed (%s). Falling back to SQLite database at: %s",
-            e, sqlite_path
-        )
+        logger.warning("MySQL connection failed (%s). Falling back to SQLite database at: %s", e, sqlite_path)
         sqlite_dsn = f"sqlite:///{sqlite_path.as_posix()}"
         engine = create_engine(sqlite_dsn)
         init_sqlite_db(engine)
@@ -156,26 +153,30 @@ def parse_channel_json(filepath: Path) -> list[dict[str, Any]]:
             except (ValueError, TypeError):
                 pass
 
-        rows.append({
-            "channel_id": cid,
-            "title": snippet.get("title", ""),
-            "description": snippet.get("description"),
-            "country": snippet.get("country"),
-            "published_at": published_at,
-            "uploads_playlist_id": content.get("relatedPlaylists", {}).get("uploads"),
-            "fetched_at": now,
-        })
+        rows.append(
+            {
+                "channel_id": cid,
+                "title": snippet.get("title", ""),
+                "description": snippet.get("description"),
+                "country": snippet.get("country"),
+                "published_at": published_at,
+                "uploads_playlist_id": content.get("relatedPlaylists", {}).get("uploads"),
+                "fetched_at": now,
+            }
+        )
 
         hidden_sub = stats.get("hiddenSubscriberCount") if "hiddenSubscriberCount" in stats else None
-        rows.append({
-            "_snapshot": True,
-            "channel_id": cid,
-            "snapshot_date": now.date(),
-            "subscriber_count": _safe_int(stats.get("subscriberCount")),
-            "subscriber_hidden": _safe_bool(hidden_sub),
-            "view_count_total": _safe_int(stats.get("viewCount")),
-            "video_count": _safe_int(stats.get("videoCount")),
-        })
+        rows.append(
+            {
+                "_snapshot": True,
+                "channel_id": cid,
+                "snapshot_date": now.date(),
+                "subscriber_count": _safe_int(stats.get("subscriberCount")),
+                "subscriber_hidden": _safe_bool(hidden_sub),
+                "view_count_total": _safe_int(stats.get("viewCount")),
+                "video_count": _safe_int(stats.get("videoCount")),
+            }
+        )
 
     return rows
 
@@ -203,17 +204,19 @@ def parse_video_json(filepath: Path) -> list[dict[str, Any]]:
         comment_count = _safe_int(stats.get("commentCount"))
         comments_disabled = "commentCount" not in stats
 
-        rows.append({
-            "video_id": item.get("id", ""),
-            "channel_id": cid,
-            "published_at": published_at,
-            "duration_seconds": _parse_iso8601_duration(content.get("duration")),
-            "view_count": _safe_int(stats.get("viewCount")),
-            "like_count": _safe_int(stats.get("likeCount")),
-            "comment_count": comment_count,
-            "comments_disabled": comments_disabled,
-            "fetched_at": now,
-        })
+        rows.append(
+            {
+                "video_id": item.get("id", ""),
+                "channel_id": cid,
+                "published_at": published_at,
+                "duration_seconds": _parse_iso8601_duration(content.get("duration")),
+                "view_count": _safe_int(stats.get("viewCount")),
+                "like_count": _safe_int(stats.get("likeCount")),
+                "comment_count": comment_count,
+                "comments_disabled": comments_disabled,
+                "fetched_at": now,
+            }
+        )
 
     return rows
 
@@ -325,7 +328,10 @@ def reconciliation_check(engine, manifest_rows: int, table: str = "channels") ->
             if not match:
                 logger.warning(
                     "Reconciliation: %s — DB has %d rows, manifest shows %d (delta: %d)",
-                    table, db_count, manifest_rows, abs(db_count - manifest_rows),
+                    table,
+                    db_count,
+                    manifest_rows,
+                    abs(db_count - manifest_rows),
                 )
             else:
                 logger.info("Reconciliation OK: %s — %d rows match", table, db_count)
@@ -337,6 +343,7 @@ def reconciliation_check(engine, manifest_rows: int, table: str = "channels") ->
 
 def upsert_features(engine, features_parquet: str | Path | None = None):
     import pandas as pd
+
     parquet_path = Path(features_parquet or ROOT_DIR / "data" / "processed" / "creator_features.parquet")
     if not parquet_path.exists():
         logger.warning("Features parquet not found: %s", parquet_path)
@@ -392,6 +399,7 @@ def upsert_features(engine, features_parquet: str | Path | None = None):
 
 def upsert_clusters(engine, clusters_parquet: str | Path | None = None):
     import pandas as pd
+
     parquet_path = Path(clusters_parquet or ROOT_DIR / "data" / "processed" / "creator_clusters.parquet")
     if not parquet_path.exists():
         logger.warning("Clusters parquet not found: %s", parquet_path)
@@ -479,6 +487,11 @@ def load_all(engine=None, channels_dir: str | Path | None = None, videos_dir: st
     if own_engine:
         engine.dispose()
 
-    logger.info("Load complete: %d channels, %d videos, %d features, %d clusters",
-                 total_channels, total_videos, total_features, total_clusters)
+    logger.info(
+        "Load complete: %d channels, %d videos, %d features, %d clusters",
+        total_channels,
+        total_videos,
+        total_features,
+        total_clusters,
+    )
     return total_channels, total_videos

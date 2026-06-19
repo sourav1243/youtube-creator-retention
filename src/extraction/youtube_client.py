@@ -43,7 +43,7 @@ class _IsRetryable:
                     return False
                 return True
             return status >= 500
-        return isinstance(exc, (requests.ConnectionError, requests.Timeout))
+        return isinstance(exc, requests.ConnectionError | requests.Timeout)
 
 
 class YouTubeClient:
@@ -91,14 +91,18 @@ class YouTubeClient:
         n_batches = math.ceil(len(ids) / max_per_call)
         return [ids[i * max_per_call : (i + 1) * max_per_call] for i in range(n_batches)]
 
-    def get_channels(self, channel_ids: list[str], parts: str = "snippet,statistics,contentDetails") -> list[dict[str, Any]]:
+    def get_channels(
+        self, channel_ids: list[str], parts: str = "snippet,statistics,contentDetails"
+    ) -> list[dict[str, Any]]:
         all_items: list[dict[str, Any]] = []
         for batch in self.batch_ids(channel_ids):
             data = self._request("channels", {"part": parts, "id": ",".join(batch)})
             all_items.extend(data.get("items", []))
         return all_items
 
-    def get_playlist_items(self, playlist_id: str, max_results: int = 50, max_pages: int | None = None) -> list[dict[str, Any]]:
+    def get_playlist_items(
+        self, playlist_id: str, max_results: int = 50, max_pages: int | None = None
+    ) -> list[dict[str, Any]]:
         items: list[dict[str, Any]] = []
         page_token: str | None = None
         pages = 0
@@ -118,7 +122,9 @@ class YouTubeClient:
                 break
         return items
 
-    def get_videos(self, video_ids: list[str], parts: str = "snippet,statistics,contentDetails") -> list[dict[str, Any]]:
+    def get_videos(
+        self, video_ids: list[str], parts: str = "snippet,statistics,contentDetails"
+    ) -> list[dict[str, Any]]:
         all_items: list[dict[str, Any]] = []
         for batch in self.batch_ids(video_ids):
             data = self._request("videos", {"part": parts, "id": ",".join(batch)})

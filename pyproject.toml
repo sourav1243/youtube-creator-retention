@@ -33,9 +33,21 @@ dev = [
 
 [tool.ruff]
 target-version = "py311"
+line-length = 120
 
 [tool.ruff.lint]
 select = ["E", "F", "W", "I", "N", "UP"]
+ignore = ["N806", "N803", "N818"]
+
+[tool.ruff.lint.per-file-ignores]
+"src/load/load_mysql.py" = ["E501"]
+"src/visualization/generate_dashboard.py" = ["E501"]
+"src/modeling/cluster.py" = ["E501"]
+"src/analysis/duckdb_setup.py" = ["E501"]
+"src/extraction/quota_planner.py" = ["E501"]
+
+[tool.ruff.format]
+quote-style = "double"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

@@ -10,8 +10,8 @@ import numpy as np
 import pandas as pd
 from sklearn.cluster import DBSCAN, KMeans
 from sklearn.compose import ColumnTransformer
-from sklearn.mixture import GaussianMixture
 from sklearn.metrics import silhouette_score
+from sklearn.mixture import GaussianMixture
 from sklearn.preprocessing import FunctionTransformer, RobustScaler
 
 from src.config import ROOT_DIR
@@ -297,7 +297,9 @@ def select_best_model(
         labels = best_db_model.fit_predict(X)
         noise_frac = (labels == -1).mean()
         if noise_frac > 0.2:
-            logger.warning("DBSCAN noise ratio %.2f exceeds 20%% — falling back to previous best (%s)", noise_frac, best_type)
+            logger.warning(
+                "DBSCAN noise ratio %.2f exceeds 20%% — falling back to previous best (%s)", noise_frac, best_type
+            )
         else:
             best_silhouette = best_db_sil
             best_model = best_db_model
@@ -332,8 +334,14 @@ def select_best_model(
         axes[1].set_ylabel("Silhouette")
 
         axes[2].axis("off")
-        axes[2].text(0.1, 0.5, f"Winner: {best_type}\nK={best_k}\nSilhouette={best_silhouette:.4f}",
-                     fontsize=14, transform=axes[2].transAxes, verticalalignment="center")
+        axes[2].text(
+            0.1,
+            0.5,
+            f"Winner: {best_type}\nK={best_k}\nSilhouette={best_silhouette:.4f}",
+            fontsize=14,
+            transform=axes[2].transAxes,
+            verticalalignment="center",
+        )
 
         plt.tight_layout()
         fig.savefig(str(output_plot), dpi=100, bbox_inches="tight")
@@ -470,12 +478,14 @@ def fit_and_persist(
         final_sil = 0.0
     eval_results.setdefault("silhouettes", {})[best_k] = final_sil
 
-    eval_results.update({
-        "bootstrap_mean": boot_results["stability_mean"],
-        "bootstrap_std": boot_results["stability_std"],
-        "bootstrap_n": boot_results["n_iter"],
-        "model_type": selected_type,
-    })
+    eval_results.update(
+        {
+            "bootstrap_mean": boot_results["stability_mean"],
+            "bootstrap_std": boot_results["stability_std"],
+            "bootstrap_n": boot_results["n_iter"],
+            "model_type": selected_type,
+        }
+    )
 
     now = datetime.now(UTC)
     scored["model_version"] = f"{selected_type}_v1"
@@ -494,13 +504,16 @@ def fit_and_persist(
 
     model_path = Path(model_path or ROOT_DIR / "models" / f"{selected_type}_v1.joblib")
     model_path.parent.mkdir(parents=True, exist_ok=True)
-    joblib.dump({
-        "model": model,
-        "preprocessor": preprocessor,
-        "feature_cols": feature_cols,
-        "best_k": best_k,
-        "eval_results": eval_results,
-    }, model_path)
+    joblib.dump(
+        {
+            "model": model,
+            "preprocessor": preprocessor,
+            "feature_cols": feature_cols,
+            "best_k": best_k,
+            "eval_results": eval_results,
+        },
+        model_path,
+    )
     logger.info("Model persisted to %s", model_path)
 
     return model, preprocessor, scored, result, eval_results
@@ -521,12 +534,16 @@ def write_model_card(
     centroids = scored_df.groupby("cluster_id")[feature_cols].mean().fillna(0).reset_index(drop=True)
     centroids.insert(0, "cluster", range(best_k))
 
-    cluster_info = scored_df.groupby("cluster_id").agg(
-        label=("cluster_label", "first"),
-        risk_flag=("risk_flag", "first"),
-        size=("channel_id", "count"),
-        mean_risk_score=("risk_score", "mean"),
-    ).reset_index()
+    cluster_info = (
+        scored_df.groupby("cluster_id")
+        .agg(
+            label=("cluster_label", "first"),
+            risk_flag=("risk_flag", "first"),
+            size=("channel_id", "count"),
+            mean_risk_score=("risk_score", "mean"),
+        )
+        .reset_index()
+    )
 
     model_type = eval_results.get("model_type", "kmeans")
     sil_scores = eval_results.get("silhouettes", {})
@@ -564,29 +581,35 @@ def write_model_card(
         "|---|---|---|---|---|",
     ]
     for _, row in cluster_info.iterrows():
-        lines.append(f"| {int(row['cluster_id'])} | {row['label']} | {row['risk_flag']} | {int(row['size'])} | {row['mean_risk_score']:.4f} |")
+        lines.append(
+            f"| {int(row['cluster_id'])} | {row['label']} | {row['risk_flag']} | {int(row['size'])} | {row['mean_risk_score']:.4f} |"
+        )
 
-    lines.extend([
-        "",
-        "## Centroid Values (unscaled)",
-        "",
-        "| Feature | " + " | ".join(str(i) for i in range(best_k)) + " |",
-        "|---|" + "---|" * best_k,
-    ])
+    lines.extend(
+        [
+            "",
+            "## Centroid Values (unscaled)",
+            "",
+            "| Feature | " + " | ".join(str(i) for i in range(best_k)) + " |",
+            "|---|" + "---|" * best_k,
+        ]
+    )
     for col in feature_cols:
         vals = " | ".join(f"{centroids.loc[i, col]:.4f}" for i in range(best_k))
         lines.append(f"| {col} | {vals} |")
 
-    lines.extend([
-        "",
-        "## Labeling Rule",
-        "",
-        "- Clusters are ranked by combined (momentum_ratio + upload_freq_30d) centroid values.",
-        "- Lowest-ranked cluster → 'Low Momentum — Declining Engagement' → At-Risk",
-        "- Mid-ranked cluster(s) → 'Mid Momentum — Regular Creators' → Watch",
-        "- Highest-ranked cluster → 'High Momentum — Frequent Uploaders' → Healthy",
-        "- Channels with insufficient_history → Unscored (not included in clustering)",
-    ])
+    lines.extend(
+        [
+            "",
+            "## Labeling Rule",
+            "",
+            "- Clusters are ranked by combined (momentum_ratio + upload_freq_30d) centroid values.",
+            "- Lowest-ranked cluster → 'Low Momentum — Declining Engagement' → At-Risk",
+            "- Mid-ranked cluster(s) → 'Mid Momentum — Regular Creators' → Watch",
+            "- Highest-ranked cluster → 'High Momentum — Frequent Uploaders' → Healthy",
+            "- Channels with insufficient_history → Unscored (not included in clustering)",
+        ]
+    )
 
     if output_path is None:
         output_path = ROOT_DIR / "models" / "model_card.md"

@@ -1,9 +1,10 @@
 """Generate interactive HTML dashboard from pipeline data."""
+
 import json
-import base64
 from pathlib import Path
-import pandas as pd
+
 import numpy as np
+import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
@@ -17,20 +18,39 @@ videos = pd.read_parquet(ROOT / "data" / "processed" / "videos_clean.parquet")
 merged = channels.merge(clust, on="channel_id", how="left")
 scored = merged[~merged["insufficient_history"].fillna(True)].copy()
 
-FEATURES = ["upload_freq_30d", "upload_freq_90d", "freq_trend_ratio", "momentum_ratio",
-            "avg_engagement_rate", "days_since_last_upload", "upload_regularity", "duration_trend"]
-FEATURE_LABELS = ["Upload Freq (30d)", "Upload Freq (90d)", "Freq Trend Ratio", "Momentum Ratio",
-                  "Engagement Rate", "Days Since Last Upload", "Upload Regularity", "Duration Trend"]
+FEATURES = [
+    "upload_freq_30d",
+    "upload_freq_90d",
+    "freq_trend_ratio",
+    "momentum_ratio",
+    "avg_engagement_rate",
+    "days_since_last_upload",
+    "upload_regularity",
+    "duration_trend",
+]
+FEATURE_LABELS = [
+    "Upload Freq (30d)",
+    "Upload Freq (90d)",
+    "Freq Trend Ratio",
+    "Momentum Ratio",
+    "Engagement Rate",
+    "Days Since Last Upload",
+    "Upload Regularity",
+    "Duration Trend",
+]
 
 color_map = {"Healthy": "#22c55e", "Watch": "#f59e0b", "At-Risk": "#ef4444", "Unscored": "#6b7280"}
 label_order = ["Healthy", "Watch", "At-Risk", "Unscored"]
+
 
 def cluster_centroids(df):
     numeric = df.select_dtypes(include=[np.number])
     return df.groupby("cluster_label")[numeric.columns].mean().reset_index()
 
+
 def make_kpi(value, label, color, prefix="", suffix=""):
     return f'<div class="kpi"><span class="kpi-value" style="color:{color}">{prefix}{value}{suffix}</span><span class="kpi-label">{label}</span></div>'
+
 
 def gen_dashboard():
     total = len(merged)
@@ -48,13 +68,20 @@ def gen_dashboard():
         color_discrete_map=color_map,
         title="Creator Risk Distribution",
         hole=0.5,
-        category_orders={"risk_flag": label_order}
+        category_orders={"risk_flag": label_order},
     )
-    fig_cluster.update_traces(textposition="inside", textinfo="percent+label",
-                              hovertemplate="<b>%{label}</b><br>Count: %{value}<br>%{percent}<extra></extra>")
-    fig_cluster.update_layout(showlegend=False, margin=dict(t=40, b=10, l=10, r=10),
-                              paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
-                              font=dict(color="#e2e8f0"))
+    fig_cluster.update_traces(
+        textposition="inside",
+        textinfo="percent+label",
+        hovertemplate="<b>%{label}</b><br>Count: %{value}<br>%{percent}<extra></extra>",
+    )
+    fig_cluster.update_layout(
+        showlegend=False,
+        margin=dict(t=40, b=10, l=10, r=10),
+        paper_bgcolor="rgba(0,0,0,0)",
+        plot_bgcolor="rgba(0,0,0,0)",
+        font=dict(color="#e2e8f0"),
+    )
 
     fig_bar = px.bar(
         x=risk_counts.index,
@@ -63,29 +90,41 @@ def gen_dashboard():
         color_discrete_map=color_map,
         title="Channels by Risk Tier",
         text_auto=True,
-        category_orders={"risk_flag": label_order}
+        category_orders={"risk_flag": label_order},
     )
     fig_bar.update_traces(marker=dict(line=dict(width=0)), textposition="outside")
-    fig_bar.update_layout(xaxis_title=None, yaxis_title="Count", showlegend=False,
-                          margin=dict(t=40, b=10, l=10, r=10),
-                          paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
-                          font=dict(color="#e2e8f0"), xaxis=dict(tickfont=dict(color="#e2e8f0")))
+    fig_bar.update_layout(
+        xaxis_title=None,
+        yaxis_title="Count",
+        showlegend=False,
+        margin=dict(t=40, b=10, l=10, r=10),
+        paper_bgcolor="rgba(0,0,0,0)",
+        plot_bgcolor="rgba(0,0,0,0)",
+        font=dict(color="#e2e8f0"),
+        xaxis=dict(tickfont=dict(color="#e2e8f0")),
+    )
 
     fig_scatter = px.scatter(
-        scored, x="upload_freq_30d", y="momentum_ratio",
-        color="risk_flag", color_discrete_map=color_map,
+        scored,
+        x="upload_freq_30d",
+        y="momentum_ratio",
+        color="risk_flag",
+        color_discrete_map=color_map,
         hover_data=["channel_id", "title", "avg_engagement_rate", "days_since_last_upload"],
         title="Momentum vs Upload Frequency (by Risk Tier)",
         labels={"upload_freq_30d": "Upload Frequency (30d)", "momentum_ratio": "Momentum Ratio"},
-        category_orders={"risk_flag": label_order}
+        category_orders={"risk_flag": label_order},
     )
     fig_scatter.update_traces(marker=dict(size=10, line=dict(width=1, color="#1e293b")), opacity=0.85)
-    fig_scatter.update_layout(margin=dict(t=40, b=10, l=10, r=10),
-                              paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
-                              font=dict(color="#e2e8f0"),
-                              xaxis=dict(gridcolor="#334155", tickfont=dict(color="#e2e8f0")),
-                              yaxis=dict(gridcolor="#334155", tickfont=dict(color="#e2e8f0")),
-                              legend=dict(font=dict(color="#e2e8f0")))
+    fig_scatter.update_layout(
+        margin=dict(t=40, b=10, l=10, r=10),
+        paper_bgcolor="rgba(0,0,0,0)",
+        plot_bgcolor="rgba(0,0,0,0)",
+        font=dict(color="#e2e8f0"),
+        xaxis=dict(gridcolor="#334155", tickfont=dict(color="#e2e8f0")),
+        yaxis=dict(gridcolor="#334155", tickfont=dict(color="#e2e8f0")),
+        legend=dict(font=dict(color="#e2e8f0")),
+    )
 
     centroids = cluster_centroids(scored)
     fig_radar = go.Figure()
@@ -101,39 +140,57 @@ def gen_dashboard():
                 norm = 0
             norm_vals.append(round(norm, 3))
         risk = scored[scored["cluster_label"] == label]["risk_flag"].iloc[0] if label != "Unscored" else "Unscored"
-        fig_radar.add_trace(go.Scatterpolar(
-            r=norm_vals + [norm_vals[0]],
-            theta=FEATURE_LABELS + [FEATURE_LABELS[0]],
-            name=label,
-            line=dict(color=color_map.get(risk, "#6b7280"), width=2),
-            fill="toself",
-            opacity=0.3
-        ))
+        fig_radar.add_trace(
+            go.Scatterpolar(
+                r=norm_vals + [norm_vals[0]],
+                theta=FEATURE_LABELS + [FEATURE_LABELS[0]],
+                name=label,
+                line=dict(color=color_map.get(risk, "#6b7280"), width=2),
+                fill="toself",
+                opacity=0.3,
+            )
+        )
     fig_radar.update_layout(
-        polar=dict(radialaxis=dict(visible=True, range=[0, 1], gridcolor="#334155",
-                                    tickfont=dict(color="#e2e8f0")),
-                   angularaxis=dict(gridcolor="#334155", tickfont=dict(size=9, color="#e2e8f0"))),
+        polar=dict(
+            radialaxis=dict(visible=True, range=[0, 1], gridcolor="#334155", tickfont=dict(color="#e2e8f0")),
+            angularaxis=dict(gridcolor="#334155", tickfont=dict(size=9, color="#e2e8f0")),
+        ),
         title="Feature Profile by Cluster (Normalized)",
         margin=dict(t=40, b=10, l=10, r=10),
-        paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
-        font=dict(color="#e2e8f0"), legend=dict(font=dict(color="#e2e8f0"))
+        paper_bgcolor="rgba(0,0,0,0)",
+        plot_bgcolor="rgba(0,0,0,0)",
+        font=dict(color="#e2e8f0"),
+        legend=dict(font=dict(color="#e2e8f0")),
     )
 
-    fig_hist = make_subplots(rows=2, cols=4, subplot_titles=FEATURE_LABELS,
-                             horizontal_spacing=0.06, vertical_spacing=0.1)
+    fig_hist = make_subplots(
+        rows=2, cols=4, subplot_titles=FEATURE_LABELS, horizontal_spacing=0.06, vertical_spacing=0.1
+    )
     for i, (col, label) in enumerate(zip(FEATURES, FEATURE_LABELS)):
         r, c = i // 4 + 1, i % 4 + 1
         vals = scored[col].dropna()
         if len(vals) > 0:
-            fig_hist.add_trace(go.Histogram(x=vals, marker_color="#3b82f6", opacity=0.8,
-                                            hovertemplate="Range: %{x}<br>Count: %{y}<extra></extra>"),
-                               row=r, col=c)
+            fig_hist.add_trace(
+                go.Histogram(
+                    x=vals,
+                    marker_color="#3b82f6",
+                    opacity=0.8,
+                    hovertemplate="Range: %{x}<br>Count: %{y}<extra></extra>",
+                ),
+                row=r,
+                col=c,
+            )
         fig_hist.update_xaxes(title_text="", row=r, col=c, gridcolor="#334155", tickfont=dict(size=8, color="#e2e8f0"))
         fig_hist.update_yaxes(title_text="", row=r, col=c, gridcolor="#334155", tickfont=dict(size=8, color="#e2e8f0"))
-    fig_hist.update_layout(title="Feature Distributions", showlegend=False,
-                           margin=dict(t=50, b=10, l=10, r=10), height=500,
-                           paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
-                           font=dict(color="#e2e8f0"))
+    fig_hist.update_layout(
+        title="Feature Distributions",
+        showlegend=False,
+        margin=dict(t=50, b=10, l=10, r=10),
+        height=500,
+        paper_bgcolor="rgba(0,0,0,0)",
+        plot_bgcolor="rgba(0,0,0,0)",
+        font=dict(color="#e2e8f0"),
+    )
 
     fig_corr = px.imshow(
         scored[FEATURES].corr(),
@@ -141,13 +198,16 @@ def gen_dashboard():
         color_continuous_scale="RdBu_r",
         aspect="auto",
         title="Feature Correlation Matrix",
-        labels=dict(x="Feature", y="Feature", color="Correlation")
+        labels=dict(x="Feature", y="Feature", color="Correlation"),
     )
-    fig_corr.update_layout(margin=dict(t=40, b=10, l=10, r=10),
-                           paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
-                           font=dict(color="#e2e8f0"),
-                           xaxis=dict(tickfont=dict(size=8, color="#e2e8f0")),
-                           yaxis=dict(tickfont=dict(size=8, color="#e2e8f0")))
+    fig_corr.update_layout(
+        margin=dict(t=40, b=10, l=10, r=10),
+        paper_bgcolor="rgba(0,0,0,0)",
+        plot_bgcolor="rgba(0,0,0,0)",
+        font=dict(color="#e2e8f0"),
+        xaxis=dict(tickfont=dict(size=8, color="#e2e8f0")),
+        yaxis=dict(tickfont=dict(size=8, color="#e2e8f0")),
+    )
 
     at_risk_df = merged[merged["risk_flag"] == "At-Risk"].sort_values("risk_score", ascending=False)
     table_rows = ""
@@ -180,14 +240,16 @@ def gen_dashboard():
             <td><span class="action-badge">{action}</span></td>
         </tr>"""
 
-    charts_json = json.dumps({
-        "cluster_pie": fig_cluster.to_json(),
-        "risk_bar": fig_bar.to_json(),
-        "scatter": fig_scatter.to_json(),
-        "radar": fig_radar.to_json(),
-        "hist": fig_hist.to_json(),
-        "corr": fig_corr.to_json(),
-    })
+    charts_json = json.dumps(
+        {
+            "cluster_pie": fig_cluster.to_json(),
+            "risk_bar": fig_bar.to_json(),
+            "scatter": fig_scatter.to_json(),
+            "radar": fig_radar.to_json(),
+            "hist": fig_hist.to_json(),
+            "corr": fig_corr.to_json(),
+        }
+    )
 
     html = f"""<!DOCTYPE html>
 <html lang="en">
@@ -290,6 +352,7 @@ window.addEventListener('resize', () => {{ document.querySelectorAll('.chart-car
     out_path = ROOT / "dashboard" / "index.html"
     out_path.write_text(html, encoding="utf-8")
     print(f"Dashboard generated: {out_path}")
+
 
 if __name__ == "__main__":
     gen_dashboard()

@@ -16,10 +16,18 @@ def test_clustering_pipeline_deterministic():
         cluster_std=2.0,
     )
 
-    df = pd.DataFrame(X, columns=[
-        "upload_freq_30d", "upload_freq_90d", "momentum_ratio",
-        "avg_engagement_rate", "days_since_last_upload", "upload_regularity", "duration_trend",
-    ])
+    df = pd.DataFrame(
+        X,
+        columns=[
+            "upload_freq_30d",
+            "upload_freq_90d",
+            "momentum_ratio",
+            "avg_engagement_rate",
+            "days_since_last_upload",
+            "upload_regularity",
+            "duration_trend",
+        ],
+    )
     df["channel_id"] = [f"UC{i:010d}" for i in range(300)]
     df["computed_at"] = "2024-06-15"
     df["insufficient_history"] = False
@@ -40,10 +48,18 @@ def test_clustering_pipeline_deterministic():
 def test_reproducibility():
     X, _ = make_blobs(n_samples=100, centers=3, n_features=7, random_state=42)
 
-    df = pd.DataFrame(X, columns=[
-        "upload_freq_30d", "upload_freq_90d", "momentum_ratio",
-        "avg_engagement_rate", "days_since_last_upload", "upload_regularity", "duration_trend",
-    ])
+    df = pd.DataFrame(
+        X,
+        columns=[
+            "upload_freq_30d",
+            "upload_freq_90d",
+            "momentum_ratio",
+            "avg_engagement_rate",
+            "days_since_last_upload",
+            "upload_regularity",
+            "duration_trend",
+        ],
+    )
     df["channel_id"] = [f"UC{i:010d}" for i in range(100)]
     df["computed_at"] = "2024-06-15"
     df["insufficient_history"] = False
@@ -55,18 +71,20 @@ def test_reproducibility():
 
 
 def test_label_clusters_maps_risk_flags():
-    df = pd.DataFrame({
-        "channel_id": [f"UC{i:010d}" for i in range(50)],
-        "cluster_id": [0] * 25 + [1] * 25,
-        "upload_freq_30d": [0.1] * 25 + [0.8] * 25,
-        "upload_freq_90d": [0.15] * 25 + [0.7] * 25,
-        "engagement_quality": [0.05] * 25 + [0.1] * 25,
-        "momentum_ratio": [0.3] * 25 + [2.0] * 25,
-        "avg_engagement_rate": [0.05] * 25 + [0.1] * 25,
-        "days_since_last_upload": [60] * 25 + [5] * 25,
-        "upload_regularity": [20.0] * 25 + [5.0] * 25,
-        "duration_trend": [8.0] * 25 + [4.0] * 25,
-    })
+    df = pd.DataFrame(
+        {
+            "channel_id": [f"UC{i:010d}" for i in range(50)],
+            "cluster_id": [0] * 25 + [1] * 25,
+            "upload_freq_30d": [0.1] * 25 + [0.8] * 25,
+            "upload_freq_90d": [0.15] * 25 + [0.7] * 25,
+            "engagement_quality": [0.05] * 25 + [0.1] * 25,
+            "momentum_ratio": [0.3] * 25 + [2.0] * 25,
+            "avg_engagement_rate": [0.05] * 25 + [0.1] * 25,
+            "days_since_last_upload": [60] * 25 + [5] * 25,
+            "upload_regularity": [20.0] * 25 + [5.0] * 25,
+            "duration_trend": [8.0] * 25 + [4.0] * 25,
+        }
+    )
 
     result = label_clusters(df)
     risk_flags = result.groupby("cluster_id")["risk_flag"].first()
