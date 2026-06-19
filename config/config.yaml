@@ -22,8 +22,8 @@ features:
   min_videos_for_scoring: 2
 
 clustering:
-  k_min: 2
-  k_max: 10
+  k_min: 3
+  k_max: 5
   n_init: 10
   random_state: 42
   scaler: RobustScaler

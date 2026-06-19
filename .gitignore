@@ -26,6 +26,9 @@ reports/figures/
 .python-version
 .DS_Store
 thumbs.db
+_audit_analysis.py
+_debug_clusters.py
+debug_output.txt
 .vscode/
 .idea/
 *.egg-info/

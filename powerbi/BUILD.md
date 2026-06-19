@@ -1,4 +1,4 @@
-# Power BI Dashboard Build Guide
+# Power BI Dashboard
 
 ## Data Source Options
 
@@ -124,3 +124,5 @@ VALUES(dim_channel[risk_flag])
    - Slicers for cluster and risk flag
    - Table visual for drill-through
 5. **Publish** to Power BI Service for sharing with Partner Managers
+
+For an interactive web dashboard with real-time filters, see the dashboard at `docs/index.html` (deployed to GitHub Pages).

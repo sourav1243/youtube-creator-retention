@@ -1,8 +1,10 @@
 from __future__ import annotations
 
+import json
 import logging
 from datetime import UTC, datetime
 from pathlib import Path
+from typing import Any
 
 import joblib
 import matplotlib
@@ -24,17 +26,28 @@ logger = logging.getLogger(__name__)
 FEATURE_COLUMNS = [
     "upload_freq_30d",
     "upload_freq_90d",
+    "freq_trend_ratio",
     "momentum_ratio",
     "avg_engagement_rate",
     "days_since_last_upload",
     "upload_regularity",
-    "duration_trend",
 ]
 
-RISK_MAP = {
-    "High Momentum — Frequent Uploaders": "Healthy",
-    "Mid Momentum — Regular Creators": "Watch",
-    "Low Momentum — Declining Engagement": "At-Risk",
+LABEL_TEMPLATES = [
+    "Low Momentum — Declining Engagement",
+    "Mid-Low Momentum — Occasional Uploaders",
+    "Mid Momentum — Regular Creators",
+    "Mid-High Momentum — Active Creators",
+    "High Momentum — Frequent Uploaders",
+]
+
+RISK_WEIGHTS = {
+    "upload_freq_30d": 0.20,
+    "freq_trend_ratio": 0.10,
+    "momentum_ratio": 0.30,
+    "days_since_last_upload": 0.15,
+    "avg_engagement_rate": 0.15,
+    "upload_regularity": 0.10,
 }
 
 
@@ -45,95 +58,98 @@ def load_features(parquet_path: str | Path | None = None) -> pd.DataFrame:
     return df
 
 
-def _kmeans_search(
-    X: np.ndarray,
-    k_min: int = 2,
-    k_max: int = 10,
-    random_state: int = 42,
-    output_plot: str | Path | None = None,
-) -> tuple[int, KMeans, dict]:
-    inertias: dict[int, float] = {}
-    silhouettes: dict[int, float] = {}
-    models: dict[int, KMeans] = {}
+def compute_direct_risk_score(df: pd.DataFrame, feature_cols: list[str] | None = None) -> np.ndarray:
+    """Compute a 0-1 risk score directly from features, independent of clustering.
 
-    for k in range(k_min, k_max + 1):
-        km = KMeans(n_clusters=k, random_state=random_state, n_init=10)
-        labels = km.fit_predict(X)
-        models[k] = km
-        inertias[k] = float(km.inertia_)
-        if k > 1 and len(set(labels)) > 1:
-            silhouettes[k] = float(silhouette_score(X, labels))
-        else:
-            silhouettes[k] = 0.0
-        logger.info("  K=%d: inertia=%.2f, silhouette=%.4f", k, inertias[k], silhouettes[k])
-
-    best_k = max(silhouettes, key=silhouettes.get) if silhouettes else k_min
-    logger.info("Best K by silhouette: %d (score=%.4f)", best_k, silhouettes.get(best_k, 0))
-
-    if output_plot:
-        output_plot = Path(output_plot)
-        output_plot.parent.mkdir(parents=True, exist_ok=True)
-        fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 4))
-
-        ks = list(inertias.keys())
-        ax1.plot(ks, list(inertias.values()), "bo-")
-        ax1.set_xlabel("K")
-        ax1.set_ylabel("Inertia")
-        ax1.set_title("Elbow Method")
-
-        ax2.plot(ks, [silhouettes.get(k, 0) for k in ks], "ro-")
-        ax2.set_xlabel("K")
-        ax2.set_ylabel("Silhouette Score")
-        ax2.set_title(f"Silhouette Analysis (best K={best_k})")
-
-        plt.tight_layout()
-        fig.savefig(str(output_plot), dpi=100, bbox_inches="tight")
-        plt.close(fig)
-        logger.info("Elbow/silhouette plot saved to %s", output_plot)
-
-    return best_k, models[best_k], {"inertias": inertias, "silhouettes": silhouettes}
-
-
-def label_clusters(
-    df: pd.DataFrame,
-    cluster_col: str = "cluster_id",
-    feature_cols: list[str] | None = None,
-) -> pd.DataFrame:
+    Higher score = higher risk (more likely to churn).
+    """
     if feature_cols is None:
         feature_cols = FEATURE_COLUMNS
 
-    centroids = df.groupby(cluster_col)[feature_cols].mean().fillna(0)
-    momentum_rank = centroids["momentum_ratio"].rank(ascending=True)
-    freq_rank = centroids["upload_freq_30d"].rank(ascending=True)
-    combined_rank = momentum_rank + freq_rank
+    weights = {k: RISK_WEIGHTS.get(k, 0.1) for k in feature_cols}
+    total_weight = sum(weights.values())
+    weights = {k: v / total_weight for k, v in weights.items()}
 
-    sorted_clusters = combined_rank.sort_values().index.tolist()
-    n = len(sorted_clusters)
+    score = np.zeros(len(df), dtype=float)
+    for col, weight in weights.items():
+        if col not in df.columns:
+            continue
+        vals = df[col].fillna(0).values.astype(float)
+        if col == "days_since_last_upload":
+            comp = vals / (vals + 30.0)
+        elif col in ("upload_freq_30d", "upload_freq_90d"):
+            comp = 1.0 / (1.0 + vals)
+        elif col in ("momentum_ratio", "freq_trend_ratio"):
+            comp = 1.0 / (1.0 + vals)
+        elif col == "avg_engagement_rate":
+            comp = 1.0 / (1.0 + vals * 100.0)
+        elif col == "upload_regularity":
+            comp = vals / (vals + 14.0)
+        else:
+            comp = vals / (vals + 1.0)
+        score += weight * comp
 
-    RISK_LABELS = [
-        "Low Momentum — Declining Engagement",
-        "Mid-Low Momentum — Occasional Uploaders",
-        "Mid Momentum — Regular Creators",
-        "Mid-High Momentum — Active Creators",
-        "High Momentum — Frequent Uploaders",
-    ]
+    return np.clip(score, 0.0, 1.0)
+
+
+def assign_risk_flags(risk_scores: np.ndarray) -> np.ndarray:
+    """Assign risk flags based on percentile thresholds for balanced segmentation.
+
+    - Healthy: bottom 30% (lowest risk)
+    - At-Risk: top 30% (highest risk)
+    - Watch: middle 40%
+    """
+    sorted_scores = np.sort(risk_scores)
+    n = len(sorted_scores)
+
+    low_idx = max(int(np.floor(n * 0.30)) - 1, 0)
+    high_idx = min(int(np.ceil(n * 0.70)), n - 1)
+
+    low_thresh = sorted_scores[low_idx]
+    high_thresh = sorted_scores[high_idx]
+
+    if low_thresh >= high_thresh:
+        mid = float(np.median(risk_scores))
+        low_thresh = mid * 0.95
+        high_thresh = mid * 1.05
+
+    flags = np.where(
+        risk_scores <= low_thresh, "Healthy",
+        np.where(risk_scores >= high_thresh, "At-Risk", "Watch"),
+    )
+    return flags
+
+
+def label_clusters_by_risk(
+    df: pd.DataFrame,
+    cluster_col: str = "cluster_id",
+    risk_col: str = "risk_score",
+) -> pd.DataFrame:
+    """Label clusters based on mean risk score of members.
+
+    Highest risk cluster gets 'Low Momentum'.
+    Lowest risk cluster gets 'High Momentum'.
+    Only sets cluster_label; risk_flag is set separately by assign_risk_flags.
+    """
+    cluster_risk = df.groupby(cluster_col)[risk_col].mean().sort_values(ascending=False)
+    ranked = cluster_risk.index.tolist()
+    n = len(ranked)
 
     label_map = {}
-    for i, cid in enumerate(sorted_clusters):
+    for i, cid in enumerate(ranked):
         if n >= 5:
-            label_idx = min(i, len(RISK_LABELS) - 1)
-            label_map[cid] = RISK_LABELS[label_idx]
+            label_map[cid] = LABEL_TEMPLATES[min(i, len(LABEL_TEMPLATES) - 1)]
         elif n == 1:
             label_map[cid] = "Single Cluster — All Creators"
-        elif i == 0:
-            label_map[cid] = "Low Momentum — Declining Engagement"
-        elif i == n - 1:
-            label_map[cid] = "High Momentum — Frequent Uploaders"
-        else:
-            label_map[cid] = "Mid Momentum — Regular Creators"
+        elif n == 2:
+            label_map[cid] = LABEL_TEMPLATES[0] if i == 0 else LABEL_TEMPLATES[-1]
+        elif n == 3:
+            label_map[cid] = LABEL_TEMPLATES[0] if i == 0 else (LABEL_TEMPLATES[-1] if i == n - 1 else LABEL_TEMPLATES[2])
+        elif n == 4:
+            mapping = [0, 1, 3, 4]
+            label_map[cid] = LABEL_TEMPLATES[mapping[i]]
 
     df["cluster_label"] = df[cluster_col].map(label_map)
-    df["risk_flag"] = df["cluster_label"].map(RISK_MAP).fillna("Watch")
     return df
 
 
@@ -142,44 +158,58 @@ def _safe_log1p(x: np.ndarray) -> np.ndarray:
 
 
 def _build_preprocessor(feature_cols: list[str]) -> ColumnTransformer:
-    """Build a ColumnTransformer that log1p-transforms days_since_last_upload and robust-scales all."""
     log_cols = [c for c in feature_cols if "days_since" in c]
     std_cols = [c for c in feature_cols if "days_since" not in c]
     transformers = []
     if log_cols:
-        transformers.append(("log", FunctionTransformer(_safe_log1p, feature_names_out="one-to-one"), log_cols))
+        transformers.append(("log", FunctionTransformer(_safe_log1p), log_cols))
     if std_cols:
         transformers.append(("scale", RobustScaler(), std_cols))
     return ColumnTransformer(transformers, remainder="passthrough")
 
 
-def _compute_risk_score(
-    X_scaled: np.ndarray,
-    healthy_center: np.ndarray,
-    labels: np.ndarray,
-) -> np.ndarray:
-    """Continuous risk score 0-1: normalized distance from healthy centroid."""
-    distances = np.linalg.norm(X_scaled - healthy_center, axis=1)
-    max_dist = distances.max()
-    if max_dist == 0:
-        return np.zeros_like(distances)
-    return (distances / max_dist).clip(0, 1)
+def _find_healthy_centroid(model: Any, scored: pd.DataFrame, feature_cols: list[str]) -> np.ndarray:
+    if hasattr(model, "cluster_centers_"):
+        healthy_cluster = scored[scored["risk_flag"] == "Healthy"]
+        if not healthy_cluster.empty:
+            healthy_id = int(healthy_cluster["cluster_id"].mode().iloc[0])
+            return model.cluster_centers_[healthy_id]
+        fallback_id = int(scored.groupby("cluster_id")["momentum_ratio"].mean().idxmax())
+        return model.cluster_centers_[fallback_id]
+    if hasattr(model, "means_"):
+        healthy_cluster = scored[scored["risk_flag"] == "Healthy"]
+        if not healthy_cluster.empty:
+            healthy_id = int(healthy_cluster["cluster_id"].mode().iloc[0])
+            return model.means_[healthy_id]
+        fallback_id = int(scored.groupby("cluster_id")["momentum_ratio"].mean().idxmax())
+        return model.means_[fallback_id]
+    return np.zeros(len(feature_cols))
 
 
 def _bootstrap_confidence(
     X_scaled: np.ndarray,
-    model: any,
+    model: Any,
     model_type: str,
     n_iter: int = 500,
     random_state: int = 42,
 ) -> dict:
     rng = np.random.default_rng(random_state)
     n_samples = X_scaled.shape[0]
-    n_clusters = getattr(model, "n_clusters", None) or getattr(model, "n_components", None)
+    n_clusters = getattr(model, "n_clusters", None)
+    if n_clusters is None:
+        n_clusters = getattr(model, "n_components", None)
 
     if n_clusters is None:
         predicted = model.fit_predict(X_scaled) if hasattr(model, "fit_predict") else model.predict(X_scaled)
         n_clusters = len(set(predicted) - {-1})
+
+    if n_clusters is None or n_clusters <= 1:
+        return {
+            "assignment_probabilities": np.ones((n_samples, 1)) * 0.5,
+            "stability_mean": 0.5,
+            "stability_std": 0.0,
+            "n_iter": n_iter,
+        }
 
     assignment_counts = np.zeros((n_samples, n_clusters))
     valid_iterations = 0
@@ -189,7 +219,7 @@ def _bootstrap_confidence(
         X_boot = X_scaled[idx]
 
         if model_type == "kmeans":
-            boot_model = KMeans(n_clusters=n_clusters, random_state=random_state + iteration, n_init=10)
+            boot_model = KMeans(n_clusters=n_clusters, random_state=random_state + iteration, n_init=5)
             boot_model.fit(X_boot)
             preds = boot_model.predict(X_scaled)
         elif model_type == "gmm":
@@ -229,7 +259,7 @@ def _bootstrap_confidence(
 
 def select_best_model(
     X: np.ndarray,
-    k_min: int = 2,
+    k_min: int = 3,
     k_max: int = 5,
     random_state: int = 42,
     output_plot: str | Path | None = None,
@@ -243,10 +273,7 @@ def select_best_model(
     for k in range(k_min, k_max + 1):
         km = KMeans(n_clusters=k, random_state=random_state, n_init=10)
         labels = km.fit_predict(X)
-        if k > 1 and len(set(labels)) > 1:
-            sil = float(silhouette_score(X, labels))
-        else:
-            sil = 0.0
+        sil = float(silhouette_score(X, labels)) if k > 1 and len(set(labels)) > 1 else 0.0
         all_results["kmeans"][k] = {"model": km, "silhouette": sil}
         logger.info("  KMeans K=%d: silhouette=%.4f", k, sil)
         if sil > best_silhouette:
@@ -259,10 +286,7 @@ def select_best_model(
         gmm = GaussianMixture(n_components=k, random_state=random_state)
         gmm.fit(X)
         labels = gmm.predict(X)
-        if k > 1 and len(set(labels)) > 1:
-            sil = float(silhouette_score(X, labels))
-        else:
-            sil = 0.0
+        sil = float(silhouette_score(X, labels)) if k > 1 and len(set(labels)) > 1 else 0.0
         all_results["gmm"][k] = {"model": gmm, "silhouette": sil}
         logger.info("  GMM K=%d: silhouette=%.4f", k, sil)
         if sil > best_silhouette:
@@ -279,14 +303,11 @@ def select_best_model(
             labels = db.fit_predict(X)
             n_noise = int((labels == -1).sum())
             unique_labels = set(labels) - {-1}
+            sil = 0.0
             if len(unique_labels) > 1:
                 mask = labels != -1
                 if mask.sum() > 1:
                     sil = float(silhouette_score(X[mask], labels[mask]))
-                else:
-                    sil = 0.0
-            else:
-                sil = 0.0
             all_results["dbscan"][(eps, min_samples)] = {"model": db, "silhouette": sil, "noise_count": n_noise}
             logger.info("  DBSCAN eps=%.1f min_samples=%d: silhouette=%.4f noise=%d", eps, min_samples, sil, n_noise)
             if sil > best_db_sil:
@@ -297,15 +318,12 @@ def select_best_model(
         labels = best_db_model.fit_predict(X)
         noise_frac = (labels == -1).mean()
         if noise_frac > 0.2:
-            logger.warning(
-                "DBSCAN noise ratio %.2f exceeds 20%% — falling back to previous best (%s)", noise_frac, best_type
-            )
+            logger.warning("DBSCAN noise ratio %.2f exceeds 20%% — falling back to %s", noise_frac, best_type)
         else:
             best_silhouette = best_db_sil
             best_model = best_db_model
             best_type = "dbscan"
             best_k = len(set(labels) - {-1})
-            best_model.n_clusters = best_k
 
     logger.info("Best model: %s (K=%d, silhouette=%.4f)", best_type, best_k, best_silhouette)
 
@@ -335,12 +353,9 @@ def select_best_model(
 
         axes[2].axis("off")
         axes[2].text(
-            0.1,
-            0.5,
+            0.1, 0.5,
             f"Winner: {best_type}\nK={best_k}\nSilhouette={best_silhouette:.4f}",
-            fontsize=14,
-            transform=axes[2].transAxes,
-            verticalalignment="center",
+            fontsize=14, transform=axes[2].transAxes, verticalalignment="center",
         )
 
         plt.tight_layout()
@@ -358,14 +373,15 @@ def fit_and_persist(
     plot_path: str | Path | None = None,
     random_state: int = 42,
     model_type: str = "auto",
-    min_clusters: int = 2,
+    min_clusters: int = 3,
     max_clusters: int = 5,
 ) -> tuple[any, ColumnTransformer | None, pd.DataFrame, pd.DataFrame, dict]:
     if feature_cols is None:
         feature_cols = FEATURE_COLUMNS
 
-    scored = df[~df["insufficient_history"]].copy()
-    unscored = df[df["insufficient_history"]].copy()
+    scored_mask = ~df["insufficient_history"]
+    scored = df[scored_mask].copy()
+    unscored = df[~scored_mask].copy()
     logger.info("Scored: %d, Unscored: %d", len(scored), len(unscored))
 
     if scored.empty:
@@ -401,7 +417,7 @@ def fit_and_persist(
         eval_results = {"silhouettes": {}}
         if best_k > 1:
             labels = model.predict(X_scaled)
-            sil = silhouette_score(X_scaled, labels) if len(set(labels)) > 1 else 0.0
+            sil = float(silhouette_score(X_scaled, labels)) if len(set(labels)) > 1 else 0.0
             eval_results["silhouettes"][best_k] = sil
     elif model_type == "dbscan":
         model = DBSCAN(eps=0.5, min_samples=5)
@@ -421,8 +437,7 @@ def fit_and_persist(
         if best_k > 1:
             mask = labels != -1
             if mask.sum() > 1:
-                sil = silhouette_score(X_scaled[mask], labels[mask])
-                eval_results["silhouettes"][best_k] = sil
+                eval_results["silhouettes"][best_k] = float(silhouette_score(X_scaled[mask], labels[mask]))
     else:
         best_k = max(min_clusters, 2)
         model = KMeans(n_clusters=best_k, random_state=random_state, n_init=10)
@@ -431,61 +446,45 @@ def fit_and_persist(
         eval_results = {"silhouettes": {}}
         if best_k > 1:
             labels = model.predict(X_scaled)
-            sil = silhouette_score(X_scaled, labels) if len(set(labels)) > 1 else 0.0
-            eval_results["silhouettes"][best_k] = sil
+            eval_results["silhouettes"][best_k] = float(silhouette_score(X_scaled, labels)) if len(set(labels)) > 1 else 0.0
 
     if selected_type == "dbscan":
         scored["cluster_id"] = model.fit_predict(X_scaled)
+        model.n_clusters = int(scored["cluster_id"].nunique())
     else:
         scored["cluster_id"] = model.predict(X_scaled)
 
-    scored = label_clusters(scored)
+    direct_risk = compute_direct_risk_score(scored, feature_cols)
+    scored["risk_score"] = direct_risk
 
-    if selected_type in ("kmeans", "gmm"):
-        healthy_cluster = scored[scored["risk_flag"] == "Healthy"]
-        if not healthy_cluster.empty:
-            healthy_id = int(healthy_cluster["cluster_id"].iloc[0])
-        else:
-            healthy_id = int(scored.groupby("cluster_id")["upload_freq_30d"].mean().idxmax())
-        if selected_type == "kmeans" and hasattr(model, "cluster_centers_"):
-            healthy_center = model.cluster_centers_[healthy_id]
-            scored["risk_score"] = _compute_risk_score(X_scaled, healthy_center, scored["cluster_id"].values)
-        elif selected_type == "gmm" and hasattr(model, "means_"):
-            healthy_center = model.means_[healthy_id]
-            scored["risk_score"] = _compute_risk_score(X_scaled, healthy_center, scored["cluster_id"].values)
-        else:
-            scored["risk_score"] = np.nan
-    else:
-        scored["risk_score"] = np.nan
+    scored = label_clusters_by_risk(scored)
 
-    boot_results = _bootstrap_confidence(X_scaled, model, selected_type, random_state=random_state)
+    scored["risk_flag"] = assign_risk_flags(direct_risk)
 
-    if selected_type in ("kmeans", "gmm"):
-        if selected_type == "kmeans" and hasattr(model, "cluster_centers_"):
-            scored["distance_to_centroid"] = model.transform(X_scaled).min(axis=1)
-        elif selected_type == "gmm" and hasattr(model, "means_"):
-            scored["distance_to_centroid"] = np.linalg.norm(X_scaled - model.means_[model.predict(X_scaled)], axis=1)
+    healthy_center = _find_healthy_centroid(model, scored, feature_cols)
+    if healthy_center is not None and hasattr(model, "cluster_centers_"):
+        distances = np.linalg.norm(X_scaled - healthy_center, axis=1)
+        scored["distance_to_centroid"] = distances
     else:
         scored["distance_to_centroid"] = np.nan
 
+    boot_results = _bootstrap_confidence(X_scaled, model, selected_type, random_state=random_state)
+
     probs = boot_results["assignment_probabilities"]
-    max_probs = probs.max(axis=1)
-    scored["confidence"] = max_probs[: len(scored)]
+    scored["confidence"] = probs.max(axis=1)[: len(scored)]
 
     if best_k > 1 and len(set(scored["cluster_id"])) > 1:
-        final_sil = silhouette_score(X_scaled, scored["cluster_id"])
+        final_sil = float(silhouette_score(X_scaled, scored["cluster_id"]))
     else:
         final_sil = 0.0
     eval_results.setdefault("silhouettes", {})[best_k] = final_sil
 
-    eval_results.update(
-        {
-            "bootstrap_mean": boot_results["stability_mean"],
-            "bootstrap_std": boot_results["stability_std"],
-            "bootstrap_n": boot_results["n_iter"],
-            "model_type": selected_type,
-        }
-    )
+    eval_results.update({
+        "bootstrap_mean": boot_results["stability_mean"],
+        "bootstrap_std": boot_results["stability_std"],
+        "bootstrap_n": boot_results["n_iter"],
+        "model_type": selected_type,
+    })
 
     now = datetime.now(UTC)
     scored["model_version"] = f"{selected_type}_v1"
@@ -504,23 +503,14 @@ def fit_and_persist(
 
     model_path = Path(model_path or ROOT_DIR / "models" / f"{selected_type}_v1.joblib")
     model_path.parent.mkdir(parents=True, exist_ok=True)
-    joblib.dump(
-        {
-            "model": model,
-            "preprocessor": preprocessor,
-            "feature_cols": feature_cols,
-            "best_k": best_k,
-            "eval_results": eval_results,
-        },
-        model_path,
-    )
+    joblib.dump({"model": model, "preprocessor": preprocessor, "feature_cols": feature_cols, "best_k": best_k, "eval_results": eval_results}, model_path)
     logger.info("Model persisted to %s", model_path)
 
     return model, preprocessor, scored, result, eval_results
 
 
 def write_model_card(
-    model: any,
+    model: Any,
     preprocessor: ColumnTransformer,
     scored_df: pd.DataFrame,
     eval_results: dict,
@@ -534,16 +524,12 @@ def write_model_card(
     centroids = scored_df.groupby("cluster_id")[feature_cols].mean().fillna(0).reset_index(drop=True)
     centroids.insert(0, "cluster", range(best_k))
 
-    cluster_info = (
-        scored_df.groupby("cluster_id")
-        .agg(
-            label=("cluster_label", "first"),
-            risk_flag=("risk_flag", "first"),
-            size=("channel_id", "count"),
-            mean_risk_score=("risk_score", "mean"),
-        )
-        .reset_index()
-    )
+    cluster_info = scored_df.groupby("cluster_id").agg(
+        label=("cluster_label", "first"),
+        risk_flag=("risk_flag", "first"),
+        size=("channel_id", "count"),
+        mean_risk_score=("risk_score", "mean"),
+    ).reset_index()
 
     model_type = eval_results.get("model_type", "kmeans")
     sil_scores = eval_results.get("silhouettes", {})
@@ -552,15 +538,12 @@ def write_model_card(
     boot_mean = eval_results.get("bootstrap_mean", "N/A")
     boot_str = f"{boot_mean:.4f}" if isinstance(boot_mean, float) else str(boot_mean)
 
-    if model_type == "kmeans" and hasattr(model, "random_state"):
-        model_state = str(model.random_state)
-    else:
-        model_state = str(eval_results.get("random_state", "N/A"))
+    model_state = str(getattr(model, "random_state", eval_results.get("random_state", "N/A")))
 
-    header = f"# Model Card: {model_type.upper()} Clustering"
+    risk_weights_str = "\n".join(f"  - `{k}`: {v:.0%}" for k, v in sorted(RISK_WEIGHTS.items()))
 
     lines = [
-        header,
+        f"# Model Card: {model_type.upper()} Clustering",
         "",
         f"Generated: {datetime.now(UTC).isoformat()}",
         "",
@@ -573,7 +556,14 @@ def write_model_card(
         f"- Random state: {model_state}",
         f"- Feature columns: {', '.join(feature_cols)}",
         "- Preprocessing: RobustScaler on continuous features, log1p on days_since_last_upload",
-        "- 'days_since_last_upload' log1p-transformed to reduce feature dominance (original effect size: 6.0 → ~1.5)",
+        "",
+        "## Risk Score Formula",
+        "",
+        "A direct feature-based risk score is computed independently of clustering:",
+        "",
+        risk_weights_str,
+        "",
+        "Each component is normalized to [0,1] and weighted. Higher score = higher churn risk.",
         "",
         "## Cluster Sizes & Labels",
         "",
@@ -585,31 +575,34 @@ def write_model_card(
             f"| {int(row['cluster_id'])} | {row['label']} | {row['risk_flag']} | {int(row['size'])} | {row['mean_risk_score']:.4f} |"
         )
 
-    lines.extend(
-        [
-            "",
-            "## Centroid Values (unscaled)",
-            "",
-            "| Feature | " + " | ".join(str(i) for i in range(best_k)) + " |",
-            "|---|" + "---|" * best_k,
-        ]
-    )
+    lines.extend([
+        "",
+        "## Centroid Values (unscaled)",
+        "",
+        "| Feature | " + " | ".join(str(i) for i in range(best_k)) + " |",
+        "|---|" + "---|" * best_k,
+    ])
     for col in feature_cols:
         vals = " | ".join(f"{centroids.loc[i, col]:.4f}" for i in range(best_k))
         lines.append(f"| {col} | {vals} |")
 
-    lines.extend(
-        [
-            "",
-            "## Labeling Rule",
-            "",
-            "- Clusters are ranked by combined (momentum_ratio + upload_freq_30d) centroid values.",
-            "- Lowest-ranked cluster → 'Low Momentum — Declining Engagement' → At-Risk",
-            "- Mid-ranked cluster(s) → 'Mid Momentum — Regular Creators' → Watch",
-            "- Highest-ranked cluster → 'High Momentum — Frequent Uploaders' → Healthy",
-            "- Channels with insufficient_history → Unscored (not included in clustering)",
-        ]
-    )
+    lines.extend([
+        "",
+        "## Labeling Rule",
+        "",
+        "- Clusters are ranked by mean risk_score of their members.",
+        "- Lowest-risk cluster(s) → Healthy",
+        "- Mid-risk cluster(s) → Watch",
+        "- Highest-risk cluster(s) → At-Risk",
+        "- Channels with insufficient_history → Unscored (not included in clustering)",
+    ])
+
+    lines.append("")
+    lines.append("## Risk Score Weights (JSON)")
+    lines.append("")
+    lines.append("```json")
+    lines.append(json.dumps(RISK_WEIGHTS, indent=2))
+    lines.append("```")
 
     if output_path is None:
         output_path = ROOT_DIR / "models" / "model_card.md"
@@ -629,17 +622,13 @@ def run_clustering_pipeline(
     plot_path: str | Path | None = ROOT_DIR / "reports" / "figures" / "elbow_silhouette.png",
     card_path: str | Path | None = None,
     model_type: str = "auto",
-    min_clusters: int = 2,
+    min_clusters: int = 3,
     max_clusters: int = 5,
 ) -> pd.DataFrame:
     df = load_features(parquet_path)
     model, preprocessor, scored_df, result, eval_results = fit_and_persist(
-        df,
-        plot_path=plot_path,
-        model_path=model_path,
-        model_type=model_type,
-        min_clusters=min_clusters,
-        max_clusters=max_clusters,
+        df, plot_path=plot_path, model_path=model_path,
+        model_type=model_type, min_clusters=min_clusters, max_clusters=max_clusters,
     )
 
     if model is None:

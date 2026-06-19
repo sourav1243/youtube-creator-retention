@@ -102,8 +102,7 @@ result = run_clustering_pipeline(model_type="kmeans")  # "kmeans", "gmm", "dbsca
 
 ## Known Limitations
 
-- **37 channels** produces K=2-3 clusters with moderate silhouette (~0.52). Target 200+ channels for stable K=5
-- All current videos are capped at 150/channel (old 3-page limit). Next full extraction with `max_pages_per_channel: 20` will get ~1,000/channel
-- Bootstrap stability requires 500+ samples for reliable per-channel confidence intervals
-- `engagement_quality` removed due to near-perfect correlation (r=0.999) with `avg_engagement_rate`
+- **37 channels** produces K=3 clusters with moderate silhouette (~0.51). Target 200+ channels for more granular segmentation
+- All current videos are capped at 150/channel (legacy limit). The pipeline supports `max_pages_per_channel: 20` for ~1,000 videos/channel on re-extraction
+- Bootstrap stability (500 iterations) requires sufficient samples per cluster for reliable confidence intervals
 - MySQL requires `docker-compose up` before pipeline will populate `creator_features` and `creator_clusters` tables

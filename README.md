@@ -30,7 +30,7 @@ This pipeline pulls **live per-channel and per-video metrics** via the YouTube D
 
 - **Resumable, quota-aware extraction** — manifest checkpointing survives daily API quota limits
 - **Feature engineering** — 30/90-day rolling upload frequency, views-per-day momentum proxy, engagement rate with comments-disabled handling, upload regularity, duration trends
-- **K-Means clustering** — silhouette-driven K selection (K=2–10), RobustScaler for outlier-heavy YouTube metrics, bootstrap confidence estimation
+- **K-Means clustering** — silhouette-driven K selection (K=3–5), RobustScaler for outlier-heavy YouTube metrics, bootstrap confidence estimation
 - **Multiple model support** — KMeans, GMM, DBSCAN with auto-selection by silhouette score
 - **Risk scoring** — normalized distance-to-centroid scoring with per-channel confidence
 - **Interactive dashboard** — cluster distributions, feature profiles, correlation matrix, at-risk creator table with recommended actions
@@ -186,11 +186,14 @@ pytest -v --cov=src
 |--------|-------|
 | Channels processed | 37 |
 | Videos extracted | 5,550 |
-| Optimal clusters (K) | 2 |
-| Silhouette score | 0.91 (very strong) |
-| At-risk channels | 33 (89.2%) |
-| Healthy channels | 2 (5.4%) |
+| Clusters (K) | 3 (K-selected from 3-5 via silhouette) |
+| Risk tiers | Healthy (10), Watch (15), At-Risk (10) |
+| At-risk channels | **10 (27.0%)** |
+| Healthy channels | 10 (27.0%) |
+| Watch channels | 15 (40.5%) |
 | Unscored (insufficient data) | 2 (5.4%) |
+| Avg momentum ratio | 3.75 |
+| Avg engagement rate | 3.01% |
 
 ### Feature Engineering Highlights
 

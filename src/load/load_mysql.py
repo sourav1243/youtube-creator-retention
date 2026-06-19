@@ -165,7 +165,7 @@ def parse_channel_json(filepath: Path) -> list[dict[str, Any]]:
             }
         )
 
-        hidden_sub = stats.get("hiddenSubscriberCount") if "hiddenSubscriberCount" in stats else None
+        hidden_sub = stats.get("hiddenSubscriberCount")
         rows.append(
             {
                 "_snapshot": True,
@@ -349,52 +349,53 @@ def upsert_features(engine, features_parquet: str | Path | None = None):
         logger.warning("Features parquet not found: %s", parquet_path)
         return 0
     df = pd.read_parquet(parquet_path)
+    row_dicts = []
+    for _, row in df.iterrows():
+        row_dict = {
+            k: (v.to_pydatetime() if hasattr(v, "to_pydatetime") else (None if pd.isna(v) else v))
+            for k, v in row.to_dict().items()
+        }
+        row_dict.setdefault("freq_trend_ratio", None)
+        row_dicts.append(row_dict)
+
+    if engine.dialect.name == "sqlite":
+        query = """
+            INSERT INTO creator_features (channel_id, computed_at, upload_freq_30d, upload_freq_90d, freq_trend_ratio,
+                momentum_ratio, avg_engagement_rate, days_since_last_upload, upload_regularity, duration_trend, insufficient_history)
+            VALUES (:channel_id, :computed_at, :upload_freq_30d, :upload_freq_90d, :freq_trend_ratio,
+                :momentum_ratio, :avg_engagement_rate, :days_since_last_upload, :upload_regularity, :duration_trend, :insufficient_history)
+            ON CONFLICT(channel_id) DO UPDATE SET
+                computed_at = excluded.computed_at,
+                upload_freq_30d = excluded.upload_freq_30d,
+                upload_freq_90d = excluded.upload_freq_90d,
+                freq_trend_ratio = excluded.freq_trend_ratio,
+                momentum_ratio = excluded.momentum_ratio,
+                avg_engagement_rate = excluded.avg_engagement_rate,
+                days_since_last_upload = excluded.days_since_last_upload,
+                upload_regularity = excluded.upload_regularity,
+                duration_trend = excluded.duration_trend,
+                insufficient_history = excluded.insufficient_history
+        """
+    else:
+        query = """
+            INSERT INTO creator_features (channel_id, computed_at, upload_freq_30d, upload_freq_90d, freq_trend_ratio,
+                momentum_ratio, avg_engagement_rate, days_since_last_upload, upload_regularity, duration_trend, insufficient_history)
+            VALUES (:channel_id, :computed_at, :upload_freq_30d, :upload_freq_90d, :freq_trend_ratio,
+                :momentum_ratio, :avg_engagement_rate, :days_since_last_upload, :upload_regularity, :duration_trend, :insufficient_history)
+            ON DUPLICATE KEY UPDATE
+                computed_at = VALUES(computed_at),
+                upload_freq_30d = VALUES(upload_freq_30d),
+                upload_freq_90d = VALUES(upload_freq_90d),
+                freq_trend_ratio = VALUES(freq_trend_ratio),
+                momentum_ratio = VALUES(momentum_ratio),
+                avg_engagement_rate = VALUES(avg_engagement_rate),
+                days_since_last_upload = VALUES(days_since_last_upload),
+                upload_regularity = VALUES(upload_regularity),
+                duration_trend = VALUES(duration_trend),
+                insufficient_history = VALUES(insufficient_history)
+        """
     with engine.begin() as conn:
-        for _, row in df.iterrows():
-            row_dict = {
-                k: (v.to_pydatetime() if hasattr(v, "to_pydatetime") else (None if pd.isna(v) else v))
-                for k, v in row.to_dict().items()
-            }
-            row_dict.setdefault("freq_trend_ratio", None)
-            if engine.dialect.name == "sqlite":
-                query = """
-                    INSERT INTO creator_features (channel_id, computed_at, upload_freq_30d, upload_freq_90d, freq_trend_ratio,
-                        momentum_ratio, avg_engagement_rate, days_since_last_upload, upload_regularity, duration_trend, insufficient_history)
-                    VALUES (:channel_id, :computed_at, :upload_freq_30d, :upload_freq_90d, :freq_trend_ratio,
-                        :momentum_ratio, :avg_engagement_rate, :days_since_last_upload, :upload_regularity, :duration_trend, :insufficient_history)
-                    ON CONFLICT(channel_id) DO UPDATE SET
-                        computed_at = excluded.computed_at,
-                        upload_freq_30d = excluded.upload_freq_30d,
-                        upload_freq_90d = excluded.upload_freq_90d,
-                        freq_trend_ratio = excluded.freq_trend_ratio,
-                        momentum_ratio = excluded.momentum_ratio,
-                        avg_engagement_rate = excluded.avg_engagement_rate,
-                        days_since_last_upload = excluded.days_since_last_upload,
-                        upload_regularity = excluded.upload_regularity,
-                        duration_trend = excluded.duration_trend,
-                        insufficient_history = excluded.insufficient_history
-                """
-            else:
-                query = """
-                    INSERT INTO creator_features (channel_id, computed_at, upload_freq_30d, upload_freq_90d, freq_trend_ratio,
-                        momentum_ratio, avg_engagement_rate, days_since_last_upload, upload_regularity, duration_trend, insufficient_history)
-                    VALUES (:channel_id, :computed_at, :upload_freq_30d, :upload_freq_90d, :freq_trend_ratio,
-                        :momentum_ratio, :avg_engagement_rate, :days_since_last_upload, :upload_regularity, :duration_trend, :insufficient_history)
-                    ON DUPLICATE KEY UPDATE
-                        computed_at = VALUES(computed_at),
-                        upload_freq_30d = VALUES(upload_freq_30d),
-                        upload_freq_90d = VALUES(upload_freq_90d),
-                        freq_trend_ratio = VALUES(freq_trend_ratio),
-                        momentum_ratio = VALUES(momentum_ratio),
-                        avg_engagement_rate = VALUES(avg_engagement_rate),
-                        days_since_last_upload = VALUES(days_since_last_upload),
-                        upload_regularity = VALUES(upload_regularity),
-                        duration_trend = VALUES(duration_trend),
-                        insufficient_history = VALUES(insufficient_history)
-                """
-            conn.execute(text(query), row_dict)
-    logger.info("Upserted %d feature rows", len(df))
-    return len(df)
+        conn.execute(text(query), row_dicts)
 
 
 def upsert_clusters(engine, clusters_parquet: str | Path | None = None):
@@ -405,48 +406,51 @@ def upsert_clusters(engine, clusters_parquet: str | Path | None = None):
         logger.warning("Clusters parquet not found: %s", parquet_path)
         return 0
     df = pd.read_parquet(parquet_path)
+    row_dicts = []
+    for _, row in df.iterrows():
+        row_dict = {
+            k: (v.to_pydatetime() if hasattr(v, "to_pydatetime") else (None if pd.isna(v) else v))
+            for k, v in row.to_dict().items()
+        }
+        row_dict["algorithm"] = str(row.get("model_version", "kmeans_v1")).split("_")[0] if row.get("model_version") else "kmeans"
+        row_dicts.append(row_dict)
+
+    if engine.dialect.name == "sqlite":
+        query = """
+            INSERT INTO creator_clusters (channel_id, model_version, algorithm, cluster_id,
+                cluster_label, risk_flag, risk_score, confidence, distance_to_centroid, scored_at)
+            VALUES (:channel_id, :model_version, :algorithm, :cluster_id,
+                :cluster_label, :risk_flag, :risk_score, :confidence, :distance_to_centroid, :scored_at)
+            ON CONFLICT(channel_id) DO UPDATE SET
+                model_version = excluded.model_version,
+                algorithm = excluded.algorithm,
+                cluster_id = excluded.cluster_id,
+                cluster_label = excluded.cluster_label,
+                risk_flag = excluded.risk_flag,
+                risk_score = excluded.risk_score,
+                confidence = excluded.confidence,
+                distance_to_centroid = excluded.distance_to_centroid,
+                scored_at = excluded.scored_at
+        """
+    else:
+        query = """
+            INSERT INTO creator_clusters (channel_id, model_version, algorithm, cluster_id,
+                cluster_label, risk_flag, risk_score, confidence, distance_to_centroid, scored_at)
+            VALUES (:channel_id, :model_version, :algorithm, :cluster_id,
+                :cluster_label, :risk_flag, :risk_score, :confidence, :distance_to_centroid, :scored_at)
+            ON DUPLICATE KEY UPDATE
+                model_version = VALUES(model_version),
+                algorithm = VALUES(algorithm),
+                cluster_id = VALUES(cluster_id),
+                cluster_label = VALUES(cluster_label),
+                risk_flag = VALUES(risk_flag),
+                risk_score = VALUES(risk_score),
+                confidence = VALUES(confidence),
+                distance_to_centroid = VALUES(distance_to_centroid),
+                scored_at = VALUES(scored_at)
+        """
     with engine.begin() as conn:
-        for _, row in df.iterrows():
-            row_dict = {
-                k: (v.to_pydatetime() if hasattr(v, "to_pydatetime") else (None if pd.isna(v) else v))
-                for k, v in row.to_dict().items()
-            }
-            row_dict["algorithm"] = row.get("model_version", "kmeans_v1").split("_")[0]
-            if engine.dialect.name == "sqlite":
-                query = """
-                    INSERT INTO creator_clusters (channel_id, model_version, algorithm, cluster_id,
-                        cluster_label, risk_flag, risk_score, confidence, distance_to_centroid, scored_at)
-                    VALUES (:channel_id, :model_version, :algorithm, :cluster_id,
-                        :cluster_label, :risk_flag, :risk_score, :confidence, :distance_to_centroid, :scored_at)
-                    ON CONFLICT(channel_id) DO UPDATE SET
-                        model_version = excluded.model_version,
-                        algorithm = excluded.algorithm,
-                        cluster_id = excluded.cluster_id,
-                        cluster_label = excluded.cluster_label,
-                        risk_flag = excluded.risk_flag,
-                        risk_score = excluded.risk_score,
-                        confidence = excluded.confidence,
-                        distance_to_centroid = excluded.distance_to_centroid,
-                        scored_at = excluded.scored_at
-                """
-            else:
-                query = """
-                    INSERT INTO creator_clusters (channel_id, model_version, algorithm, cluster_id,
-                        cluster_label, risk_flag, risk_score, confidence, distance_to_centroid, scored_at)
-                    VALUES (:channel_id, :model_version, :algorithm, :cluster_id,
-                        :cluster_label, :risk_flag, :risk_score, :confidence, :distance_to_centroid, :scored_at)
-                    ON DUPLICATE KEY UPDATE
-                        model_version = VALUES(model_version),
-                        algorithm = VALUES(algorithm),
-                        cluster_id = VALUES(cluster_id),
-                        cluster_label = VALUES(cluster_label),
-                        risk_flag = VALUES(risk_flag),
-                        risk_score = VALUES(risk_score),
-                        confidence = VALUES(confidence),
-                        distance_to_centroid = VALUES(distance_to_centroid),
-                        scored_at = VALUES(scored_at)
-                """
-            conn.execute(text(query), row_dict)
+        conn.execute(text(query), row_dicts)
     logger.info("Upserted %d cluster rows", len(df))
     return len(df)
 

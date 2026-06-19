@@ -4,7 +4,8 @@ import logging
 import os
 import smtplib
 from email.message import EmailMessage
-from typing import Any
+
+import pandas as pd
 
 logger = logging.getLogger(__name__)
 
@@ -23,7 +24,10 @@ def send_email_alert(
     smtp_to = to or os.getenv("ALERT_EMAIL", "")
 
     if not all([smtp_host, smtp_user, smtp_pass, smtp_to]):
-        logger.info("SMTP not configured \u2014 email alert skipped. To enable, set SMTP_HOST, SMTP_USER, SMTP_PASS, ALERT_EMAIL")
+        logger.info(
+            "SMTP not configured \u2014 email alert skipped. "
+            "To enable, set SMTP_HOST, SMTP_USER, SMTP_PASS, ALERT_EMAIL"
+        )
         return False
 
     try:
@@ -45,12 +49,10 @@ def send_email_alert(
 
 
 def alert_new_at_risk(
-    report_df: "pd.DataFrame",
+    report_df: pd.DataFrame,
     previous_report: list[str] | None = None,
 ) -> tuple[list[str], bool]:
     """Alert if new At-Risk creators appear."""
-    import pandas as pd
-
     current_at_risk = report_df[report_df["risk_flag"] == "At-Risk"]["channel_id"].tolist()
     if previous_report is None:
         previous_at_risk: list[str] = []

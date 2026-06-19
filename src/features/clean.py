@@ -120,7 +120,7 @@ def load_and_clean_videos(videos_dir: str | Path | None = None) -> pd.DataFrame:
                 try:
                     duration_s = int(parse_duration(dur_str).total_seconds())
                 except Exception:
-                    pass
+                    logger.warning("Could not parse duration: %s", dur_str)
 
             records.append(
                 {

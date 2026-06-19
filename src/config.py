@@ -63,8 +63,8 @@ class FeaturesConfig:
 
 @dataclass
 class ClusteringConfig:
-    k_min: int = 2
-    k_max: int = 10
+    k_min: int = 3
+    k_max: int = 5
     n_init: int = 10
     random_state: int = 42
     scaler: str = "RobustScaler"
