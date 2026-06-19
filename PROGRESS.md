@@ -29,7 +29,13 @@
 - [x] 7 pytest tests pass (seeds, client, batching, quota error handling)
 
 ## Phase 4 — MySQL Schema & Load
-- [ ] _pending_
+- [x] `sql/schema.sql`: channels, channel_snapshots, videos, creator_features, creator_clusters tables
+- [x] `load_mysql.py`: parses JSON, casts types, upserts (ON DUPLICATE KEY UPDATE)
+- [x] Hidden subscriber count stored as NULL + boolean flag (not coerced to 0)
+- [x] ISO 8601 duration parsing via `isodate`
+- [x] Comments-disabled detected by missing commentCount key
+- [x] Reconciliation check: compares DB row counts to manifest
+- [x] 6 pytest tests for parsing, duration, safe_int, hidden subscriber handling
 
 ## Phase 5 — Cleaning & Feature Engineering
 - [ ] _pending_
